@@ -1,0 +1,55 @@
+baseURL: "https://hellogxp.github.io/"
+languageCode: en-us
+title: "Xueping's Blog"
+theme: "PaperMod"
+
+paginate: 10
+
+params:
+  env: production
+  description: "ML Engineering & Interpretability Research"
+  author: "Xueping Gao"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  math: true
+
+  homeInfoParams:
+    Title: "Hi, I'm Xueping 👋"
+    Content: >
+      ML Engineer exploring LLM interpretability.
+      Currently researching how factual knowledge emerges inside transformers.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/hellogxp"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+    lineNos: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
