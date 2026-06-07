@@ -156,7 +156,7 @@ Everything so far has been on Qwen2.5-7B. A natural question: is Late Crystalliz
 - **Llama-3.1-8B** (32 layers): Mean FEP 29.4 ± 4.9, FEP depth **91.9%**, crystallization rate **71.0%**
 - **Mistral-7B** (32 layers): Mean FEP 26.3 ± 6.2, FEP depth **82.3%**, crystallization rate **27.1%**
 
-![Late Crystallization is universal but varies by architecture. Solid bars = final-layer crystallization rate; hatched bars = FEP depth as percentage of total layers. All models show >80% FEP depth, but strict crystallization ranges from 85.9% (Qwen) to 27.1% (Mistral).](figures/crystallization_by_architecture.png)
+![Figure 5: Late Crystallization is universal but varies by architecture. Solid bars = final-layer crystallization rate; lighter bars = FEP depth as percentage of total layers. All models show >80% FEP depth, but strict crystallization ranges from 85.9% (Qwen) to 27.1% (Mistral).](figures/crystallization_by_architecture.png)
 
 Two key findings:
 
