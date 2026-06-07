@@ -58,18 +58,41 @@ details.toc {
   margin: 10px auto;
 }
 
-/* Tables: Lilian=margin-bottom 32px, td padding 6px 4px, line-height 1.25 */
+/* Tables: academic style — top/bottom rule, header highlight, zebra rows */
 .post-content table,
 .md-content table {
-  margin-bottom: 32px;
+  margin: 24px auto 32px;
+  border-collapse: collapse;
+  width: auto;
+  min-width: 60%;
+  font-size: 15px;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
 
 .post-content table th,
+.md-content table th {
+  padding: 10px 16px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--primary);
+  white-space: nowrap;
+}
+
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td,
-.md-content table th,
 .md-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
-  padding: 6px 4px;
-  line-height: 1.25;
+  padding: 8px 16px;
+  line-height: 1.4;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:nth-child(even),
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:nth-child(even) {
+  background: var(--code-bg);
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:hover,
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:hover {
+  background: var(--border);
 }
 
 /* List items: Lilian=margin-top 5px */
