@@ -27,22 +27,22 @@ def main():
                   edgecolor="white", linewidth=0.5)
 
     ax.axhline(y=baseline, color=RED, linewidth=0.5, linestyle="--", alpha=0.3)
-    ax.text(3.4, baseline + 0.0003, f"Baseline = {baseline}", fontsize=7,
+    ax.text(3.4, baseline + 0.0003, f"Baseline = {baseline}", fontsize=5.5,
             color=RED, alpha=0.4, va="bottom")
 
     for bar, d in zip(bars, deltas):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.001,
-                d, ha="center", va="bottom", fontsize=7.5, fontweight="bold",
+                d, ha="center", va="bottom", fontsize=6, fontweight="bold",
                 color="#333333")
 
     ax.set_xticks(range(4))
-    ax.set_xticklabels(methods, fontsize=8)
-    ax.set_ylabel("MC1 Score", fontsize=8.5)
+    ax.set_xticklabels(methods, fontsize=6.5)
+    ax.set_ylabel("MC1 Score", fontsize=7)
     ax.set_title("Intervention Hierarchy Explained by Late Crystallization\n"
                  "(Qwen2.5-7B, TruthfulQA)",
-                 fontsize=9.5, pad=8)
+                 fontsize=8, pad=8)
     ax.set_ylim(0.20, 0.29)
-    ax.tick_params(axis="both", labelsize=7.5)
+    ax.tick_params(axis="both", labelsize=6)
     ax.spines["right"].set_visible(False)
     ax.spines["top"].set_visible(False)
     ax.spines["left"].set_linewidth(0.4)
