@@ -1,11 +1,39 @@
-/* Override new PaperMod defaults to match Lilian Weng's older PaperMod version */
+/* Override new PaperMod (2026-05) to match Lilian Weng's older PaperMod version */
 
-/* Post title: new PaperMod uses 40px, Lilian's uses 36px */
+/* Body: new=18px, Lilian=16px — this is the root cause of all size diffs */
+body {
+  font-size: 16px;
+}
+
+/* Post title: new=40px, Lilian=36px */
 .post-title {
   font-size: 36px;
 }
 
-/* First entry title on homepage: new=40px, Lilian=34px */
+/* Content headings: new PaperMod bumped all sizes */
+.post-content h1,
+.md-content h1 {
+  margin: 28px auto 20px;
+  font-size: 28px;
+}
+
+.post-content h2,
+.md-content h2 {
+  margin: 24px auto 16px;
+  font-size: 24px;
+}
+
+.post-content h3,
+.md-content h3 {
+  font-size: 18px;
+}
+
+/* TOC: Lilian has explicit 15px, new PaperMod inherits body (18px) */
+details.toc {
+  font-size: 15px;
+}
+
+/* First entry on homepage */
 .first-entry .entry-header h1 {
   font-size: 34px;
 }
