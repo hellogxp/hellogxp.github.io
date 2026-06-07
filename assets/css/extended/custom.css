@@ -119,6 +119,28 @@ details.toc {
   box-shadow: 0 -1px 0 var(--primary) inset;
 }
 
+/* Figure captions: Lilian Weng style — centered, smaller, italic, muted */
+.post-content figure,
+.md-content figure {
+  text-align: center;
+}
+
+.post-content figure img,
+.md-content figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+.post-content figcaption,
+.md-content figcaption {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-top: 8px;
+  line-height: 1.4;
+  padding: 0 20px;
+}
+
 /* Paragraphs/lists margin: ensure no :last-child exception (Lilian doesn't have it) */
 .post-content dl,
 .post-content ol,
