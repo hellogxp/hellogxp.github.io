@@ -16,7 +16,7 @@ It's also wrong for 85.9% of cases.
 
 In our recent work, we discovered that the vast majority of factual answers **never appear in any intermediate layer's predictions**. Instead, they remain completely invisible—distributed across the residual stream in an implicit, unreadable form—until the very last layer, where they suddenly "crystallize" into the correct prediction. We call this phenomenon **Late Crystallization**.
 
-This isn't just a curiosity. It has direct, practical implications for anyone trying to make LLMs more truthful: it explains why simple activation scaling produces zero improvement, why DoLa [Li et al., 2024] works so well, and why methods like ITI and CAA need a minimum number of layers to show any effect at all.
+This isn't just a curiosity. It has direct, practical implications for anyone trying to make LLMs more truthful: it explains why simple activation scaling produces zero improvement, why DoLa ([Li et al., 2024](https://arxiv.org/abs/2309.03883)) works so well, and why methods like ITI and CAA need a minimum number of layers to show any effect at all.
 
 In this post, I'll walk through the discovery, the evidence, and what it means for the field.
 
@@ -32,8 +32,8 @@ When I first saw this number, I didn't believe it. But let me start at the begin
 
 There's a natural idea for improving LLM truthfulness: if certain internal directions encode "truthful" vs. "hallucinated" information, just scale up the truthful direction. Several methods attempt variations of this:
 
-- **Inference-Time Intervention (ITI)** [Li et al., 2023]: identify truthful directions via probing, then shift activations at inference time
-- **Contrastive Activation Addition (CAA)** [Rimsky et al., 2024]: compute a steering vector from contrastive pairs and add it to activations
+- **Inference-Time Intervention (ITI)** ([Li et al., 2023](https://arxiv.org/abs/2306.03341)): identify truthful directions via probing, then shift activations at inference time
+- **Contrastive Activation Addition (CAA)** ([Rimsky et al., 2024](https://arxiv.org/abs/2312.06681)): compute a steering vector from contrastive pairs and add it to activations
 - **Simple activation scaling**: uniformly amplify activations at selected layers
 
 We ran all of these on Qwen2.5-7B using TruthfulQA (817 samples). The results were puzzling: **simple scaling produced exactly zero improvement** across all configurations. ITI and CAA also showed **zero improvement at top_k ∈ {3, 5}**—but jumped to +10.0% and +15.5% at top_k = 10. Meanwhile, **DoLa (dynamic) achieved +25.4%**, far ahead of everything else.
@@ -51,7 +51,7 @@ The answer lies in what's actually happening inside the residual stream. To see 
 
 ## Logit Lens: Looking Inside the Transformer
 
-The idea behind the **Logit Lens** [nostalgebraist, 2020] is almost embarrassingly simple: at any intermediate layer, peek at the model's "draft answer." If you ask "What is the capital of France?" and look at layer 14 of 28, what would the model predict *right now*, before it's finished thinking?
+The idea behind the **Logit Lens** ([nostalgebraist, 2020](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens)) is almost embarrassingly simple: at any intermediate layer, peek at the model's "draft answer." If you ask "What is the capital of France?" and look at layer 14 of 28, what would the model predict *right now*, before it's finished thinking?
 
 ![How the Logit Lens works: at each intermediate layer, we peek at the model's current "draft answer." The correct answer "Paris" is invisible at intermediate layers and only crystallizes at the final layer.](figures/logit_lens_concept.png)
 
@@ -89,7 +89,7 @@ A natural concern: maybe the Logit Lens is simply a bad probe for intermediate l
 
 Three lines of evidence argue against this:
 
-1. **Tuned Lens validation.** The Tuned Lens [Belrose et al., 2023] is a more sophisticated version of the Logit Lens—it trains a small learned probe at each layer instead of using the raw unembedding matrix. When we re-ran our analysis with the Tuned Lens, we got an 85.7% crystallization rate—virtually identical to the Logit Lens (85.9%). 74.9% of samples have the exact same FEP under both methods.
+1. **Tuned Lens validation.** The Tuned Lens ([Belrose et al., 2023](https://arxiv.org/abs/2303.08112)) is a more sophisticated version of the Logit Lens—it trains a small learned probe at each layer instead of using the raw unembedding matrix. When we re-ran our analysis with the Tuned Lens, we got an 85.7% crystallization rate—virtually identical to the Logit Lens (85.9%). 74.9% of samples have the exact same FEP under both methods.
 
 2. **LayerNorm ablation.** Completely removing the final LayerNorm produces the *exact same* FEP distribution (mean FEP = 27.30, 85.9% crystallization rate). If the phenomenon were a LayerNorm artifact, ablating it should change the FEP pattern. It doesn't.
 
@@ -225,7 +225,7 @@ I think the category-level FEP variation is the most underappreciated finding in
 
 Our pilot on Qwen2.5-7B-Instruct revealed that instruction tuning dramatically reduces the strict crystallization rate (37.3% vs. 85.9% for the base model) while preserving late knowledge emergence overall (FEP depth = 91.0%). This means RLHF/instruction tuning *teaches the model to surface knowledge earlier*—which should make activation-space interventions (ITI, CAA) more effective on instruction-tuned models.
 
-This prediction aligns with SADI's [Zhang et al., 2025] strong results (MC1 = 67%) on instruction-tuned models using activation-space methods. The crystallization framework provides a mechanistic explanation for why: instruction tuning shifts the crystallization boundary, opening a wider window for activation steering.
+This prediction aligns with SADI's ([Zhang et al., 2025](https://arxiv.org/abs/2502.06769)) strong results (MC1 = 67%) on instruction-tuned models using activation-space methods. The crystallization framework provides a mechanistic explanation for why: instruction tuning shifts the crystallization boundary, opening a wider window for activation steering.
 
 ### What I'd Do Next
 
@@ -254,10 +254,10 @@ The code is available as [MechLens](https://github.com/hellogxp/MechLens), suppo
 
 ## References
 
-- [Belrose et al., 2023] "Eliciting Latent Predictions from Transformers with the Tuned Lens." *ICLR 2023*.
-- [Li et al., 2023] "Inference-Time Intervention: Eliciting Truthful Answers from a Language Model." *NeurIPS 2023*.
-- [Li et al., 2024] "DoLa: Decoding by Contrasting Layers Improves Factuality and Faithfulness of Large Language Models." *ICLR 2024*.
-- [Mor et al., 2024] "Summing Up the Facts: Additive Mechanisms Behind Factual Recall in LLMs."
-- [nostalgebraist, 2020] "interpreting GPT: the logit lens." *LessWrong*.
-- [Rimsky et al., 2024] "Steering Llama-2 via Contrastive Activation Addition." *AAAI 2024*.
-- [Zhang et al., 2025] "SADI: Semantic-Adaptive Dynamic Intervention for Hallucination Mitigation." *ICLR 2025*.
+- [Belrose et al., 2023] "[Eliciting Latent Predictions from Transformers with the Tuned Lens](https://arxiv.org/abs/2303.08112)." *ICLR 2023*.
+- [Li et al., 2023] "[Inference-Time Intervention: Eliciting Truthful Answers from a Language Model](https://arxiv.org/abs/2306.03341)." *NeurIPS 2023*.
+- [Li et al., 2024] "[DoLa: Decoding by Contrasting Layers Improves Factuality and Faithfulness of Large Language Models](https://arxiv.org/abs/2309.03883)." *ICLR 2024*.
+- [Mor et al., 2024] "[Summing Up the Facts: Additive Mechanisms Behind Factual Recall in LLMs](https://arxiv.org/abs/2402.12837)."
+- [nostalgebraist, 2020] "[interpreting GPT: the logit lens](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens)." *LessWrong*.
+- [Rimsky et al., 2024] "[Steering Llama-2 via Contrastive Activation Addition](https://arxiv.org/abs/2312.06681)." *AAAI 2024*.
+- [Zhang et al., 2025] "[SADI: Semantic-Adaptive Dynamic Intervention for Hallucination Mitigation](https://arxiv.org/abs/2502.06769)." *ICLR 2025*.
