@@ -1,23 +1,5 @@
-/* Match Lilian Weng's serif font style */
-body {
-    font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
-}
-
+/* Match Lilian Weng's PaperMod style exactly */
 .post-content {
-    font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
     font-size: 18px;
     line-height: 1.8;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
-}
-
-.post-title {
-    font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
-}
-
-/* Code blocks stay monospace */
-code, pre {
-    font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
 }
