@@ -58,13 +58,12 @@ details.toc {
   margin: 10px auto;
 }
 
-/* Tables: academic style — top/bottom rule, header highlight, zebra rows */
+/* Tables: booktabs academic style — full width, three-line, zebra rows */
 .post-content table,
 .md-content table {
-  margin: 24px auto 32px;
+  margin-bottom: 32px;
   border-collapse: collapse;
-  width: auto;
-  min-width: 60%;
+  width: 100%;
   font-size: 15px;
   border-top: 2px solid var(--primary);
   border-bottom: 2px solid var(--primary);
@@ -72,7 +71,7 @@ details.toc {
 
 .post-content table th,
 .md-content table th {
-  padding: 10px 16px;
+  padding: 8px 12px;
   font-weight: 600;
   text-align: left;
   border-bottom: 1px solid var(--primary);
@@ -81,7 +80,7 @@ details.toc {
 
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td,
 .md-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
-  padding: 8px 16px;
+  padding: 8px 12px;
   line-height: 1.4;
 }
 
