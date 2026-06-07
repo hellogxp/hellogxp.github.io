@@ -12,10 +12,10 @@ params:
   author: "Xueping Gao"
   defaultTheme: auto
   ShowReadingTime: true
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: false
   ShowToc: true
   TocOpen: false
   math: true
@@ -48,9 +48,17 @@ menu:
   main:
     - identifier: posts
       name: Posts
-      url: /posts/
+      url: /
       weight: 10
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 20
+      weight: 40
