@@ -78,6 +78,25 @@ details.toc {
   margin-top: 5px;
 }
 
+/* Links: Lilian uses box-shadow underline, not text-decoration */
+.post-content a,
+.md-content a {
+  text-decoration: none;
+  box-shadow: 0 1px;
+}
+
+.post-content a:hover,
+.md-content a:hover {
+  color: #aaa;
+}
+
+.post-content a code,
+.md-content a code {
+  margin: auto 0;
+  border-radius: 0;
+  box-shadow: 0 -1px 0 var(--primary) inset;
+}
+
 /* Paragraphs/lists margin: ensure no :last-child exception (Lilian doesn't have it) */
 .post-content dl,
 .post-content ol,
