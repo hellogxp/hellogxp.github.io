@@ -1,6 +1,6 @@
 /* Override new PaperMod (2026-05) to match Lilian Weng's older PaperMod version */
 
-/* Body: new=18px, Lilian=16px — this is the root cause of all size diffs */
+/* Body: new=18px, Lilian=16px */
 body {
   font-size: 16px;
 }
@@ -28,7 +28,7 @@ body {
   font-size: 18px;
 }
 
-/* TOC: Lilian has explicit 15px, new PaperMod inherits body (18px) */
+/* TOC: Lilian=15px, new PaperMod inherits body */
 details.toc {
   font-size: 15px;
 }
@@ -36,4 +36,58 @@ details.toc {
 /* First entry on homepage */
 .first-entry .entry-header h1 {
   font-size: 34px;
+}
+
+/* Blockquote: Lilian=20px 0 margin, 0 14px padding */
+.post-content blockquote,
+.md-content blockquote {
+  margin: 20px 0;
+  padding: 0 14px;
+}
+
+/* Inline code: Lilian=margin auto 4px, padding 4px 6px */
+.post-content code {
+  margin: auto 4px;
+  padding: 4px 6px;
+}
+
+/* Code blocks / highlights: Lilian=10px auto */
+.post-content .highlight:not(table),
+.post-content pre,
+.md-content .highlight:not(table) {
+  margin: 10px auto;
+}
+
+/* Tables: Lilian=margin-bottom 32px, td padding 6px 4px, line-height 1.25 */
+.post-content table,
+.md-content table {
+  margin-bottom: 32px;
+}
+
+.post-content table th,
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td,
+.md-content table th,
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+  padding: 6px 4px;
+  line-height: 1.25;
+}
+
+/* List items: Lilian=margin-top 5px */
+.post-content li,
+.md-content li {
+  margin-top: 5px;
+}
+
+/* Paragraphs/lists margin: ensure no :last-child exception (Lilian doesn't have it) */
+.post-content dl,
+.post-content ol,
+.post-content p,
+.post-content figure,
+.post-content ul,
+.md-content dl,
+.md-content ol,
+.md-content p,
+.md-content figure,
+.md-content ul {
+  margin-bottom: var(--content-gap);
 }
