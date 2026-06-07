@@ -131,13 +131,14 @@ details.toc {
   margin: 0 auto;
 }
 
-.post-content figcaption,
-.md-content figcaption {
-  font-size: 13px;
-  color: #999;
-  font-style: normal;
-  font-weight: normal;
-  margin-top: 8px;
+/* Override PaperMod's .md-content figure>figcaption (16px bold primary) */
+.md-content figure>figcaption,
+.post-content figure>figcaption {
+  font-size: 13px !important;
+  color: #999 !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  margin: 8px 0 16px;
   line-height: 1.5;
   padding: 0 20px;
 }
