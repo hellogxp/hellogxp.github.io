@@ -1,16 +1,11 @@
-/* Lilian Weng uses stock PaperMod — no overrides needed.
- * All values below are PaperMod defaults; kept here only as documentation.
- *
- * --main-width: 720px
- * --gap: 24px
- * --content-gap: 20px
- * body font-size: 16px
- * body line-height: 1.6
- * h2: 24px, margin 24px auto 16px
- * h3: 18px, margin 24px 0 16px
- * p/ul/ol: margin-bottom var(--content-gap) = 20px
- * li: margin-top 5px
- * ul/ol: padding-inline-start 20px
- * blockquote: border-inline-start 3px solid var(--primary)
- * hr: margin 30px 0, height 2px, background var(--tertiary)
- */
+/* Override new PaperMod defaults to match Lilian Weng's older PaperMod version */
+
+/* Post title: new PaperMod uses 40px, Lilian's uses 36px */
+.post-title {
+  font-size: 36px;
+}
+
+/* First entry title on homepage: new=40px, Lilian=34px */
+.first-entry .entry-header h1 {
+  font-size: 34px;
+}
