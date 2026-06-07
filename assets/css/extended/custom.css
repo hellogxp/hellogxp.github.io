@@ -79,19 +79,19 @@ details.toc {
 }
 
 /* Links: Lilian uses box-shadow underline, not text-decoration */
-.post-content a,
-.md-content a {
+.md-content a:not(.anchor),
+.post-content a {
   text-decoration: none;
   box-shadow: 0 1px;
 }
 
-.post-content a:hover,
-.md-content a:hover {
+.md-content a:hover,
+.post-content a:hover {
   color: #aaa;
 }
 
-.post-content a code,
-.md-content a code {
+.md-content a code,
+.post-content a code {
   margin: auto 0;
   border-radius: 0;
   box-shadow: 0 -1px 0 var(--primary) inset;
