@@ -20,7 +20,10 @@ This isn't just a curiosity. It has direct, practical implications for anyone tr
 
 In this post, I'll walk through the discovery, the evidence, and what it means for the field.
 
-![Figure 1: Late Crystallization at a glance: the correct answer ("Paris") is invisible throughout intermediate layers and only appears at the final layer.](figures/late_crystallization_concept.png)
+<figure>
+<img src="figures/late_crystallization_concept.png" alt="Figure 1" style="max-width:480px;width:100%;display:block;margin:0 auto" loading="lazy">
+<figcaption>Figure 1: Late Crystallization at a glance: the correct answer ("Paris") is invisible throughout intermediate layers and only appears at the final layer.</figcaption>
+</figure>
 
 ---
 
@@ -53,7 +56,10 @@ The answer lies in what's actually happening inside the residual stream. To see 
 
 The idea behind the **Logit Lens** ([nostalgebraist, 2020](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens)) is almost embarrassingly simple: at any intermediate layer, peek at the model's "draft answer." If you ask "What is the capital of France?" and look at layer 14 of 28, what would the model predict *right now*, before it's finished thinking?
 
-![Figure 2: How the Logit Lens works: at each intermediate layer, we peek at the model's current "draft answer." The correct answer "Paris" is invisible at intermediate layers and only crystallizes at the final layer.](figures/logit_lens_concept.png)
+<figure>
+<img src="figures/logit_lens_concept.png" alt="Figure 2" style="max-width:500px;width:100%;display:block;margin:0 auto" loading="lazy">
+<figcaption>Figure 2: How the Logit Lens works: at each intermediate layer, we peek at the model's current "draft answer." The correct answer "Paris" is invisible at intermediate layers and only crystallizes at the final layer.</figcaption>
+</figure>
 
 Technically, you do this by taking the hidden state at layer $l$, applying the final LayerNorm and unembedding matrix, and reading off a probability distribution over the vocabulary:
 
