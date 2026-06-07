@@ -151,12 +151,10 @@ This reveals DoLa's true mechanism: it contrasts **surface-level patterns** (ear
 
 Everything so far has been on Qwen2.5-7B. A natural question: is Late Crystallization a quirk of one model, or a fundamental property of transformers? We extended the analysis to Llama-3.1-8B (32 layers, GQA) and Mistral-7B (32 layers, GQA + sliding window attention), plus Qwen2.5-14B for scale validation.
 
-| Model | Layers | Mean FEP | FEP Depth | Crystallization Rate |
-|-------|--------|----------|-----------|---------------------|
-| Qwen2.5-7B | 28 | 27.3 ± 1.8 | 97.5% | 85.9% |
-| Qwen2.5-14B | 48 | 46.0 ± 4.9 | 95.8% | 77.7% |
-| Llama-3.1-8B | 32 | 29.4 ± 4.9 | 91.9% | 71.0% |
-| Mistral-7B | 32 | 26.3 ± 6.2 | 82.3% | 27.1% |
+- **Qwen2.5-7B** (28 layers): Mean FEP 27.3 ± 1.8, FEP depth **97.5%**, crystallization rate **85.9%**
+- **Qwen2.5-14B** (48 layers): Mean FEP 46.0 ± 4.9, FEP depth **95.8%**, crystallization rate **77.7%**
+- **Llama-3.1-8B** (32 layers): Mean FEP 29.4 ± 4.9, FEP depth **91.9%**, crystallization rate **71.0%**
+- **Mistral-7B** (32 layers): Mean FEP 26.3 ± 6.2, FEP depth **82.3%**, crystallization rate **27.1%**
 
 ![Late Crystallization is universal but varies by architecture. Solid bars = final-layer crystallization rate; hatched bars = FEP depth as percentage of total layers. All models show >80% FEP depth, but strict crystallization ranges from 85.9% (Qwen) to 27.1% (Mistral).](figures/crystallization_by_architecture.png)
 
