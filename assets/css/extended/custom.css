@@ -129,6 +129,8 @@ details.toc {
 .md-content figure img {
   display: block;
   margin: 0 auto;
+  max-width: min(100%, 680px);
+  height: auto;
 }
 
 /* Override PaperMod's .md-content figure>figcaption (16px bold primary) */
