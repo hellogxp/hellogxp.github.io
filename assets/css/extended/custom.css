@@ -133,11 +133,12 @@ details.toc {
 
 .post-content figcaption,
 .md-content figcaption {
-  font-size: 14px;
-  color: #666;
-  font-style: italic;
+  font-size: 13px;
+  color: #999;
+  font-style: normal;
+  font-weight: normal;
   margin-top: 8px;
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0 20px;
 }
 
