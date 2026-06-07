@@ -21,10 +21,16 @@ params:
   math: true
 
   homeInfoParams:
-    Title: "Hi, I'm Xueping 👋"
+    Title: "Welcome to Xueping's Blog"
     Content: >
-      ML Engineer exploring LLM interpretability.
-      Currently researching how factual knowledge emerges inside transformers.
+      I'm interested in large language models — how to build them, how to make them work reliably,
+      and increasingly, how to understand what's happening inside. My current focus is on mechanistic
+      interpretability — understanding *how* and *why* these models behave the way they do, with an
+      emphasis on analyzing and improving model behavior from the inside.
+
+
+      I started this blog to think out loud — writing helps me understand things better.
+      If it helps you too, even better.
 
   socialIcons:
     - name: github
