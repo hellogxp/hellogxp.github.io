@@ -20,7 +20,7 @@ This isn't just a curiosity. It has direct, practical implications for anyone tr
 
 In this post, I'll walk through the discovery, the evidence, and what it means for the field.
 
-![Late Crystallization at a glance: the correct answer ("Paris") is invisible throughout intermediate layers and only appears at the final layer.](figures/late_crystallization_concept.png)
+![Figure 1: Late Crystallization at a glance: the correct answer ("Paris") is invisible throughout intermediate layers and only appears at the final layer.](figures/late_crystallization_concept.png)
 
 ---
 
@@ -53,7 +53,7 @@ The answer lies in what's actually happening inside the residual stream. To see 
 
 The idea behind the **Logit Lens** ([nostalgebraist, 2020](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens)) is almost embarrassingly simple: at any intermediate layer, peek at the model's "draft answer." If you ask "What is the capital of France?" and look at layer 14 of 28, what would the model predict *right now*, before it's finished thinking?
 
-![How the Logit Lens works: at each intermediate layer, we peek at the model's current "draft answer." The correct answer "Paris" is invisible at intermediate layers and only crystallizes at the final layer.](figures/logit_lens_concept.png)
+![Figure 2: How the Logit Lens works: at each intermediate layer, we peek at the model's current "draft answer." The correct answer "Paris" is invisible at intermediate layers and only crystallizes at the final layer.](figures/logit_lens_concept.png)
 
 Technically, you do this by taking the hidden state at layer $l$, applying the final LayerNorm and unembedding matrix, and reading off a probability distribution over the vocabulary:
 
@@ -99,9 +99,9 @@ Three lines of evidence argue against this:
 
 Late crystallization is remarkably robust to the choice of $k$. Even at $k = 100$ (top 0.1% of the vocabulary), 64.7% of correct answers still never appear at any intermediate layer. The FEP depth exceeds 93% across all thresholds from $k = 1$ to $k = 100$.
 
-![Figure 1: Late Crystallization of Factual Knowledge Across Architectures. Dark regions = correct answer invisible (rank >> 10). Bright regions = correct answer visible (rank ≤ 10). White stars = Factual Emergence Point (FEP). Qwen shows 85.9% final-layer crystallization, Llama 71.0%, Mistral 27.1%.](figures/fep_crystallization_heatmap.png)
+![Figure 3: Late Crystallization of Factual Knowledge Across Architectures. Dark regions = correct answer invisible (rank >> 10). Bright regions = correct answer visible (rank ≤ 10). White stars = Factual Emergence Point (FEP). Qwen shows 85.9% final-layer crystallization, Llama 71.0%, Mistral 27.1%.](figures/fep_crystallization_heatmap.png)
 
-![Figure 2: Distribution of FEP across architectures. Qwen's answers are overwhelmingly concentrated at the final layer; Mistral shows a more gradual distribution.](figures/fep_distribution_comparison.png)
+![Figure 4: Distribution of FEP across architectures. Qwen's answers are overwhelmingly concentrated at the final layer; Mistral shows a more gradual distribution.](figures/fep_distribution_comparison.png)
 
 ### A Spectrum of Knowledge
 
@@ -111,7 +111,7 @@ It turns out the answer is beautifully structured. When we broke down FEP by cat
 
 We call this the **Computability–Memorization Spectrum**: knowledge types arrange themselves along a gradient from "computable" (derivable through intermediate reasoning steps) to "memorized" (pure parameter lookup). The position on this spectrum determines *when* the answer becomes readable in the residual stream.
 
-![Figure 3: The Computability–Memorization Spectrum across three architectures. Blue = "computable" knowledge (logical fallacies), Red = "memorized" knowledge (history/psychology). The green dashed line marks the top-10 threshold. Computable knowledge crosses the threshold earlier across all architectures.](figures/computability_memorization_spectrum.png)
+![Figure 5: The Computability–Memorization Spectrum across three architectures. Blue = "computable" knowledge (logical fallacies), Red = "memorized" knowledge (history/psychology). The green dashed line marks the top-10 threshold. Computable knowledge crosses the threshold earlier across all architectures.](figures/computability_memorization_spectrum.png)
 
 This spectrum is consistent across all three architectures we tested, suggesting it reflects a fundamental property of how transformers process different types of knowledge.
 
@@ -143,7 +143,7 @@ DoLa works by picking an early "baseline" layer and asking: *"What changed betwe
 
 This reveals DoLa's true mechanism: it contrasts **surface-level patterns** (earliest layers) against **crystallized knowledge** (final layer), maximally amplifying the factual signal that emerges during crystallization. It doesn't need to know *where* crystallization happens—it just needs the widest possible contrast window.
 
-![Figure 4: The intervention hierarchy explained by Late Crystallization. Simple scaling amplifies noise and signal equally (0%); ITI/CAA need ≥10 layers to reach the pre-crystallization zone; DoLa contrasts across the crystallization boundary for maximum gain.](figures/intervention_comparison.png)
+![Figure 6: The intervention hierarchy explained by Late Crystallization. Simple scaling amplifies noise and signal equally (0%); ITI/CAA need ≥10 layers to reach the pre-crystallization zone; DoLa contrasts across the crystallization boundary for maximum gain.](figures/intervention_comparison.png)
 
 ---
 
@@ -156,7 +156,7 @@ Everything so far has been on Qwen2.5-7B. A natural question: is Late Crystalliz
 - **Llama-3.1-8B** (32 layers): Mean FEP 29.4 ± 4.9, FEP depth **91.9%**, crystallization rate **71.0%**
 - **Mistral-7B** (32 layers): Mean FEP 26.3 ± 6.2, FEP depth **82.3%**, crystallization rate **27.1%**
 
-![Figure 5: Late Crystallization is universal but varies by architecture. Solid bars = final-layer crystallization rate; lighter bars = FEP depth as percentage of total layers. All models show >80% FEP depth, but strict crystallization ranges from 85.9% (Qwen) to 27.1% (Mistral).](figures/crystallization_by_architecture.png)
+![Figure 7: Late Crystallization is universal but varies by architecture. Solid bars = final-layer crystallization rate; lighter bars = FEP depth as percentage of total layers. All models show >80% FEP depth, but strict crystallization ranges from 85.9% (Qwen) to 27.1% (Mistral).](figures/crystallization_by_architecture.png)
 
 Two key findings:
 
