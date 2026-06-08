@@ -9,6 +9,8 @@ pagination:
 params:
   env: production
   description: "ML Engineering & Interpretability Research"
+  assets:
+    favicon: "favicon.ico"
   author: "Xueping Gao"
   defaultTheme: auto
   ShowReadingTime: true
