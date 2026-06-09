@@ -256,7 +256,30 @@ The code is available as [MechLens](https://github.com/hellogxp/MechLens), suppo
 
 ---
 
+## Citation
+
+Cited as:
+
+> Gao, Xueping. "Late Crystallization of Factual Knowledge in Language Models". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/late-crystallization/.
+
+Or
+
+```bibtex
+@article{gao2026latecrystallization,
+  title   = "MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models",
+  author  = "Gao, Xueping",
+  journal = "arXiv preprint arXiv:2606.07978",
+  year    = "2026",
+  month   = "Jun",
+  url     = "https://arxiv.org/abs/2606.07978"
+}
+```
+
+---
+
 ## References
+
+- [Gao, 2026] "[MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models](https://arxiv.org/abs/2606.07978)." *arXiv:2606.07978*.
 
 - [Belrose et al., 2023] "[Eliciting Latent Predictions from Transformers with the Tuned Lens](https://arxiv.org/abs/2303.08112)." *ICLR 2023*.
 - [Li et al., 2023] "[Inference-Time Intervention: Eliciting Truthful Answers from a Language Model](https://arxiv.org/abs/2306.03341)." *NeurIPS 2023*.

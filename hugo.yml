@@ -37,6 +37,8 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/hellogxp"
+    - name: twitter
+      url: "https://twitter.com/hellogxp"
 
 markup:
   goldmark:
