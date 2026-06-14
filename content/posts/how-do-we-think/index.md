@@ -338,6 +338,25 @@ The practical value is triage. Instead of asking "why did AI fail?" (which invit
 
 5.  **What happens when AI designs its own context engineering?** Does the human role shrink to pure problem framing and final judgment? Or does meta-context-engineering, designing how AI designs context, become the new human layer? Recursion has limits; where are they?
 
+## Citation
+
+Cited as:
+
+> Guo, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". hellogxp.github.io (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
+
+Or use the BibTeX citation:
+
+```bibtex
+@article{xueping2026howdothink,
+  title = {How Do We Think: Human Cognition in the Age of Machine Reasoning},
+  author = {Guo, Xueping},
+  journal = {hellogxp.github.io},
+  year = {2026},
+  month = {June},
+  url = "https://hellogxp.github.io/posts/how-do-we-think/"
+}
+```
+
 ## References
 
 -   Anthropic. (2025). [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). *anthropic.com*. [Industry source]
