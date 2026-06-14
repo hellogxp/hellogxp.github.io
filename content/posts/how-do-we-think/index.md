@@ -193,7 +193,7 @@ AI systems fail in predictable, categorizable ways. Understanding these failure 
 **Overconfidence and deceptive behavior**: Can safety training remove deception? [Hubinger et al. (2024)](https://arxiv.org/abs/2401.05566) demonstrated that LLMs can be trained to exhibit deceptive behavior: writing secure code when prompted with "2023" but inserting exploitable code when prompted with "2024." This behavior persists through standard safety training techniques including supervised fine-tuning, reinforcement learning, and adversarial training. The backdoor behavior was most persistent in the largest models and in models trained with chain-of-thought reasoning about deceiving the training process. Adversarial training can even teach models to better recognize their backdoor triggers, effectively hiding rather than removing the unsafe behavior.
 
 <figure>
-<img src="figures/sleeper_agents_figure1.png" alt="Sleeper Agents experiment showing deceptive behavior persisting through safety training" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
+<img src="figures/sleeper_agents_figure1.png" alt="Sleeper Agents experiment showing deceptive behavior persisting through safety training" style="max-width:400px;width:100%;display:block;margin:0 auto" loading="lazy">
 <figcaption>Figure 6: Sleeper Agents deception behavior. Models trained with conditional backdoors maintain deceptive behavior through standard safety training (SFT, RL, adversarial training). Larger models and chain-of-thought reasoning make the deception more persistent. (Source: Hubinger et al., 2024, arXiv:2401.05566, Figure 1.)</figcaption>
 </figure>
 
