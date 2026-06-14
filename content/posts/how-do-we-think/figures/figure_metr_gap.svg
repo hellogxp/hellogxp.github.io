@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="340" viewBox="-40 0 720 340">
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { font-size: 20px; font-weight: 600; fill: #1b1b1f; }
+      .label { font-size: 14px; fill: #1b1b1f; }
+      .value { font-size: 18px; font-weight: 700; }
+      .note { font-size: 11px; fill: #555; }
+      .source { font-size: 11px; fill: #868e96; }
+    </style>
+  </defs>
+  <rect x="-40" width="760" height="100%" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="340" y="35" text-anchor="middle" class="title">The METR Perception Gap</text>
+
+  <!-- Baseline axis -->
+  <line x1="240" y1="65" x2="240" y2="265" stroke="#ccc" stroke-width="1"/>
+  <text x="240" y="280" text-anchor="middle" class="source">0%</text>
+
+  <!-- Row 1: Expected +24% -->
+  <text x="225" y="100" text-anchor="end" class="label">Expected Speedup</text>
+  <rect x="240" y="80" width="264" height="32" rx="4" fill="#d3f9d8" stroke="#2f9e44" stroke-width="1.5"/>
+  <text x="248" y="101" class="note">Developers predicted AI would speed them up</text>
+  <text x="512" y="101" class="value" fill="#2f9e44">+24%</text>
+
+  <!-- Row 2: Actual -19% -->
+  <text x="225" y="165" text-anchor="end" class="label">Actual Impact</text>
+  <rect x="33" y="145" width="207" height="32" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="50" y="166" class="note">AI users took 19% longer</text>
+  <text x="25" y="166" text-anchor="end" class="value" fill="#c92a2a">−19%</text>
+
+  <!-- Row 3: Post-hoc +20% -->
+  <text x="225" y="230" text-anchor="end" class="label">Post-hoc Belief</text>
+  <rect x="240" y="210" width="220" height="32" rx="4" fill="#fff9db" stroke="#e67700" stroke-width="1.5"/>
+  <text x="248" y="231" class="note">Still believed AI made them faster</text>
+  <text x="468" y="231" class="value" fill="#e67700">+20%</text>
+
+  <!-- Annotation: gap arrow -->
+  <line x1="580" y1="96" x2="580" y2="161" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="576,157 580,165 584,157" fill="#c92a2a"/>
+  <text x="590" y="135" font-size="11" fill="#c92a2a">43pp gap</text>
+
+  <!-- Source -->
+  <text x="340" y="320" text-anchor="middle" class="source">Source: METR (2025). RCT, N=16 experienced developers, 246 real coding tasks.</text>
+</svg>
