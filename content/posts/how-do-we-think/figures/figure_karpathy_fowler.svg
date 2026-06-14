@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="480" viewBox="0 0 820 480">
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { font-size: 20px; font-weight: 600; fill: #1b1b1f; }
+      .box-label { font-size: 16px; fill: #1b1b1f; font-weight: 500; }
+      .sub-label { font-size: 12px; fill: #555; }
+      .annot { font-size: 11px; fill: #868e96; font-style: italic; }
+      .bracket { font-size: 13px; fill: #868e96; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1b1b1f"/>
+    </marker>
+    <marker id="arr-gray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#868e96"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="410" y="32" text-anchor="middle" class="title">Unified Cognitive Architecture: Karpathy + Fowler</text>
+
+  <!-- === LEFT: Karpathy Analogy column === -->
+  <text x="180" y="65" text-anchor="middle" class="bracket">Karpathy Analogy</text>
+
+  <!-- User Intent / Judgment -->
+  <rect x="80" y="80" width="200" height="50" rx="6" fill="#fff9db" stroke="#1b1b1f" stroke-width="2"/>
+  <text x="180" y="110" text-anchor="middle" class="box-label">Judgment</text>
+  <text x="290" y="110" class="sub-label">≈ User Intent</text>
+
+  <!-- App Logic / Specification -->
+  <rect x="80" y="150" width="200" height="50" rx="6" fill="#fff9db" stroke="#1b1b1f" stroke-width="2"/>
+  <text x="180" y="180" text-anchor="middle" class="box-label">Specification</text>
+  <text x="290" y="180" class="sub-label">≈ Application Logic</text>
+
+  <!-- OS / Context Engineering -->
+  <rect x="80" y="220" width="200" height="50" rx="6" fill="#d3f9d8" stroke="#1b1b1f" stroke-width="2"/>
+  <text x="180" y="250" text-anchor="middle" class="box-label">Context Engineering</text>
+  <text x="290" y="250" class="sub-label">≈ Operating System</text>
+
+  <!-- CPU / LLM -->
+  <rect x="80" y="290" width="200" height="50" rx="6" fill="#d0ebff" stroke="#1b1b1f" stroke-width="2"/>
+  <text x="180" y="320" text-anchor="middle" class="box-label">LLM Execution</text>
+  <text x="290" y="320" class="sub-label">≈ CPU</text>
+
+  <!-- RAM label -->
+  <rect x="80" y="360" width="200" height="40" rx="6" fill="#f1f3f5" stroke="#868e96" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="180" y="385" text-anchor="middle" class="sub-label">Context Window ≈ RAM</text>
+
+  <!-- Arrows down -->
+  <line x1="180" y1="132" x2="180" y2="148" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="180" y1="202" x2="180" y2="218" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="180" y1="272" x2="180" y2="288" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- === RIGHT: Fowler Harness column === -->
+  <text x="620" y="65" text-anchor="middle" class="bracket">Fowler: Agent = Model + Harness</text>
+
+  <!-- Harness box (large) -->
+  <rect x="500" y="80" width="240" height="220" rx="8" fill="none" stroke="#1b1b1f" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="620" y="100" text-anchor="middle" font-size="14" fill="#1b1b1f" font-weight="600">Harness</text>
+
+  <!-- Sub-boxes inside harness -->
+  <rect x="520" y="110" width="200" height="36" rx="4" fill="#fff9db" stroke="#1b1b1f" stroke-width="1.5"/>
+  <text x="620" y="133" text-anchor="middle" class="sub-label">Tool Integration</text>
+
+  <rect x="520" y="156" width="200" height="36" rx="4" fill="#fff9db" stroke="#1b1b1f" stroke-width="1.5"/>
+  <text x="620" y="179" text-anchor="middle" class="sub-label">Memory Management</text>
+
+  <rect x="520" y="202" width="200" height="36" rx="4" fill="#fff9db" stroke="#1b1b1f" stroke-width="1.5"/>
+  <text x="620" y="225" text-anchor="middle" class="sub-label">Safety Guardrails</text>
+
+  <rect x="520" y="248" width="200" height="36" rx="4" fill="#fff9db" stroke="#1b1b1f" stroke-width="1.5"/>
+  <text x="620" y="271" text-anchor="middle" class="sub-label">Error Recovery</text>
+
+  <!-- Model box -->
+  <rect x="520" y="310" width="200" height="50" rx="6" fill="#d0ebff" stroke="#1b1b1f" stroke-width="2"/>
+  <text x="620" y="340" text-anchor="middle" class="box-label">Model</text>
+
+  <!-- Arrow harness -> model -->
+  <line x1="620" y1="300" x2="620" y2="308" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- === Connecting bridge === -->
+  <line x1="282" y1="245" x2="498" y2="175" stroke="#868e96" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-gray)"/>
+  <text x="370" y="195" class="annot">governs</text>
+
+  <line x1="282" y1="315" x2="518" y2="335" stroke="#868e96" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-gray)"/>
+  <text x="380" y="315" class="annot">runs on</text>
+
+  <!-- Legend -->
+  <rect x="180" y="425" width="18" height="12" rx="2" fill="#fff9db" stroke="#1b1b1f" stroke-width="1"/>
+  <text x="205" y="435" font-size="12" fill="#1b1b1f">Human-led</text>
+  <rect x="310" y="425" width="18" height="12" rx="2" fill="#d3f9d8" stroke="#1b1b1f" stroke-width="1"/>
+  <text x="335" y="435" font-size="12" fill="#1b1b1f">Collaborative</text>
+  <rect x="440" y="425" width="18" height="12" rx="2" fill="#d0ebff" stroke="#1b1b1f" stroke-width="1"/>
+  <text x="465" y="435" font-size="12" fill="#1b1b1f">AI-led</text>
+
+  <text x="410" y="465" text-anchor="middle" class="annot">Karpathy: computational architecture — Fowler: operational architecture</text>
+</svg>
