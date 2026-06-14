@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="420" viewBox="0 0 780 420">
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { font-size: 20px; font-weight: 600; fill: #1b1b1f; }
+      .zone-title { font-size: 16px; font-weight: 600; }
+      .desc { font-size: 12px; fill: #555; }
+      .detail { font-size: 11px; fill: #868e96; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1b1b1f"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="390" y="32" text-anchor="middle" class="title">Trust Calibration: Two Failure Modes</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="340" x2="700" y2="340" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="100" y1="340" x2="100" y2="55" stroke="#1b1b1f" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="400" y="372" text-anchor="middle" font-size="13" fill="#1b1b1f">System Reliability</text>
+  <text x="50" y="200" text-anchor="middle" font-size="13" fill="#1b1b1f" transform="rotate(-90,50,200)">Human Trust</text>
+  <text x="110" y="358" font-size="11" fill="#868e96" text-anchor="middle">Low</text>
+  <text x="675" y="358" font-size="11" fill="#868e96">High</text>
+  <text x="82" y="68" font-size="11" fill="#868e96" text-anchor="end">High</text>
+  <text x="82" y="337" font-size="11" fill="#868e96" text-anchor="end">Low</text>
+
+  <!-- Diagonal: calibrated trust -->
+  <line x1="100" y1="340" x2="680" y2="70" stroke="#1b1b1f" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="700" y="55" font-size="12" fill="#1b1b1f" font-weight="500" text-anchor="end">Calibrated Trust</text>
+  <text x="700" y="68" font-size="10" fill="#868e96" text-anchor="end">Trust ≈ Reliability</text>
+
+  <!-- Overtrust zone (top-left) — kept away from the diagonal -->
+  <rect x="130" y="70" width="200" height="120" rx="8" fill="#ffe3e3" fill-opacity="0.4" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="230" y="95" text-anchor="middle" class="zone-title" fill="#c92a2a">Overtrust</text>
+  <text x="230" y="113" text-anchor="middle" class="desc">Trust &gt; Reliability</text>
+  <line x1="150" y1="122" x2="310" y2="122" stroke="#ffe3e3" stroke-width="1"/>
+  <text x="230" y="140" text-anchor="middle" class="detail">Novices accept outputs</text>
+  <text x="230" y="155" text-anchor="middle" class="detail">without verification</text>
+  <text x="230" y="173" text-anchor="middle" class="detail">Driven by proxy confidence:</text>
+  <text x="230" y="186" text-anchor="middle" class="detail">interface polish, response speed</text>
+
+  <!-- Undertrust zone (bottom-right) — shifted right and down -->
+  <rect x="430" y="225" width="230" height="105" rx="8" fill="#d0ebff" fill-opacity="0.4" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="545" y="252" text-anchor="middle" class="zone-title" fill="#1971c2">Undertrust</text>
+  <text x="545" y="270" text-anchor="middle" class="desc">Trust &lt; Reliability</text>
+  <line x1="450" y1="278" x2="640" y2="278" stroke="#d0ebff" stroke-width="1"/>
+  <text x="545" y="298" text-anchor="middle" class="detail">Experts reject correct suggestions</text>
+  <text x="545" y="315" text-anchor="middle" class="detail">Trust destruction: fast / repair: slow</text>
+
+  <!-- Source -->
+  <text x="390" y="403" text-anchor="middle" font-size="11" fill="#868e96">Based on Lee &amp; See (2004): Trust = f(performance, process, purpose)</text>
+</svg>
