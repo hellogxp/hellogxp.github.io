@@ -8,7 +8,6 @@ draft: false
 summary: "METR's RCT found AI made developers 19% slower—yet they refused to work without it. The paradox reveals a deeper truth: when AI handles execution, human cognition must migrate upstream to specification, context design, and judgment. A framework grounded in cognitive science and HCI research."
 ---
 
-# How Do We Think: Human Cognition in the Age of Machine Reasoning
 
 In 2025, METR ran something rare in AI research: a randomized controlled trial. They recruited 16 experienced open-source developers, each averaging five years and 1,500 commits on their repositories, and randomly assigned 246 real coding tasks to be completed with or without AI tools. The result was striking: developers using AI took **19% longer** to complete their tasks ([METR, 2025](https://metr.org/blog/2025-04-15-measuring-ai-developer-productivity/)).
 
