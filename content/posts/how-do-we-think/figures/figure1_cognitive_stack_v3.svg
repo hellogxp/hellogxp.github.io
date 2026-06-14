@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1170" height="571.2" viewBox="0 0 1170 571.2">
+  <defs>
+    <marker id="arrow-1b1b1f" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1b1b1f" />
+    </marker>
+    <marker id="arrow-868e96" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#868e96" />
+    </marker>
+    <marker id="arrow-1971c2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1971c2" />
+    </marker>
+    <style>text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }</style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <text x="60" y="64" font-size="24" fill="#1b1b1f" opacity="1"><tspan x="60" dy="0">Traditional Stack</tspan></text>
+  <rect x="40" y="85" width="240" height="55" rx="8" stroke="#1b1b1f" fill="#f1f3f5" stroke-width="2" opacity="1" />
+  <text x="160" y="112.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Learn</text>
+  <rect x="40" y="170" width="240" height="55" rx="8" stroke="#1b1b1f" fill="#f1f3f5" stroke-width="2" opacity="1" />
+  <text x="160" y="197.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Execute</text>
+  <rect x="40" y="255" width="240" height="55" rx="8" stroke="#1b1b1f" fill="#f1f3f5" stroke-width="2" opacity="1" />
+  <text x="160" y="282.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Verify</text>
+  <path d="M 160 142 L 160 170" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <path d="M 160 227 L 160 255" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <text x="640" y="64" font-size="24" fill="#1b1b1f" opacity="1"><tspan x="640" dy="0">New Cognitive Stack</tspan></text>
+  <rect x="600" y="85" width="260" height="55" rx="8" stroke="#1b1b1f" fill="#fff9db" stroke-width="2" opacity="1" />
+  <text x="730" y="112.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Specify</text>
+  <rect x="600" y="170" width="260" height="55" rx="8" stroke="#1b1b1f" fill="#d3f9d8" stroke-width="2" opacity="1" />
+  <text x="730" y="197.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Context-Engineer</text>
+  <rect x="600" y="255" width="260" height="55" rx="8" stroke="#1b1b1f" fill="#d0ebff" stroke-width="2" opacity="1" />
+  <text x="730" y="282.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">AI Execution</text>
+  <rect x="600" y="340" width="260" height="55" rx="8" stroke="#1b1b1f" fill="#fff9db" stroke-width="2" opacity="1" />
+  <text x="730" y="367.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Govern</text>
+  <rect x="600" y="425" width="260" height="55" rx="8" stroke="#1b1b1f" fill="#fff9db" stroke-width="2" opacity="1" />
+  <text x="730" y="452.5" font-size="18" fill="#1b1b1f" text-anchor="middle" dominant-baseline="central" opacity="1">Judge</text>
+  <path d="M 730 142 L 730 170" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <path d="M 730 227 L 730 255" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <path d="M 730 312 L 730 340" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <path d="M 730 397 L 730 425" stroke="#1b1b1f" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-1b1b1f)" />
+  <text x="870" y="109" font-size="12" fill="#868e96" opacity="1"><tspan x="870" dy="0">Human-led</tspan></text>
+  <text x="870" y="194" font-size="12" fill="#868e96" opacity="1"><tspan x="870" dy="0">Human-AI</tspan></text>
+  <text x="870" y="279" font-size="12" fill="#868e96" opacity="1"><tspan x="870" dy="0">AI-led</tspan></text>
+  <text x="870" y="364" font-size="12" fill="#868e96" opacity="1"><tspan x="870" dy="0">Human-led</tspan></text>
+  <text x="870" y="449" font-size="12" fill="#868e96" opacity="1"><tspan x="870" dy="0">Human-only</tspan></text>
+  <path d="M 282 103 L 598 103" stroke="#868e96" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-868e96)" />
+  <path d="M 282 125 L 598 193" stroke="#868e96" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-868e96)" />
+  <path d="M 282 197 L 598 279" stroke="#1971c2" fill="none" stroke-width="2" opacity="1" marker-end="url(#arrow-1971c2)" />
+  <path d="M 282 273 L 598 363" stroke="#868e96" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-868e96)" />
+  <path d="M 282 295 L 598 447" stroke="#868e96" fill="none" stroke-width="1.5" opacity="1" marker-end="url(#arrow-868e96)" />
+  <text x="380" y="233" font-size="13" fill="#868e96" opacity="1"><tspan x="380" dy="0">migration</tspan></text>
+  <rect x="600" y="515" width="22" height="14" rx="8" stroke="#1b1b1f" fill="#fff9db" stroke-width="1" opacity="1" />
+  <text x="630" y="526" font-size="13" fill="#1b1b1f" opacity="1"><tspan x="630" dy="0">Human-led</tspan></text>
+  <rect x="740" y="515" width="22" height="14" rx="8" stroke="#1b1b1f" fill="#d3f9d8" stroke-width="1" opacity="1" />
+  <text x="770" y="526" font-size="13" fill="#1b1b1f" opacity="1"><tspan x="770" dy="0">Collaborative</tspan></text>
+  <rect x="880" y="515" width="22" height="14" rx="8" stroke="#1b1b1f" fill="#d0ebff" stroke-width="1" opacity="1" />
+  <text x="910" y="526" font-size="13" fill="#1b1b1f" opacity="1"><tspan x="910" dy="0">AI-led</tspan></text>
+  <rect x="1000" y="515" width="22" height="14" rx="8" stroke="#1b1b1f" fill="#f1f3f5" stroke-width="1" opacity="1" />
+  <text x="1030" y="526" font-size="13" fill="#1b1b1f" opacity="1"><tspan x="1030" dy="0">All Human (old)</tspan></text>
+</svg>
