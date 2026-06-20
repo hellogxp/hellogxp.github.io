@@ -218,13 +218,24 @@ Or use the BibTeX citation:
 
 ## References
 
-- Kornblith, S., Norouzi, M., Lee, H., & Hinton, G. (2019). [Similarity of Neural Network Representations Revisited](https://arxiv.org/abs/1905.00414). *ICML*.
-- Park, K., Choe, Y. J., & Veitch, V. (2023). [The Linear Representation Hypothesis and the Geometry of Large Language Models](https://arxiv.org/abs/2310.06824). *arXiv*.
-- Marks, S., & Tegmark, M. (2024). [The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets](https://arxiv.org/abs/2310.06824). *COLM*.
-- Tigges, C., Hollinsworth, O., Geiger, A., & Nanda, N. (2023). [Analyzing Transformers in Feature Space to Explain How They Implement Multi-Step Algorithms](https://arxiv.org/abs/2310.06824). *arXiv*.
-- Huh, M., Cheung, B., Wang, T., & Isola, P. (2024). [The Platonic Representation Hypothesis](https://arxiv.org/abs/2405.07987). *ICML*.
-- Huang, K., et al. (2025). [Cross-Model Activation Transfer for Steering Vectors](https://arxiv.org/abs/2412.09435). *arXiv*.
-- Oozeer, A., et al. (2025). [Affine Activation Transfer for Safety Interventions](https://arxiv.org/abs/2502.01503). *ICML*.
-- Stolfo, A., et al. (2025). [SAE Stitching: Affine Feature Transfer Across Models](https://arxiv.org/abs/2410.14683). *NeurIPS*.
-- Thasarathan, V., et al. (2025). [Universal Sparse Autoencoders](https://arxiv.org/abs/2502.01503). *ICML*.
-- Raghu, M., Gilmer, J., Yosinski, J., & Sohl-Dickstein, J. (2017). [SVCCA: Singular Vector Canonical Correlation Analysis for Deep Learning Dynamics](https://arxiv.org/abs/1706.05806). *ICLR*.
+[1] Gao, Xueping. ["Contrastive-Difference CKA Reveals Concept-Specific Structural Alignment Across Language Model Architectures."](https://arxiv.org/abs/2606.16897) arXiv:2606.16897 (2026). *(This work — the source paper this post is based on.)*
+
+[2] Kornblith, S., Norouzi, M., Lee, H., & Hinton, G. ["Similarity of Neural Network Representations Revisited."](https://arxiv.org/abs/1905.00414) ICML 2019.
+
+[3] Park, K., Choe, Y. J., & Veitch, V. ["The Linear Representation Hypothesis and the Geometry of Large Language Models."](https://arxiv.org/abs/2311.03658) arXiv:2311.03658 (2023).
+
+[4] Marks, S., & Tegmark, M. ["The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets."](https://arxiv.org/abs/2310.06824) ICLR 2024.
+
+[5] Tigges, C., Hollinsworth, O. J., Geiger, A., & Nanda, N. ["Linear Representations of Sentiment in Large Language Models."](https://arxiv.org/abs/2310.15154) arXiv:2310.15154 (2023).
+
+[6] Huh, M., Cheung, B., Wang, T., & Isola, P. ["The Platonic Representation Hypothesis."](https://arxiv.org/abs/2405.07987) ICML 2024.
+
+[7] Huang, Y., Feng, W., Chen, C., Tan, H., Wen, H., & Jin, Q. ["Cross-model Transferability among Large Language Models on the Platonic Representations of Concepts."](https://arxiv.org/abs/2501.02009) ACL 2025.
+
+[8] Oozeer, N., Nathawani, D., Prakash, N., Lan, M., Harrasse, A., & Abdullah, A. ["Activation Space Interventions Can Be Transferred Between Large Language Models."](https://arxiv.org/abs/2503.04429) ICML 2025.
+
+[9] Stolfo, A., Rauker, T., Gurnee, W., & Nanda, N. ["Transferring Linear Features Across Language Models With Model Stitching."](https://arxiv.org/abs/2506.06609) NeurIPS 2025.
+
+[10] Thasarathan, H., Forsyth, J., Fel, T., Kowal, M., & Derpanis, K. "Universal Sparse Autoencoders: Interpretable Cross-Model Concept Alignment." ICML 2025.
+
+[11] Raghu, M., Gilmer, J., Yosinski, J., & Sohl-Dickstein, J. ["SVCCA: Singular Vector Canonical Correlation Analysis for Deep Learning Dynamics and Interpretability."](https://arxiv.org/abs/1706.05806) NeurIPS 2017.
