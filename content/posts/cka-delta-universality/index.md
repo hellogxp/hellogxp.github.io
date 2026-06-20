@@ -67,6 +67,12 @@ $$R_\Delta = \frac{4\sigma_p^2}{4\sigma_p^2 + 2\sigma^2} \;\;\geq\;\; R_{\text{r
 
 with equality iff $\sigma_s^2 = 0$. The gain is approximately $\sigma_s^2 / \sigma_p^2$ when shared variance dominates. Empirically, persona-to-total variance ratio ranges from 38.9% (Mistral) to 68.0% (Gemma), cross-model mean 48.5%, predicting a roughly 2× SNR gain. The observed improvement in discrimination is $d = 0.27 \to d = 0.60$, a 2.22× ratio, matching the theoretical prediction of 2.06× to within 8%. (The full SNR proof and the concept discriminability bound are in the paper.)
 
+The discriminability bound in the paper also relies on an empirical fact worth stating: the eight trait directions are nearly orthogonal. Mean off-diagonal cosine between trait directions is **0.054** across the four primary models (range 0.038–0.079). This is what makes same-vs-cross discrimination possible at all — if traits overlapped heavily, the same-concept and cross-concept numerators would collapse together and no metric could separate them. The near-orthogonality is also what lets the affine alignment generalize: a map trained on one trait doesn't accidentally carry another.
+
+### A sanity check: random concepts
+
+A legitimate worry about any contrastive method is that it produces discrimination *for any* contrastive difference, even semantically incoherent ones. I tested this with a **random concept control**: contrastive prompt pairs where the "positive" and "negative" poles have no coherent semantic axis. The result: $d = 0.04$, $p = 0.85$ — a 13.6× contrast with the real-persona discrimination ($d = 0.60$). $\text{CKA}_\Delta$ is not fooled by arbitrary contrastive differences; it requires genuine concept structure to register a signal.
+
 ### Why distributional, not directional
 
 Previous cross-architecture work operates at the *direction* level: compute a mean persona direction per model, then compare directions via cosine or learned maps ([Huang et al., 2025](https://arxiv.org/abs/2412.09435); [Oozeer et al., 2025](https://arxiv.org/abs/2502.01503)). $\text{CKA}_\Delta$ operates at the *distributional* level — the full $N \times d$ contrastive-difference matrix — and captures covariance structure that direction-level methods cannot see. The mean-cosine baseline's failure ($d = 0.007$) is the clearest evidence: the discriminative signal lives in the distribution, not in the mean.
@@ -77,6 +83,8 @@ Previous cross-architecture work operates at the *direction* level: compute a me
 </figure>
 
 ## 4. The Claim: Geometry Diverges, Function Converges
+
+Before the data, a quick terminology note. I'll use two transfer protocols throughout: **direct transfer** means taking a classifier trained on model A and applying it to model B's activations without any alignment — if the two models happen to share an embedding space, this works; otherwise it fails. **Affine-aligned transfer** means learning a small 50×51 affine map (2,550 parameters) on 500 contrastive-difference vectors to translate model B's space into model A's, then applying the source classifier. The affine map is the minimum alignment needed to test whether the *information* is preserved, even when the *geometry* isn't.
 
 With the lens in hand, the central finding comes into focus. Across the eight personality dimensions, $\text{CKA}_\Delta$ varies from 0.553 (neuroticism) to 0.829 (helpfulness). Meanwhile, affine-aligned transfer accuracy stays at or above 99.4% for every single trait.
 
@@ -100,7 +108,9 @@ Personality is one concept domain. To claim the dissociation is a general proper
 
 ### Five instruction-level concepts
 
-Personality, safety (refusal alignment), truthfulness, and formality all share the same scaffold: a system prompt that toggles the concept on or off. Five of six concept domains replicate the dissociation with statistically significant geometric discrimination ($p \le 0.017$); safety is the lone exception, with $p = 0.08$ at $n = 15$ pairs — suggestive but not significant on its own, supported by converging functional, SVD, and SAE evidence.
+Personality, safety (refusal alignment), truthfulness, and formality all share the same scaffold: a system prompt that toggles the concept on or off. Five of six concept domains replicate the dissociation with statistically significant geometric discrimination ($p \le 0.017$); safety is the lone exception, with $p = 0.08$ at $n = 15$ pairs — suggestive but not significant on its own.
+
+Safety deserves explicit honesty here, because it's the one domain where the geometric channel underdelivers. Post-hoc power analysis confirms this is an underpowered design rather than evidence of no effect (achieved power 0.312; the design would need $n_{\text{same}} = 54$ at a 4:1 ratio for 80% power, projecting $p \approx 0.044$ at $n_{\text{same}} = 28$). And four independent lines of evidence converge on concept-specific structure despite the underpowered geometric test: (1) affine-aligned classification achieves ≥99.9% across all 30 directed safety pairs (random-label baseline 59.4%); (2) safety alignment maps show the same moderate-rank SVD structure as persona maps (effective rank ~26 vs. ~27); (3) independent SAE analysis identifies 2,053 universal and 2,084 architecture-specific safety features; (4) the 6-model subset shows consistent $\text{CKA}_\Delta = 0.534$. The converging-evidence pattern — moderate geometric convergence but near-perfect functional transfer — is itself an instance of the dissociation.
 
 Formality is the sharpest demonstration: the lowest geometric convergence of any concept I tested, yet near-perfect functional transfer. If I had picked only formality to look at, the dissociation would have been obvious immediately.
 
@@ -180,6 +190,8 @@ Three threads I want to pull on:
 2. **Concept-by-architecture interaction.** Gemma is the personality outlier; Mistral is the code-vs-NL outlier. Different architectures encode different concepts with varying fidelity. Why? This is a mech-interp question that $\text{CKA}_\Delta$ flags but doesn't answer.
 
 3. **Comparison with SAE stitching.** $\text{CKA}_\Delta$ flags Gemma as an outlier. Does SAE stitching flag it too? If yes, the two methods are complementary diagnostics. If no, the disagreement is informative — it would mean geometric and feature-level alignment are genuinely different things.
+
+And one honest admission about what the paper doesn't explain: *why* the dissociation exists. The paper documents it across six concept domains and shows it survives five controls, but it doesn't propose a mechanistic story for why moderate geometry coexists with near-perfect functional transfer. My guess — and it is only a guess — is that the next-token prediction objective puts strong pressure on *what* information must be representable in the residual stream, but leaves the *how* (which directions, which basis) underdetermined. Different architectures solve the same information-preservation problem with different coordinate conventions. But turning that guess into a mechanism requires circuit-level work, not a metric.
 
 ### What I'd say if asked for one sentence
 
