@@ -197,19 +197,6 @@ And one honest admission about what the paper doesn't explain: *why* the dissoci
 
 Different LLM architectures encode high-level concepts in **recoverable but not identical** ways: geometrically divergent, functionally equivalent. The Platonic Representation Hypothesis, in its weak form, holds — concept representations are universally recoverable across architectures, but they are not universally identical. $\text{CKA}_\Delta$ is the cheapest way I know to see that distinction.
 
-## References
-
-- Kornblith, S., Norouzi, M., Lee, H., & Hinton, G. (2019). [Similarity of Neural Network Representations Revisited](https://arxiv.org/abs/1905.00414). *ICML*.
-- Park, K., Choe, Y. J., & Veitch, V. (2023). [The Linear Representation Hypothesis and the Geometry of Large Language Models](https://arxiv.org/abs/2310.06824). *arXiv*.
-- Marks, S., & Tegmark, M. (2024). [The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets](https://arxiv.org/abs/2310.06824). *COLM*.
-- Tigges, C., Hollinsworth, O., Geiger, A., & Nanda, N. (2023). [Analyzing Transformers in Feature Space to Explain How They Implement Multi-Step Algorithms](https://arxiv.org/abs/2310.06824). *arXiv*.
-- Huh, M., Cheung, B., Wang, T., & Isola, P. (2024). [The Platonic Representation Hypothesis](https://arxiv.org/abs/2405.07987). *ICML*.
-- Huang, K., et al. (2025). [Cross-Model Activation Transfer for Steering Vectors](https://arxiv.org/abs/2412.09435). *arXiv*.
-- Oozeer, A., et al. (2025). [Affine Activation Transfer for Safety Interventions](https://arxiv.org/abs/2502.01503). *ICML*.
-- Stolfo, A., et al. (2025). [SAE Stitching: Affine Feature Transfer Across Models](https://arxiv.org/abs/2410.14683). *NeurIPS*.
-- Thasarathan, V., et al. (2025). [Universal Sparse Autoencoders](https://arxiv.org/abs/2502.01503). *ICML*.
-- Raghu, M., Gilmer, J., Yosinski, J., & Sohl-Dickstein, J. (2017). [SVCCA: Singular Vector Canonical Correlation Analysis for Deep Learning Dynamics](https://arxiv.org/abs/1706.05806). *ICLR*.
-
 ## Citation
 
 Cited as:
@@ -228,3 +215,16 @@ Or use the BibTeX citation:
   url = "https://hellogxp.github.io/posts/cka-delta-universality/"
 }
 ```
+
+## References
+
+- Kornblith, S., Norouzi, M., Lee, H., & Hinton, G. (2019). [Similarity of Neural Network Representations Revisited](https://arxiv.org/abs/1905.00414). *ICML*.
+- Park, K., Choe, Y. J., & Veitch, V. (2023). [The Linear Representation Hypothesis and the Geometry of Large Language Models](https://arxiv.org/abs/2310.06824). *arXiv*.
+- Marks, S., & Tegmark, M. (2024). [The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets](https://arxiv.org/abs/2310.06824). *COLM*.
+- Tigges, C., Hollinsworth, O., Geiger, A., & Nanda, N. (2023). [Analyzing Transformers in Feature Space to Explain How They Implement Multi-Step Algorithms](https://arxiv.org/abs/2310.06824). *arXiv*.
+- Huh, M., Cheung, B., Wang, T., & Isola, P. (2024). [The Platonic Representation Hypothesis](https://arxiv.org/abs/2405.07987). *ICML*.
+- Huang, K., et al. (2025). [Cross-Model Activation Transfer for Steering Vectors](https://arxiv.org/abs/2412.09435). *arXiv*.
+- Oozeer, A., et al. (2025). [Affine Activation Transfer for Safety Interventions](https://arxiv.org/abs/2502.01503). *ICML*.
+- Stolfo, A., et al. (2025). [SAE Stitching: Affine Feature Transfer Across Models](https://arxiv.org/abs/2410.14683). *NeurIPS*.
+- Thasarathan, V., et al. (2025). [Universal Sparse Autoencoders](https://arxiv.org/abs/2502.01503). *ICML*.
+- Raghu, M., Gilmer, J., Yosinski, J., & Sohl-Dickstein, J. (2017). [SVCCA: Singular Vector Canonical Correlation Analysis for Deep Learning Dynamics](https://arxiv.org/abs/1706.05806). *ICLR*.
