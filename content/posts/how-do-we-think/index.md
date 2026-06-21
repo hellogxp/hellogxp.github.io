@@ -339,20 +339,20 @@ The practical value is triage. Instead of asking "why did AI fail?" (which invit
 
 ## Citation
 
-Cited as:
+Please cite this work as:
 
-> Guo, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". hellogxp.github.io (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
+> Gao, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
 
-Or use the BibTeX citation:
+Or
 
-```bibtex
-@article{xueping2026howdothink,
-  title = {How Do We Think: Human Cognition in the Age of Machine Reasoning},
-  author = {Guo, Xueping},
+```
+@article{gao2026howdothink,
+  title   = {How Do We Think: Human Cognition in the Age of Machine Reasoning},
+  author  = {Gao, Xueping},
   journal = {hellogxp.github.io},
-  year = {2026},
-  month = {June},
-  url = "https://hellogxp.github.io/posts/how-do-we-think/"
+  year    = {2026},
+  month   = {Jun},
+  url     = "https://hellogxp.github.io/posts/how-do-we-think/"
 }
 ```
 
