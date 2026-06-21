@@ -345,7 +345,7 @@ Please cite this work as:
 
 Or use the BibTex citation:
 
-```
+```bibtex
 @article{gao2026howdothink,
   title   = {How Do We Think: Human Cognition in the Age of Machine Reasoning},
   author  = {Gao, Xueping},
