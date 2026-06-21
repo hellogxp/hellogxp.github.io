@@ -341,7 +341,9 @@ The practical value is triage. Instead of asking "why did AI fail?" (which invit
 
 Please cite this work as:
 
-> Gao, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
+```
+Gao, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
+```
 
 Or use the BibTex citation:
 
