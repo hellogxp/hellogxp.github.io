@@ -258,20 +258,20 @@ The code is available as [MechLens](https://github.com/hellogxp/MechLens), suppo
 
 ## Citation
 
-Cited as:
+Please cite this work as:
 
-> Gao, Xueping. "Late Crystallization of Factual Knowledge in Language Models". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/late-crystallization/.
+> Gao, Xueping. "Late Crystallization in LLMs: How Facts Emerge in the Final Layers". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/late-crystallization/.
 
 Or
 
-```bibtex
+```
 @article{gao2026latecrystallization,
-  title   = "MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models",
-  author  = "Gao, Xueping",
-  journal = "arXiv preprint arXiv:2606.07978",
-  year    = "2026",
-  month   = "Jun",
-  url     = "https://arxiv.org/abs/2606.07978"
+  title   = {Late Crystallization in LLMs: How Facts Emerge in the Final Layers},
+  author  = {Gao, Xueping},
+  journal = {hellogxp.github.io},
+  year    = {2026},
+  month   = {Jun},
+  url     = "https://hellogxp.github.io/posts/late-crystallization/"
 }
 ```
 
@@ -279,12 +279,16 @@ Or
 
 ## References
 
-- [Gao, 2026] "[MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models](https://arxiv.org/abs/2606.07978)." *arXiv:2606.07978*.
+[1] Belrose et al. ["Eliciting Latent Predictions from Transformers with the Tuned Lens"](https://arxiv.org/abs/2303.08112). ICLR 2023.
 
-- [Belrose et al., 2023] "[Eliciting Latent Predictions from Transformers with the Tuned Lens](https://arxiv.org/abs/2303.08112)." *ICLR 2023*.
-- [Li et al., 2023] "[Inference-Time Intervention: Eliciting Truthful Answers from a Language Model](https://arxiv.org/abs/2306.03341)." *NeurIPS 2023*.
-- [Li et al., 2024] "[DoLa: Decoding by Contrasting Layers Improves Factuality and Faithfulness of Large Language Models](https://arxiv.org/abs/2309.03883)." *ICLR 2024*.
-- [Mor et al., 2024] "[Summing Up the Facts: Additive Mechanisms Behind Factual Recall in LLMs](https://arxiv.org/abs/2402.12837)."
-- [nostalgebraist, 2020] "[interpreting GPT: the logit lens](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens)." *LessWrong*.
-- [Rimsky et al., 2024] "[Steering Llama-2 via Contrastive Activation Addition](https://arxiv.org/abs/2312.06681)." *AAAI 2024*.
-- [Zhang et al., 2025] "[SADI: Semantic-Adaptive Dynamic Intervention for Hallucination Mitigation](https://arxiv.org/abs/2502.06769)." *ICLR 2025*.
+[2] Li et al. ["Inference-Time Intervention: Eliciting Truthful Answers from a Language Model"](https://arxiv.org/abs/2306.03341). NeurIPS 2023.
+
+[3] Li et al. ["DoLa: Decoding by Contrasting Layers Improves Factuality and Faithfulness of Large Language Models"](https://arxiv.org/abs/2309.03883). ICLR 2024.
+
+[4] Mor et al. ["Summing Up the Facts: Additive Mechanisms Behind Factual Recall in LLMs"](https://arxiv.org/abs/2402.12837). 2024.
+
+[5] nostalgebraist. ["interpreting GPT: the logit lens"](https://www.lesswrong.com/posts/AcKRB8wDKH48X4KLY/interpreting-gpt-the-logit-lens). LessWrong, 2020.
+
+[6] Rimsky et al. ["Steering Llama-2 via Contrastive Activation Addition"](https://arxiv.org/abs/2312.06681). AAAI 2024.
+
+[7] Zhang et al. ["SADI: Semantic-Adaptive Dynamic Intervention for Hallucination Mitigation"](https://arxiv.org/abs/2502.06769). ICLR 2025.
