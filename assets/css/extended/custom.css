@@ -42,7 +42,9 @@ details.toc {
 .post-content blockquote,
 .md-content blockquote {
   margin: 20px 0;
-  padding: 0 14px;
+  padding: 10px 14px;
+  background: var(--code-bg);
+  border-radius: var(--radius);
 }
 
 /* Inline code: Lilian=margin auto 4px, padding 4px 6px */
