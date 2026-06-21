@@ -86,14 +86,14 @@ Andrej Karpathy proposed a useful analogy: LLM = CPU, Context Window = RAM, Cont
 
 If Context Engineering is the operating system, then **Specification** is the application logic, and **Judgment** is the user intent. The OS manages resources efficiently, but it doesn't know what the user wants. Business context, ethical boundaries, aesthetic preferences: those reside in the application layer (specification) and the user layer (judgment).
 
-Martin Fowler extends this further: **Agent = Model + Harness** (Fowler, 2025). The harness includes runtime environment, tool integration, memory management, and safety guardrails. Context Engineering addresses "what the model sees." Harness Engineering addresses "how the system operates." Both require human design. Neither emerges automatically from model capability.
+Writing on martinfowler.com, Birgitta Böckeler extends this further: **Agent = Model + Harness** (Böckeler, 2026). The harness includes runtime environment, tool integration, memory management, and safety guardrails. Context Engineering addresses "what the model sees." Harness Engineering addresses "how the system operates." Both require human design. Neither emerges automatically from model capability.
 
 <figure>
-<img src="figures/figure_karpathy_fowler.svg" alt="Karpathy's OS analogy mapped alongside Fowler's Agent = Model + Harness framework" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
-<figcaption>Figure 3: Karpathy and Fowler, complementary views. Karpathy describes the computational architecture (LLM as CPU, context window as RAM, context engineering as OS). Fowler describes the operational architecture (Agent = Model + Harness). Together they frame the full cognitive stack. (Source: Author synthesis of Karpathy 2025, Fowler 2025.)</figcaption>
+<img src="figures/figure_karpathy_fowler.svg" alt="Karpathy's OS analogy mapped alongside Böckeler's Agent = Model + Harness framework" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
+<figcaption>Figure 3: Karpathy and Böckeler, complementary views. Karpathy describes the computational architecture (LLM as CPU, context window as RAM, context engineering as OS). Böckeler describes the operational architecture (Agent = Model + Harness). Together they frame the full cognitive stack. (Source: Author synthesis of Karpathy 2025, Böckeler 2026.)</figcaption>
 </figure>
 
-The two analogies are complementary. Karpathy describes the *computational* architecture; Fowler describes the *operational* architecture. Together, they frame the full cognitive stack: humans design the application logic (specification), manage the OS (context engineering), operate the harness (governance), and evaluate the output (judgment). The model runs in the middle.
+The two analogies are complementary. Karpathy describes the *computational* architecture; Böckeler describes the *operational* architecture. Together, they frame the full cognitive stack: humans design the application logic (specification), manage the OS (context engineering), operate the harness (governance), and evaluate the output (judgment). The model runs in the middle.
 
 ### Key Insight: Different Work, Not Less Work
 
@@ -175,7 +175,7 @@ Here's the cognitive implication: the skill of "writing good prompts" is being s
 
 ### Critical Gap: From Seeing to Operating
 
-Context Engineering answers "what the model sees" but not "how the system should operate." It lacks multi-turn orchestration, error recovery, and safety guardrails. Fowler's Harness Engineering addresses this gap: the harness is where governance lives. A well-engineered context can still fail if the harness lacks error recovery, timeout handling, permission enforcement, or audit logging.
+Context Engineering answers "what the model sees" but not "how the system should operate." It lacks multi-turn orchestration, error recovery, and safety guardrails. Böckeler's Harness Engineering addresses this gap: the harness is where governance lives. A well-engineered context can still fail if the harness lacks error recovery, timeout handling, permission enforcement, or audit logging.
 
 The gap between what the model knows and how the system behaves is where human governance lives. And where the next section begins.
 
@@ -372,7 +372,7 @@ Or use the BibTeX citation:
 
 [7] de Visser, E. J., Pak, R., & Shaw, T. H. (2018). ["From 'automation' to 'autonomy': The importance of trust repair in human-machine interaction"](https://doi.org/10.1080/00140139.2018.1441769). *Ergonomics*, 61(10), 1-19.
 
-[8] Fowler, M. (2025). "Agents = Models + Harnesses". *martinfowler.com*. [Industry source. Link no longer available — article removed from martinfowler.com]
+[8] Böckeler, B. (2026). ["Harness engineering for coding agent users"](https://martinfowler.com/articles/harness-engineering.html). *martinfowler.com*.
 
 [9] Hu, S., Lu, C., Clune, J., et al. (2024). ["Automated Design of Agentic Systems"](https://arxiv.org/abs/2408.08435). *arXiv:2408.08435*.
 
