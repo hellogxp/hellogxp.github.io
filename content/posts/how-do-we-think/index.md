@@ -9,7 +9,7 @@ summary: "METR's RCT found AI made developers 19% slower—yet they refused to w
 ---
 
 
-In 2025, METR ran something rare in AI research: a randomized controlled trial. They recruited 16 experienced open-source developers, each averaging five years and 1,500 commits on their repositories, and randomly assigned 246 real coding tasks to be completed with or without AI tools. The result was striking: developers using AI took **19% longer** to complete their tasks (METR, 2025).
+In 2025, METR ran something rare in AI research: a randomized controlled trial. They recruited 16 experienced open-source developers, each averaging five years and 1,500 commits on their repositories, and randomly assigned 246 real coding tasks to be completed with or without AI tools. The result was striking: developers using AI took **19% longer** to complete their tasks ([METR, 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)).
 
 Here's the catch: developers *felt* faster. Before the study, they predicted AI would speed them up by 24%. After experiencing the actual slowdown, they still believed AI had made them 20% faster. The subjective experience of AI assistance, the feeling of velocity, the reduced friction of not having to remember syntax, was so compelling that it overrode objective reality.
 
@@ -18,7 +18,7 @@ Here's the catch: developers *felt* faster. Before the study, they predicted AI 
 <figcaption>Figure 1: The METR perception gap. Developers predicted a 24% speedup from AI tools but experienced a 19% slowdown. Even after the experiment, they reported a perceived 20% improvement. (Source: METR, 2025.)</figcaption>
 </figure>
 
-By early 2026, METR attempted a follow-up study with a larger sample. They couldn't recruit enough participants. Developers refused to join the control group; they would not work without AI, even temporarily. The tool that made them measurably slower had become indispensable. When surveyed, the median developer said they would sacrifice 20% of their salary rather than lose access to AI coding tools (METR, 2026).
+By early 2026, METR attempted a follow-up study with a larger sample. They couldn't recruit enough participants. Developers refused to join the control group; they would not work without AI, even temporarily. The tool that made them measurably slower had become indispensable. When surveyed, the median developer said they would sacrifice 20% of their salary rather than lose access to AI coding tools ([METR, 2026](https://metr.org/blog/2026-02-24-uplift-update/)).
 
 What explains this paradox? AI isn't failing. The misalignment runs deeper: we measure execution speed while the actual work has migrated to specification, context design, and quality judgment. The bottleneck moved. Our metrics didn't.
 
@@ -200,7 +200,7 @@ AI systems fail in predictable, categorizable ways. Understanding these failure 
 
 1.  **Judgment**: Trade-offs under ambiguity, multi-objective conflict, ethical compliance. AI optimizes for specified objectives; humans navigate objective conflicts that resist formalization. "Should we prioritize latency or accuracy?" "Is this feature worth the privacy cost?" These are judgment calls, not optimization problems. AI can enumerate the trade-offs. Humans must decide which trade-off to accept.
 
-2.  **Taste**: Defining "good" when metrics are insufficient. Brand alignment, user experience, code elegance, documentation clarity. Eugene Yan describes this as "taste as config": the configuration parameter that guides AI behavior when explicit specs are insufficient (Yan, 2025). Taste cannot be learned from training data alone. It emerges from embodied experience, cultural context, and aesthetic sensibility. It is the heuristic that says "this feels wrong" before you can articulate why.
+2.  **Taste**: Defining "good" when metrics are insufficient. Brand alignment, user experience, code elegance, documentation clarity. Eugene Yan describes this as "taste as config": the configuration parameter that guides AI behavior when explicit specs are insufficient (Yan, 2026). Taste cannot be learned from training data alone. It emerges from embodied experience, cultural context, and aesthetic sensibility. It is the heuristic that says "this feels wrong" before you can articulate why.
 
 3.  **Verification**: Knowing when to trust, when to intervene, when to abort. Meta-cognitive monitoring. Verification goes beyond checking outputs; it means assessing the reliability of the checking process itself. When should you run additional tests? When should you escalate to manual review? When should you reject the entire approach? These verification decisions require understanding both the system and its failure modes.
 
@@ -221,7 +221,7 @@ Design implication: AI systems must expose reliability signals, including confid
 
 ### The Review Fatigue Problem
 
-METR's screen recording analysis provides direct evidence of where time goes: developers using AI spent less time actively coding, testing, and searching for information. But those savings were overwhelmed by time spent reviewing AI outputs, prompting AI systems, waiting for generations, and idle/overhead time (METR, 2025). The net result was negative. More total time, not less.
+METR's screen recording analysis provides direct evidence of where time goes: developers using AI spent less time actively coding, testing, and searching for information. But those savings were overwhelmed by time spent reviewing AI outputs, prompting AI systems, waiting for generations, and idle/overhead time ([METR, 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)). The net result was negative. More total time, not less.
 
 The pattern generalizes beyond coding. As the volume of AI suggestions increases, review quality degrades. Early suggestions receive careful scrutiny; later ones get rubber-stamped. Human attention is finite; AI generates unlimited suggestions. The mismatch requires workflow design, not willpower.
 
@@ -386,9 +386,9 @@ Or use the BibTeX citation:
 
 [14] LeCun, Y. (2024). ["Objective-Driven AI: Towards Machines that can Learn, Reason, and Plan"](https://openreview.net/forum?id=BZ5a1r-kVsf). *Meta AI*. [Industry source]
 
-[15] METR. (2025). "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity". *metr.org*. [RCT, N=16, 246 tasks. Link no longer available — article removed from metr.org]
+[15] METR. (2025). ["Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity"](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/). *metr.org*. [RCT, N=16, 246 tasks]
 
-[16] METR. (2026). "We are Changing our Developer Productivity Experiment Design". *metr.org*. [Follow-up report. Link no longer available — article removed from metr.org]
+[16] METR. (2026). ["We are Changing our Developer Productivity Experiment Design"](https://metr.org/blog/2026-02-24-uplift-update/). *metr.org*. [Follow-up report]
 
 [17] Risko, E. F., & Gilbert, S. J. (2016). ["Cognitive Offloading"](https://doi.org/10.1016/j.tics.2016.07.002). *Trends in Cognitive Sciences*, 20(9), 676-688.
 
@@ -406,4 +406,4 @@ Or use the BibTeX citation:
 
 [24] Wang, X., Li, B., Song, Y., et al. (2024). ["OpenHands: An Open Platform for AI Software Developers as Generalist Agents"](https://arxiv.org/abs/2407.16741). *arXiv:2407.16741*. (ICLR 2025).
 
-[25] Yan, E. (2025). "Taste as Configuration". *eugeneyan.com*. [Industry source. Link no longer available — article removed from eugeneyan.com]
+[25] Yan, E. (2026). ["How to Work and Compound with AI"](https://eugeneyan.com/writing/working-with-ai/). *eugeneyan.com*. [Industry source]
