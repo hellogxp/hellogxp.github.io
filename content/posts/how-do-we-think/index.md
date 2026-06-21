@@ -231,7 +231,7 @@ For AI tools, this means assistance calibrated for the average user adds extrane
 
 ### Mitigation: Cognitive Workflow Design
 
-Batch processing, default recommendations, progressive disclosure, automated verification gates: these aren't UX improvements. They are *cognitive workflow design*, grounded in Sweller et al.'s (2019) cognitive load optimization principles:
+Batch processing, default recommendations, progressive disclosure, automated verification gates: these aren't UX improvements. They are *cognitive workflow design*, grounded in [Sweller et al.'s (2019)](https://doi.org/10.1007/s10648-019-09465-5) cognitive load optimization principles:
 
 -   **Batch processing**: Aggregate suggestions to reduce context-switching frequency. Review 10 suggestions at once rather than 1 suggestion 10 times. Each context switch carries a fixed cognitive cost; batching amortizes it.
 
