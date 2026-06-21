@@ -58,6 +58,13 @@ details.toc {
   margin: 10px auto;
 }
 
+/* pre code: wrap long lines instead of horizontal scroll (Lilian: text-wrap: wrap) */
+.post-content pre code,
+.md-content pre code {
+  text-wrap: wrap;
+  overflow-x: visible;
+}
+
 /* Tables: booktabs academic style — auto width, centered, three-line, zebra */
 .post-content table,
 .md-content table {
