@@ -132,7 +132,7 @@ This connects directly to cognitive offloading research: deep specification work
 
 ### Case Study: OpenHands Benchmark
 
-[Wang et al. (2024)](https://arxiv.org/abs/2407.16741) evaluated AI software development agents on SWE-Bench and WebArena benchmarks. Using claude-3.5-sonnet, their CodeActAgent achieved a 26% resolve rate on SWE-bench Lite, competitive among open-source agents but far from replacing human developers. A clear pattern emerged: agent performance is highly sensitive to task specification quality. Well-specified task descriptions consistently outperform ambiguous prompts across multiple agent architectures (Wang et al., 2024).
+[Wang et al. (2024)](https://arxiv.org/abs/2407.16741) evaluated AI software development agents on SWE-Bench and WebArena benchmarks. Using claude-3.5-sonnet, their CodeActAgent achieved a 26% resolve rate on SWE-bench Lite, competitive among open-source agents but far from replacing human developers. A clear pattern emerged: agent performance is highly sensitive to task specification quality. Well-specified task descriptions consistently outperform ambiguous prompts across multiple agent architectures ([Wang et al., 2024](https://arxiv.org/abs/2407.16741)).
 
 The implication is clear. Specification quality is a first-order determinant of AI system performance. Better models help, but better specs help more. The bottleneck is often not model capability but specification fidelity.
 
@@ -158,7 +158,7 @@ Prompt Engineering (2020-2024) focused on "what to say." Context Engineering (20
 
 <figure>
 <img src="figures/figure_context_eng.svg" alt="Four strategies of context engineering: Write, Select, Compress, Isolate" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
-<figcaption>Figure 5: The four strategies of context engineering (Anthropic, 2025). Write = curate sources, Select = design retrieval, Compress = define loss functions, Isolate = architect boundaries. Each strategy requires human judgment that cannot be automated away. (Source: Author synthesis of Anthropic 2025.)</figcaption>
+<figcaption>Figure 5: The four strategies of context engineering ([Anthropic, 2025](https://www.anthropic.com/engineering/building-effective-agents)). Write = curate sources, Select = design retrieval, Compress = define loss functions, Isolate = architect boundaries. Each strategy requires human judgment that cannot be automated away. (Source: Author synthesis of Anthropic 2025.)</figcaption>
 </figure>
 
 ### Prompt Sensitivity as Structural Fragility
