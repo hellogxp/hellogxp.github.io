@@ -264,7 +264,7 @@ Please cite this work as:
 
 Or use the BibTex citation:
 
-```
+```bibtex
 @article{gao2026latecrystallization,
   title   = {Late Crystallization in LLMs: How Facts Emerge in the Final Layers},
   author  = {Gao, Xueping},
