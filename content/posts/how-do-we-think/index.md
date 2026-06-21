@@ -343,7 +343,7 @@ Please cite this work as:
 
 > Gao, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
 
-Or
+Or use the BibTex citation:
 
 ```
 @article{gao2026howdothink,
