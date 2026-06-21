@@ -260,7 +260,9 @@ The code is available as [MechLens](https://github.com/hellogxp/MechLens), suppo
 
 Please cite this work as:
 
-> Gao, Xueping. "Late Crystallization in LLMs: How Facts Emerge in the Final Layers". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/late-crystallization/.
+```
+Gao, Xueping. "Late Crystallization in LLMs: How Facts Emerge in the Final Layers". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/late-crystallization/
+```
 
 Or use the BibTex citation:
 
