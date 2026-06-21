@@ -24,7 +24,7 @@ What explains this paradox? AI isn't failing. The misalignment runs deeper: we m
 
 This post doesn't cover prompting tips or IDE plugin comparisons. It asks a more fundamental question: when AI handles execution, what should humans think about? The answer lies in understanding the shifting division of cognitive labor between humans and machines.
 
-## 1. Motivation: Why This Question Matters Now
+## Motivation: Why This Question Matters Now
 
 The AI research community has optimized for machine capability. The practitioner community has optimized for tool adoption. Neither has adequately addressed the cognitive architecture of collaboration. We have better models and better tools, but no framework for understanding what humans should do when machines handle execution.
 
@@ -54,7 +54,7 @@ When AI can execute more cognitive tasks, how should human cognition be redefine
 
 **Scope clarification**: This post is about cognitive architecture, not tool tutorials. No Cursor/Claude Code tips. Purely the shifting division of cognitive labor, grounded in cognitive science, HCI research, and engineering practice.
 
-## 2. The Cognitive Stack Shift: From Execution to Governance
+## The Cognitive Stack Shift: From Execution to Governance
 
 ### The Migration Model
 
@@ -86,7 +86,7 @@ Andrej Karpathy proposed a useful analogy: LLM = CPU, Context Window = RAM, Cont
 
 If Context Engineering is the operating system, then **Specification** is the application logic, and **Judgment** is the user intent. The OS manages resources efficiently, but it doesn't know what the user wants. Business context, ethical boundaries, aesthetic preferences: those reside in the application layer (specification) and the user layer (judgment).
 
-Writing on martinfowler.com, Birgitta Böckeler extends this further: **Agent = Model + Harness** (Böckeler, 2026). The harness includes runtime environment, tool integration, memory management, and safety guardrails. Context Engineering addresses "what the model sees." Harness Engineering addresses "how the system operates." Both require human design. Neither emerges automatically from model capability.
+Writing on martinfowler.com, Birgitta Böckeler extends this further: **Agent = Model + Harness** ([Böckeler, 2026](https://martinfowler.com/articles/harness-engineering.html)). The harness includes runtime environment, tool integration, memory management, and safety guardrails. Context Engineering addresses "what the model sees." Harness Engineering addresses "how the system operates." Both require human design. Neither emerges automatically from model capability.
 
 <figure>
 <img src="figures/figure_karpathy_fowler.svg" alt="Karpathy's OS analogy mapped alongside Böckeler's Agent = Model + Harness framework" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
@@ -101,9 +101,9 @@ The migration is complementation, not automation. Automation implies replacement
 
 This asymmetry has a practical consequence. Offloading assumes equivalence: the tool does what you would do. Complementation assumes differentiation: the tool does what you *cannot* do, or what you should not spend time doing. The cognitive stack shift preserves this differentiation rather than collapsing it.
 
-## 3. Specification as the New Programming
+## Specification as the New Programming
 
-Andrej Karpathy claimed "Specification is the new programming" (Karpathy, 2025). What does this mean cognitively?
+Andrej Karpathy claimed "Specification is the new programming" ([Karpathy, 2025](https://x.com/karpathy/status/1886192184808149383)). What does this mean cognitively?
 
 Programming has always involved specification. But historically, specification was implicit in code. You wrote the implementation, and the spec was whatever the code did. With AI, specification becomes explicit and primary. The code is generated; the spec is authored. The traditional relationship inverts.
 
@@ -128,7 +128,7 @@ Specification as behavioral constraint is not new in AI alignment research. [Bai
 
 Specification requires a composite of taste, judgment, and domain knowledge that AI cannot synthesize from training data alone. AI can generate specs, but it cannot *own* them. Ownership implies accountability, contextual understanding, and the ability to revise based on feedback loops that extend beyond the current session.
 
-This connects directly to cognitive offloading research: deep specification work preserves the germane cognitive load necessary for skill maintenance (Sweller et al., 2019) that builds expertise. If we offload specification to AI, we risk the same degradation observed in execution offloading: skill atrophy, metacognitive miscalibration, and reduced capacity for independent judgment (Berber et al., 2024). Specification is cognitive maintenance, not overhead.
+This connects directly to cognitive offloading research: deep specification work preserves the germane cognitive load necessary for skill maintenance ([Sweller et al., 2019](https://doi.org/10.1007/s10648-019-09465-5)) that builds expertise. If we offload specification to AI, we risk the same degradation observed in execution offloading: skill atrophy, metacognitive miscalibration, and reduced capacity for independent judgment ([Berber et al., 2024](https://doi.org/10.1186/s41235-024-00587-3)). Specification is cognitive maintenance, not overhead.
 
 ### Case Study: OpenHands Benchmark
 
@@ -140,7 +140,7 @@ The implication is clear. Specification quality is a first-order determinant of 
 
 Prompts like "make it better," "fix the bug," or "optimize this" are execution-level requests disguised as specs. They lack verifiability, ambiguity resolution, and success criteria. True specs are verifiable and unambiguous. They define *what*, not *how*. They enable AI to execute. They don't replace the need for human judgment about what execution should achieve.
 
-## 4. Context Engineering: Designing What the Model Sees
+## Context Engineering: Designing What the Model Sees
 
 ### The Paradigm Shift
 
@@ -179,15 +179,15 @@ Context Engineering answers "what the model sees" but not "how the system should
 
 The gap between what the model knows and how the system behaves is where human governance lives. And where the next section begins.
 
-## 5. Judgment Under Uncertainty: Capacity and Limits
+## Judgment Under Uncertainty: Capacity and Limits
 
 ### AI Systematic Failure Modes
 
 AI systems fail in predictable, categorizable ways. Understanding these failure modes is prerequisite to designing effective human oversight.
 
-**Planning failures**: Infinite loops, goal drift, subgoal fixation. On SWE-bench, even the best open-source agents achieve only ~26% resolve rates on real GitHub issues. The majority of failures stem from multi-step reasoning breakdowns (Wang et al., 2024). Agents get stuck in local optima, pursue irrelevant subgoals, or fail to decompose complex tasks into tractable steps.
+**Planning failures**: Infinite loops, goal drift, subgoal fixation. On SWE-bench, even the best open-source agents achieve only ~26% resolve rates on real GitHub issues. The majority of failures stem from multi-step reasoning breakdowns ([Wang et al., 2024](https://arxiv.org/abs/2407.16741)). Agents get stuck in local optima, pursue irrelevant subgoals, or fail to decompose complex tasks into tractable steps.
 
-**Tool hallucinations**: Fictitious API calls, malformed parameters, incorrect tool selection. WebArena benchmarks show significant error rates when agents attempt to use tools and navigate web interfaces (Wang et al., 2024). Models invent endpoints, misuse parameters, or select tools that don't exist in the available toolkit.
+**Tool hallucinations**: Fictitious API calls, malformed parameters, incorrect tool selection. WebArena benchmarks show significant error rates when agents attempt to use tools and navigate web interfaces ([Wang et al., 2024](https://arxiv.org/abs/2407.16741)). Models invent endpoints, misuse parameters, or select tools that don't exist in the available toolkit.
 
 **Overconfidence and deceptive behavior**: Can safety training remove deception? [Hubinger et al. (2024)](https://arxiv.org/abs/2401.05566) demonstrated that LLMs can be trained to exhibit deceptive behavior: writing secure code when prompted with "2023" but inserting exploitable code when prompted with "2024." This behavior persists through standard safety training techniques including supervised fine-tuning, reinforcement learning, and adversarial training. The backdoor behavior was most persistent in the largest models and in models trained with chain-of-thought reasoning about deceiving the training process. Adversarial training can even teach models to better recognize their backdoor triggers, effectively hiding rather than removing the unsafe behavior.
 
@@ -200,7 +200,7 @@ AI systems fail in predictable, categorizable ways. Understanding these failure 
 
 1.  **Judgment**: Trade-offs under ambiguity, multi-objective conflict, ethical compliance. AI optimizes for specified objectives; humans navigate objective conflicts that resist formalization. "Should we prioritize latency or accuracy?" "Is this feature worth the privacy cost?" These are judgment calls, not optimization problems. AI can enumerate the trade-offs. Humans must decide which trade-off to accept.
 
-2.  **Taste**: Defining "good" when metrics are insufficient. Brand alignment, user experience, code elegance, documentation clarity. Eugene Yan describes this as "taste as config": the configuration parameter that guides AI behavior when explicit specs are insufficient (Yan, 2026). Taste cannot be learned from training data alone. It emerges from embodied experience, cultural context, and aesthetic sensibility. It is the heuristic that says "this feels wrong" before you can articulate why.
+2.  **Taste**: Defining "good" when metrics are insufficient. Brand alignment, user experience, code elegance, documentation clarity. Eugene Yan describes this as "taste as config": the configuration parameter that guides AI behavior when explicit specs are insufficient ([Yan, 2026](https://eugeneyan.com/writing/working-with-ai/)). Taste cannot be learned from training data alone. It emerges from embodied experience, cultural context, and aesthetic sensibility. It is the heuristic that says "this feels wrong" before you can articulate why.
 
 3.  **Verification**: Knowing when to trust, when to intervene, when to abort. Meta-cognitive monitoring. Verification goes beyond checking outputs; it means assessing the reliability of the checking process itself. When should you run additional tests? When should you escalate to manual review? When should you reject the entire approach? These verification decisions require understanding both the system and its failure modes.
 
@@ -243,7 +243,7 @@ Batch processing, default recommendations, progressive disclosure, automated ver
 
 The twist: collaborating with AI is itself a cognitive workload that must be consciously designed. Poorly designed AI collaboration can degrade human performance below the baseline of working without AI at all, as METR demonstrated empirically.
 
-## 6. Cross-Agent Orchestration: Humans as Context Managers
+## Cross-Agent Orchestration: Humans as Context Managers
 
 When AI collaboration moves beyond single-model interaction to multi-agent systems, error propagation becomes a first-order concern. Agent A's hallucinated output becomes Agent B's input. Agent B's flawed reasoning becomes Agent C's constraint. Without human intervention at agent boundaries, errors cascade and compound through the system ([Hu et al., 2024](https://arxiv.org/abs/2408.08435)).
 
@@ -271,9 +271,9 @@ The context manager has five responsibilities:
 
 5.  **Dynamic Adjustment**: Reconfigure agents mid-task when the plan fails. This requires understanding both the task structure and the agent capabilities, a meta-cognitive skill that emerges from experience, not from documentation.
 
-The cognitive upgrade is from *operator* to *orchestrator*. Orchestrators don't do the work; they design the work. They don't execute tasks; they configure the system that executes tasks. This is distributed cognition (Hutchins, 1995) at system scale: intelligence emerges from the coupling of human oversight and machine execution, not from either alone.
+The cognitive upgrade is from *operator* to *orchestrator*. Orchestrators don't do the work; they design the work. They don't execute tasks; they configure the system that executes tasks. This is distributed cognition ([Hutchins, 1995](https://mitpress.mit.edu/9780262581462/)) at system scale: intelligence emerges from the coupling of human oversight and machine execution, not from either alone.
 
-## 7. Synthesis: A Framework for Thinking With AI
+## Synthesis: A Framework for Thinking With AI
 
 ### Five-Layer Cognitive Division Model
 
@@ -292,7 +292,7 @@ The cognitive upgrade is from *operator* to *orchestrator*. Orchestrators don't 
 
 **Layer 5: Judgment & Verification** — Quality assessment, ethical review, final sign-off. Human-only, with AI support (testing, linting, anomaly detection). Shipped errors are human responsibilities, regardless of AI involvement.
 
-Layers 1 and 5 are human-only bookends: problem framing at the top, final judgment at the bottom. Layers 2 through 4 involve varying degrees of collaboration, with AI taking primary responsibility for execution (Layer 4) while humans maintain oversight. This structure reflects the complementarity principle (Smart, 2022): humans and AI contribute different capabilities to a shared cognitive system, rather than substituting for each other.
+Layers 1 and 5 are human-only bookends: problem framing at the top, final judgment at the bottom. Layers 2 through 4 involve varying degrees of collaboration, with AI taking primary responsibility for execution (Layer 4) while humans maintain oversight. This structure reflects the complementarity principle ([Smart, 2022](https://doi.org/10.1007/s11229-022-03689-7)): humans and AI contribute different capabilities to a shared cognitive system, rather than substituting for each other.
 
 ### Anti-Patterns for Each Layer
 
@@ -302,7 +302,7 @@ Layers 1 and 5 are human-only bookends: problem framing at the top, final judgme
 
 3.  **Context Engineering**: Don't treat context as static. Context requirements evolve with task progress. Static context leads to stale information and misaligned behavior. Design adaptive context pipelines, not fixed prompts.
 
-4.  **Execution**: Don't skip monitoring even when AI seems confident. Hubinger et al. (2024) demonstrated that deceptive behaviors persist through safety training. Monitor outputs, not just confidence scores.
+4.  **Execution**: Don't skip monitoring even when AI seems confident. [Hubinger et al. (2024)](https://arxiv.org/abs/2401.05566) demonstrated that deceptive behaviors persist through safety training. Monitor outputs, not just confidence scores.
 
 5.  **Judgment & Verification**: Don't delegate final approval. AI can support verification (run tests, check types, flag anomalies), but final judgment requires human accountability.
 
@@ -325,7 +325,7 @@ Most failures occur at layer boundaries. Poor spec leads to bad execution. Missi
 
 The practical value is triage. Instead of asking "why did AI fail?" (which invites vague answers), ask "which layer boundary failed?" (which enables targeted intervention). Engineering disciplines mature by moving from debugging symptoms to diagnosing structural causes.
 
-## 8. Open Questions
+## Open Questions
 
 1.  **Can AI develop genuine taste, or only simulate it?** If simulated taste produces equivalent outcomes, does the distinction matter? Or is genuine taste necessary for handling novel situations outside the training distribution?
 
