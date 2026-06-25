@@ -1,7 +1,7 @@
 ---
 title: "Two Maps of the Same City: Why LLM Architectures Converge on Concepts"
 date: 2026-06-20
-author: "Xueping"
+author: "Xueping Gao"
 tags: ["interpretability", "mechanistic-interpretability", "representation-similarity", "CKA", "cross-architecture", "alignment"]
 math: true
 draft: false
