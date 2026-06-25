@@ -2,6 +2,7 @@ baseURL: "https://hellogxp.github.io/"
 languageCode: en-us
 title: "Xueping's Blog"
 theme: "PaperMod"
+enableRobotsTXT: true
 
 pagination:
   pagerSize: 10
@@ -12,6 +13,11 @@ params:
   assets:
     favicon: "favicon.ico"
   author: "Xueping Gao"
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/hellogxp"
+      - "https://x.com/hellogxp"
   defaultTheme: auto
   ShowReadingTime: true
   ShowShareButtons: true
