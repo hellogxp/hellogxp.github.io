@@ -1,7 +1,7 @@
 ---
 title: "Compositional Skill Routing: Decomposition Is the Bottleneck"
 date: 2026-06-25
-author: "Xueping"
+author: "Xueping Gao"
 tags: ["LLM-agents", "skill-routing", "MCP", "task-decomposition", "retrieval"]
 math: false
 draft: false
