@@ -18,9 +18,9 @@ This post walks through why decomposition fails, how to fix it with a method cal
 
 ### The Problem
 
-LLM agents increasingly rely on external skills—reusable tool specifications that extend what the model can do. Early work like [Toolformer](https://arxiv.org/abs/2302.04761) taught models to call APIs autonomously; [Gorilla](https://arxiv.org/abs/2304.04670) scaled to massive API collections. With the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) ecosystem now boasting thousands of skills across categories like file I/O, data processing, web search, and code execution, agents face a new challenge: real tasks require *composing* multiple skills, not just selecting one.
+LLM agents increasingly rely on external skills—reusable tool specifications that extend what the model can do. Early work like [Toolformer](https://arxiv.org/abs/2302.04761) taught models to call APIs autonomously; [Gorilla](https://arxiv.org/abs/2305.15334) scaled to massive API collections. With the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) ecosystem now featuring thousands of skills across categories like file I/O, data processing, web search, and code execution, agents face a new challenge: real tasks require *composing* multiple skills, not just selecting one.
 
-Prior work like [SkillRouter](https://arxiv.org/abs/2603.22455) and [Gorilla](https://arxiv.org/abs/2304.04670) has largely focused on single-skill selection: given a query, pick the best tool. But when a user says "download the dataset, transform it, and create visual reports," no single skill suffices. The agent must:
+Prior work like [SkillRouter](https://arxiv.org/abs/2603.22455) has largely focused on single-skill selection: given a query, pick the best tool. But when a user says "download the dataset, transform it, and create visual reports," no single skill suffices. The agent must:
 
 1. **Decompose** the query into atomic sub-tasks
 2. **Retrieve** the appropriate skill for each sub-task
@@ -33,7 +33,7 @@ We call this **Compositional Skill Routing**. Each stage has its own challenges,
 To study this problem, we built [SkillWeaver](https://arxiv.org/abs/2606.18051), a three-stage framework:
 
 - **Stage 1 — Decompose**: An LLM (Qwen2.5-7B-Instruct by default) breaks the query into sub-tasks. The input is the natural language query; the output is a list of atomic steps, each described in a sentence.
-- **Stage 2 — Retrieve**: A bi-encoder (all-MiniLM-L6-v2, 384-dim) encodes each sub-task and searches a [FAISS](https://arxiv.org/abs/2401.08281) index of skill metadata. The top-*k* candidates per sub-task form the candidate set.
+- **Stage 2 — Retrieve**: A bi-encoder (all-MiniLM-L6-v2, 384-dim) encodes each sub-task and searches a [FAISS](https://arxiv.org/abs/1702.08734) index of skill metadata. The top-*k* candidates per sub-task form the candidate set.
 - **Stage 3 — Compose**: A compatibility-aware DAG planner arranges the selected skills into a dependency graph, ensuring execution order respects data flow constraints.
 
 <figure>
@@ -94,10 +94,10 @@ Here's the intuition: imagine ordering at a restaurant. If you've never seen the
 
 ### How It Differs from Standard RAG
 
-This is **input-side feedback**, not output-side. Standard RAG (e.g., [Self-RAG](https://arxiv.org/abs/2310.11511)) retrieves documents to help the model *answer* better. SAD retrieves skill hints to help the model *decompose* better—to ask better questions, not to give better answers.
+This is **input-side feedback**, not output-side. SAD retrieves skill hints to help the model *decompose* better—to ask better questions, not to give better answers.
 
 - **Output-side (standard RAG)**: Retrieve documents to help the model *answer* better. Examples: [Self-RAG](https://arxiv.org/abs/2310.11511), [ReAct](https://arxiv.org/abs/2210.03629), [Reflexion](https://arxiv.org/abs/2303.11366).
-- **Input-side (SAD)**: Retrieve skill hints to help the model *decompose* better—to ask better questions, not to give better answers.
+- **Input-side (SAD)**: Retrieve skill hints to help the model *decompose* better.
 
 This distinction matters because it means SAD is *complementary* to any output-side RAG the agent might also use downstream.
 
@@ -139,8 +139,6 @@ After SAD, the error distribution shifts:
 <img src="figures/figure_error_reduction.svg" alt="Bar chart showing error type reduction from Vanilla to SAD: over-decomposition 36% to 18%, generic descriptions 28% to 15%, vocabulary mismatch 22% to 12%, under-decomposition 14% to 8%" style="max-width:560px;width:100%;display:block;margin:0 auto" loading="lazy">
 <figcaption>Figure 4: SAD reduces all four error types. The largest reductions are in over-decomposition (36% → 18%) and generic descriptions (28% → 15%)—exactly the errors caused by not knowing the skill library.</figcaption>
 </figure>
-
-The largest reductions are in over-decomposition and generic descriptions—exactly the errors caused by not knowing the skill library.
 
 ## Generalization Across Models and Tasks
 
@@ -195,7 +193,7 @@ The most immediate practical benefit: **99.9% context window reduction**.
 <figcaption>Figure 6: Context window consumption. Naïve approach requires ~884K tokens to include all 2,209 skills. SkillWeaver + SAD needs only ~1,160 tokens—a 99.9% reduction, making skill routing feasible for any model regardless of context window size.</figcaption>
 </figure>
 
-This makes skill routing feasible for any model, regardless of context window size. A 7B model with a 4K context window can route across 2,209 skills.
+A 7B model with a 4K context window can route across 2,209 skills.
 
 ### The Reranker Lever
 
@@ -248,7 +246,7 @@ Or use the BibTex citation:
 
 [6] Zheng, Y. et al. ["SkillRouter: Retrieve-and-Rerank Skill Selection for LLM Agents at Scale"](https://arxiv.org/abs/2603.22455). arXiv:2603.22455 (2025).
 
-[7] Patil, S. et al. ["Gorilla: Large Language Model Connected with Massive APIs"](https://arxiv.org/abs/2304.04670). ICML 2024.
+[7] Patil, S. et al. ["Gorilla: Large Language Model Connected with Massive APIs"](https://arxiv.org/abs/2305.15334). NeurIPS 2024.
 
 [8] Wei, J. et al. ["Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"](https://arxiv.org/abs/2201.11903). NeurIPS 2022.
 
