@@ -1,7 +1,7 @@
 ---
 title: "Late Crystallization in LLMs: How Facts Emerge in the Final Layers"
 date: 2026-06-06
-author: "Xueping"
+author: "Xueping Gao"
 tags: ["interpretability", "mechanistic-interpretability", "LLM", "logit-lens", "truthfulness"]
 math: true
 draft: false
