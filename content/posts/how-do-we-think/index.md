@@ -1,7 +1,7 @@
 ---
 title: "How Do We Think: Human Cognition in the Age of Machine Reasoning"
 date: 2026-06-14
-author: "Xueping"
+author: "Xueping Gao"
 tags: ["cognitive-science", "human-AI-collaboration", "trust-calibration", "context-engineering", "specification"]
 math: false
 draft: false
