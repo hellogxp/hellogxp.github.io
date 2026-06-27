@@ -14,7 +14,7 @@ This is the **geometric-functional universality dissociation**: across six conce
 
 This post walks through what the dissociation is, why nobody saw it before, the lens that makes it visible, where it holds, and what it's actually good for. The full paper is on [arXiv](https://arxiv.org/abs/2606.16897).
 
-## 1. The Problem: Are Concepts Aligned Across Architectures?
+## The Problem: Are Concepts Aligned Across Architectures?
 
 Organizations don't deploy one LLM anymore — they deploy a portfolio. Llama, Qwen, Gemma, and Mistral all show up in production stacks. A safety filter trained on Llama needs to transfer to Qwen. A persona detector trained on one model should ideally work on others without retraining. Alignment interventions should be portable across model families.
 
@@ -26,7 +26,7 @@ Recent work has shown that concept transfer is possible. Steering vectors transf
 
 The distinction matters. If two models have generically similar representation spaces — both transformers, both trained on similar data, both using similar tokenizers — a classifier trained on one will transfer to the other regardless of whether the concept itself is encoded the same way. The transfer succeeds by accident. To say "concepts are universally aligned" we need to isolate the concept-specific signal from generic similarity, and that requires a metric that can distinguish same-concept from cross-concept comparisons.
 
-## 2. Why Nobody Saw It Before
+## Why Nobody Saw It Before
 
 The obvious thing to do is compute standard CKA — [Kornblith et al., 2019](https://arxiv.org/abs/1905.00414) — on the positive-pole activations (the activation when the persona prompt is "extraverted") and see if same-trait pairs score higher than cross-trait pairs. I tried this. It doesn't work.
 
@@ -43,7 +43,7 @@ This is the same reason simple cosine similarity between mean activations fails.
 
 The fix is almost embarrassingly simple: subtract first, compare second.
 
-## 3. CKA_Δ: The Lens That Makes It Visible
+## CKA_Δ: The Lens That Makes It Visible
 
 The procedure has four steps:
 
@@ -82,7 +82,7 @@ Previous cross-architecture work operates at the *direction* level: compute a me
 <figcaption>Figure 2: Same-trait vs. cross-trait discrimination (Cohen's d) across five similarity metrics. CKA<sub>Δ</sub> (linear and RBF kernels) is the only metric that reaches significance; raw CKA<sub>+</sub>, SVCCA, mean-difference cosine, and Procrustes all fail to separate concept-specific alignment from generic similarity. (Image source: this work)</figcaption>
 </figure>
 
-## 4. The Claim: Geometry Diverges, Function Converges
+## The Claim: Geometry Diverges, Function Converges
 
 Before the data, a quick terminology note. I'll use two transfer protocols throughout: **direct transfer** means taking a classifier trained on model A and applying it to model B's activations without any alignment — if the two models happen to share an embedding space, this works; otherwise it fails. **Affine-aligned transfer** means learning a small 50×51 affine map (2,550 parameters) on 500 contrastive-difference vectors to translate model B's space into model A's, then applying the source classifier. The affine map is the minimum alignment needed to test whether the *information* is preserved, even when the *geometry* isn't.
 
@@ -97,7 +97,7 @@ The dissociation is most striking for formal register — not a personality trai
 
 This is what I mean by "two maps of the same city." Different LLM families have learned different representational conventions for the same high-level concept. They haven't converged on identical geometry — they've converged on recoverable geometry. A 50×51 affine map (2,550 parameters, fit on 500 contrastive-difference vectors) is enough to translate between them.
 
-## 5. The Dissociation Holds Everywhere
+## The Dissociation Holds Everywhere
 
 Personality is one concept domain. To claim the dissociation is a general property of cross-architecture concept encoding, I tested six concept domains spanning instruction-level and non-instruction concepts.
 
@@ -131,7 +131,7 @@ Non-instruction concepts break this correlation. They have the lowest $\text{CKA
 
 This was an unexpected payoff. $\text{CKA}_\Delta$ started as a tool to test concept alignment, but it doubles as a diagnostic for **encoding depth** within each regime.
 
-## 6. What It's Good For
+## What It's Good For
 
 ### Gemma is the architectural outlier
 
@@ -169,7 +169,7 @@ I want to be explicit about what $\text{CKA}_\Delta$ is and isn't. It is a **dia
 
 This distinction matters for alignment monitoring. When a safety filter transfers from Llama to Qwen, you want to know whether the transfer is concept-specific — actually carrying the safety signal — or merely generic — carrying whatever residual similarity exists between the two models. $\text{CKA}_\Delta$ is the only one of these tools that answers that question without training anything.
 
-## 7. Limits and What's Next
+## Limits and What's Next
 
 ### What it cannot do
 
