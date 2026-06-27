@@ -96,11 +96,11 @@ The judge is compromised through the same axis separation that breaks the model.
 
 We have tools that audit reasoning chains. The most advanced is ReasoningLens ([Zhang et al., 2026](https://arxiv.org/abs/2606.23404)), an open-source framework for hierarchical visualization and diagnostic auditing of complex reasoning chains. Its three-layer pipeline represents the state of the art:
 
-**Hierarchical Visualization** partitions monolithic CoT traces into atomic planning units by detecting lexical cues — "wait," "but," "alternatively" — that signal strategic transitions. The macro view (exploration level) shows high-level strategy: where the model decomposed, backtracked, validated, or transitioned. The micro view (exploitation level) drills into arithmetic, substitution, and verification details.
+Its hierarchical visualization partitions monolithic CoT traces into atomic planning units by detecting lexical cues — "wait," "but," "alternatively" — that signal strategic transitions. The macro view (exploration level) shows high-level strategy: where the model decomposed, backtracked, validated, or transitioned. The micro view (exploitation level) drills into arithmetic, substitution, and verification details.
 
-**Agentic Diagnosis** runs a SectionAnalysisAgent that performs batch-wise analysis with rolling summary memory — catching non-local inconsistencies and logical drift that would exhaust a human reviewer. It integrates tool-augmented verification (a calculator that independently verifies arithmetic steps) and generates error repair suggestions.
+Its agentic diagnosis runs a SectionAnalysisAgent that performs batch-wise analysis with rolling summary memory — catching non-local inconsistencies and logical drift that would exhaust a human reviewer. It integrates tool-augmented verification (a calculator that independently verifies arithmetic steps) and generates error repair suggestions.
 
-**Systemic Profiling** aggregates across conversations to identify model-specific blind spots and consistent strengths, building a structured reasoning profile.
+Its systemic profiling aggregates across conversations to identify model-specific blind spots and consistent strengths, building a structured reasoning profile.
 
 What ReasoningLens catches: math errors, logical drift, non-local inconsistencies, structural issues. These are all $\mathbf{v}_H$ errors — failures visible in the reasoning text.
 
