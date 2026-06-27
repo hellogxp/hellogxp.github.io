@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="440" viewBox="0 0 780 440">
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { font-size: 16px; font-weight: 600; fill: #1b1b1f; }
+      .layer { font-size: 13px; font-weight: 600; fill: #2C3E50; }
+      .desc { font-size: 11px; fill: #555; }
+      .detail { font-size: 10px; fill: #868e96; }
+      .catch { font-size: 10px; fill: #2b8a3e; }
+      .miss { font-size: 10px; fill: #C44E52; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="25" text-anchor="middle" class="title">Three-Level Audit Hierarchy</text>
+
+  <!-- Level 1: Text-level -->
+  <rect x="100" y="45" width="560" height="95" rx="8" fill="#d0ebff" fill-opacity="0.3" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="380" y="68" text-anchor="middle" class="layer">Text-Level Auditing (ReasoningLens)</text>
+  <text x="380" y="85" text-anchor="middle" class="desc">Audits v_H output (CoT text, reasoning traces)</text>
+  <text x="140" y="108" class="catch">✓ Math errors</text>
+  <text x="270" y="108" class="catch">✓ Logical drift</text>
+  <text x="400" y="108" class="catch">✓ Structural issues</text>
+  <text x="140" y="125" class="miss">✗ Implicit bias (ERR_J=0)</text>
+  <text x="330" y="125" class="miss">✗ Action-text decoupling</text>
+  <text x="500" y="125" class="miss">✗ Stakes signaling</text>
+
+  <!-- Ceiling line -->
+  <line x1="100" y1="145" x2="660" y2="145" stroke="#C44E52" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="670" y="149" class="detail" fill="#C44E52">v_H ceiling</text>
+
+  <!-- Arrow down (drawn manually) -->
+  <line x1="380" y1="150" x2="380" y2="175" stroke="#8C8C8C" stroke-width="2"/>
+  <polygon points="375,172 385,172 380,182" fill="#8C8C8C"/>
+
+  <!-- Level 2: Trace-level -->
+  <rect x="100" y="185" width="560" height="95" rx="8" fill="#d3f9d8" fill-opacity="0.3" stroke="#82E0AA" stroke-width="1.5"/>
+  <text x="380" y="208" text-anchor="middle" class="layer">Trace-Level Auditing</text>
+  <text x="380" y="225" text-anchor="middle" class="desc">Audits v_R output (actions, tool calls, provenance)</text>
+  <text x="130" y="248" class="catch">✓ Action recoverability</text>
+  <text x="300" y="248" class="catch">✓ Provenance verification</text>
+  <text x="470" y="248" class="catch">✓ Tool-claim alignment</text>
+  <text x="180" y="268" class="desc">Auditable Agents (5 dims)  ·  TRACER  ·  ProvenanceGuard</text>
+
+  <!-- Arrow down (drawn manually) -->
+  <line x1="380" y1="285" x2="380" y2="310" stroke="#8C8C8C" stroke-width="2"/>
+  <polygon points="375,307 385,307 380,317" fill="#8C8C8C"/>
+
+  <!-- Level 3: Certification-level -->
+  <rect x="100" y="320" width="560" height="95" rx="8" fill="#fff3bf" fill-opacity="0.3" stroke="#F5B041" stroke-width="1.5"/>
+  <text x="380" y="343" text-anchor="middle" class="layer">Certification-Level Auditing</text>
+  <text x="380" y="360" text-anchor="middle" class="desc">Gates execution on external permission</text>
+  <text x="140" y="383" class="catch">✓ No execution without certificate</text>
+  <text x="390" y="383" class="catch">✓ Policy-grounded verification</text>
+  <text x="200" y="403" class="desc">Certified Traces (PCE)  ·  "Generation is not permission"</text>
+
+  <!-- Right side: principle -->
+  <rect x="680" y="185" width="90" height="230" rx="6" fill="#f8f9fa" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="725" y="220" text-anchor="middle" class="detail">Each level</text>
+  <text x="725" y="237" text-anchor="middle" class="detail">catches what</text>
+  <text x="725" y="254" text-anchor="middle" class="detail">the previous</text>
+  <text x="725" y="271" text-anchor="middle" class="detail">cannot see</text>
+</svg>
