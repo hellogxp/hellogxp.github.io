@@ -34,12 +34,6 @@ Empirical evidence consistently points to this gap. Research on AI-assisted deci
 
 Consider what this means in practice: a developer who stops writing SQL by hand and relies on AI generation loses the ability to spot subtle join errors. A designer who delegates layout decisions to generative tools gradually forgets the spacing principles that made their earlier work effective. The cognitive load doesn't disappear; it redistributes. Without conscious management of that redistribution, we lose the very capacities that make collaboration valuable.
 
-### Cognitive Offloading: The Theoretical Lens
-
-Cognitive science offers a precise framework here. [Risko and Gilbert (2016)](https://doi.org/10.1016/j.tics.2016.07.002) established that when people externalize cognitive tasks to tools, the decision to offload is governed by metacognitive evaluation: our subjective sense of internal capacity versus external capability. Their review across multiple domains identified a consistent pattern. Offloading decisions are not purely rational cost-benefit calculations. They are influenced by habits, confidence levels, and the perceived effort of internal processing.
-
-The consequences are non-linear. For simple, well-defined tasks, offloading reliably improves efficiency. There is no cognitive benefit to memorizing information that a tool can retrieve instantly. But for complex tasks requiring deep processing, offloading can reduce comprehension because it eliminates germane cognitive load: the mental effort devoted to schema construction and deep learning ([Sweller et al., 2019](https://doi.org/10.1007/s10648-019-09465-5)) that builds expertise. AI amplifies both sides. It makes offloading frictionless, which is beneficial for routine tasks and dangerous for tasks that require human understanding.
-
 ### Decision Fatigue as a Signal
 
 Three out of twenty-four developers in one study failed to complete their task entirely, not because AI gave wrong answers, but because debugging AI-generated suggestions consumed all available time ([Vaithilingam et al., 2022](https://doi.org/10.1145/3491101.3519665)). Review fatigue, choice overload, difficulty calibrating trust: these aren't bugs in AI systems. They are symptoms of a misaligned cognitive stack.
@@ -126,9 +120,11 @@ Specification as behavioral constraint is not new in AI alignment research. [Bai
 
 ### Why Specification is Anti-Fragile to AI
 
-Specification requires a composite of taste, judgment, and domain knowledge that AI cannot synthesize from training data alone. AI can generate specs, but it cannot *own* them. Ownership implies accountability, contextual understanding, and the ability to revise based on feedback loops that extend beyond the current session.
+Cognitive science provides the theoretical foundation for understanding why specification resists automation. [Risko and Gilbert (2016)](https://doi.org/10.1016/j.tics.2016.07.002) established that when people externalize cognitive tasks to tools, the decision to offload is governed by metacognitive evaluation: our subjective sense of internal capacity versus external capability. For simple, well-defined tasks, offloading reliably improves efficiency. But for complex tasks requiring deep processing, offloading can reduce comprehension because it eliminates germane cognitive load: the mental effort devoted to schema construction and deep learning ([Sweller et al., 2019](https://doi.org/10.1007/s10648-019-09465-5)) that builds expertise.
 
-This connects directly to cognitive offloading research: deep specification work preserves the germane cognitive load necessary for skill maintenance ([Sweller et al., 2019](https://doi.org/10.1007/s10648-019-09465-5)) that builds expertise. If we offload specification to AI, we risk the same degradation observed in execution offloading: skill atrophy, metacognitive miscalibration, and reduced capacity for independent judgment ([Berber et al., 2024](https://doi.org/10.1186/s41235-024-00587-3)). Specification is cognitive maintenance, not overhead.
+A critical distinction sharpens this framework. [Kirschner (2026)](https://arxiv.org/abs/2602.20206) distinguishes **cognitive offloading** (externalizing extraneous load — syntax, formatting, memorization) from **cognitive outsourcing** (externalizing intrinsic load — reasoning, logic, schema construction). Offloading is beneficial: it frees working memory for high-level problem-solving. Outsourcing is dangerous: when a novice uses AI to generate code, the tool handles both syntax and underlying logic. The learner bypasses intrinsic load entirely, germane processing cannot occur, and expertise fails to form. This accumulation of **epistemic debt** creates *fragile experts*: developers whose high functional utility masks critically low corrective competence. In a controlled experiment (N=78), developers using unrestricted AI achieved comparable functional output, but suffered a **77% failure rate** on a subsequent AI-blackout maintenance task, compared to only 39% in the scaffolded group that retained cognitive engagement.
+
+Specification is inherently intrinsic load. It requires taste, judgment, and domain knowledge that AI cannot synthesize from training data alone — it demands the schema construction that builds expertise. AI can generate specs, but it cannot *own* them. Ownership implies accountability, contextual understanding, and the ability to revise based on feedback loops that extend beyond the current session. Offloading specification to AI is not offloading — it is outsourcing. And outsourcing the intrinsic load of specification produces the same degradation observed in execution outsourcing: skill atrophy, metacognitive miscalibration, and reduced capacity for independent judgment ([Berber et al., 2024](https://doi.org/10.1186/s41235-024-00587-3)). Specification is cognitive maintenance, not overhead.
 
 ### Case Study: OpenHands Benchmark
 
@@ -225,25 +221,15 @@ METR's screen recording analysis provides direct evidence of where time goes: de
 
 The pattern generalizes beyond coding. As the volume of AI suggestions increases, review quality degrades. Early suggestions receive careful scrutiny; later ones get rubber-stamped. Human attention is finite; AI generates unlimited suggestions. The mismatch requires workflow design, not willpower.
 
+This individual-level fatigue scales into a systemic problem. A qualitative analysis of 1,154 developer discussions on Reddit and Hacker News ([arXiv:2603.27249](https://arxiv.org/abs/2603.27249)) frames AI-generated low-quality content — "AI slop" — as a **tragedy of the commons**: individual developers benefit from AI-accelerated output, but the externalized costs (review burden, codebase degradation, knowledge-resource pollution, skill atrophy) are borne by reviewers, maintainers, and the broader community. The same dynamic that makes AI adoption individually rational makes it collectively harmful when unmanaged. Developers describe a "Catch-22": if experienced engineers are needed to verify AI output, but becoming experienced requires working without AI, how do new experienced engineers develop?
+
 The expertise reversal effect compounds this problem. Instructional assistance that benefits novices can actively harm experts by adding redundant cognitive load. [Tetzlaff et al. (2025)](https://doi.org/10.1016/j.learninstruc.2025.102142) conducted a comprehensive meta-analysis across 60 studies (N=5,924) and confirmed the pattern: novices benefit substantially from high-assistance instruction (d=0.505), while experts perform better with low-assistance approaches (d=-0.428). The effect is robust across domains, though stronger in STEM and weaker in humanities. The benefit of assistance for novices is larger than the cost for experts, but the cost for experts is real and measurable.
 
 For AI tools, this means assistance calibrated for the average user adds extraneous noise for senior developers. Explanations that help juniors become cognitive overhead for experts. Adaptive assistance levels are a design requirement, not a luxury.
 
-### Mitigation: Cognitive Workflow Design
-
-Batch processing, default recommendations, progressive disclosure, automated verification gates: these aren't UX improvements. They are *cognitive workflow design*, grounded in [Sweller et al.'s (2019)](https://doi.org/10.1007/s10648-019-09465-5) cognitive load optimization principles:
-
--   **Batch processing**: Aggregate suggestions to reduce context-switching frequency. Review 10 suggestions at once rather than 1 suggestion 10 times. Each context switch carries a fixed cognitive cost; batching amortizes it.
-
--   **Default recommendations**: Provide sensible defaults to reduce decision burden. Users can override, but shouldn't have to decide from scratch every time. Defaults encode the designer's taste and judgment.
-
--   **Progressive disclosure**: Show summary first, details on demand. Reduce initial extraneous load; allow germane processing at the user's pace. This matches how expert developers naturally scan code: overview first, then drill down.
-
--   **Automated verification gates**: Run tests, linters, type checkers before presenting suggestions to human review. Focus human attention on judgment-requiring aspects that automated checks cannot address.
-
-The twist: collaborating with AI is itself a cognitive workload that must be consciously designed. Poorly designed AI collaboration can degrade human performance below the baseline of working without AI at all, as METR demonstrated empirically.
-
 ## Cross-Agent Orchestration: Humans as Context Managers
+
+So far, this analysis has focused on a single human working with a single AI model. But production AI systems increasingly involve multiple agents — specialized models that plan, retrieve, execute, and verify in coordination. The cognitive stack migration doesn't disappear in this setting; it intensifies. The human role shifts from operator to orchestrator, and the failure modes multiply.
 
 When AI collaboration moves beyond single-model interaction to multi-agent systems, error propagation becomes a first-order concern. Agent A's hallucinated output becomes Agent B's input. Agent B's flawed reasoning becomes Agent C's constraint. Without human intervention at agent boundaries, errors cascade and compound through the system ([Hu et al., 2024](https://arxiv.org/abs/2408.08435)).
 
@@ -324,6 +310,30 @@ When AI collaboration fails, map the failure to a layer. This model works as a d
 Most failures occur at layer boundaries. Poor spec leads to bad execution. Missing verification leads to shipped errors. Context drift leads to misaligned behavior. Diagnose at the boundary; fix at the boundary.
 
 The practical value is triage. Instead of asking "why did AI fail?" (which invites vague answers), ask "which layer boundary failed?" (which enables targeted intervention). Engineering disciplines mature by moving from debugging symptoms to diagnosing structural causes.
+
+### Cognitive Workflow Design: Practical Mitigations
+
+Once a failure is diagnosed, specific interventions follow. These are grounded in [Sweller et al.'s (2019)](https://doi.org/10.1007/s10648-019-09465-5) cognitive load optimization principles:
+
+-   **Batch processing**: Aggregate suggestions to reduce context-switching frequency. Review 10 suggestions at once rather than 1 suggestion 10 times. Each context switch carries a fixed cognitive cost; batching amortizes it.
+
+-   **Default recommendations**: Provide sensible defaults to reduce decision burden. Users can override, but shouldn't have to decide from scratch every time. Defaults encode the designer's taste and judgment.
+
+-   **Progressive disclosure**: Show summary first, details on demand. Reduce initial extraneous load; allow germane processing at the user's pace. This matches how expert developers naturally scan code: overview first, then drill down.
+
+-   **Automated verification gates**: Run tests, linters, type checkers before presenting suggestions to human review. Focus human attention on judgment-requiring aspects that automated checks cannot address.
+
+The twist: collaborating with AI is itself a cognitive workload that must be consciously designed. Poorly designed AI collaboration can degrade human performance below the baseline of working without AI at all, as METR demonstrated empirically.
+
+### Self-Diagnosis: Which Developer Are You?
+
+A controlled study of 21 developers working with AI assistance ([AIRELI](https://aireli.hasel.dev/)) identified three reliance personas that predict long-term outcomes:
+
+-   **Self-sufficient**: Deep understanding, uses AI sparingly, maintains full comprehension. Grows expertise.
+-   **Understanding-gated**: Retains conceptual understanding but relies on AI for execution. Grows expertise if the "understanding gate" stays open — by building a mental map first, drafting a plan before consulting AI, and verifying each step.
+-   **AI-steered**: Completes tasks quickly without meaningful comprehension. Plateaus. "Comprehension debt" accumulates invisibly.
+
+The diagnostic question is simple: *if AI were unavailable tomorrow, could you maintain the system you built today?* The 77% failure rate from the epistemic debt experiment suggests many developers would not. The mitigation is not to abandon AI — it is to keep the understanding gate open: ask AI conceptual questions rather than requesting code generation, demand explanations alongside output, and practice delayed delegation where code is generated only for well-bounded substeps after a plan exists.
 
 ## Open Questions
 
@@ -409,3 +419,9 @@ Or use the BibTex citation:
 [24] Wang, X., Li, B., Song, Y., et al. (2024). ["OpenHands: An Open Platform for AI Software Developers as Generalist Agents"](https://arxiv.org/abs/2407.16741). *arXiv:2407.16741*. (ICLR 2025).
 
 [25] Yan, E. (2026). ["How to Work and Compound with AI"](https://eugeneyan.com/writing/working-with-ai/). *eugeneyan.com*. [Industry source]
+
+[26] Sankaranarayanan, S. (2026). ["Mitigating Epistemic Debt in Generative AI-Scaffolded Novice Programming using Metacognitive Scripts"](https://arxiv.org/abs/2602.20206). *arXiv:2602.20206*.
+
+[27] ["An Endless Stream of AI Slop: How Developers Discuss the Burden of AI-Assisted Software Development"](https://arxiv.org/abs/2603.27249). *arXiv:2603.27249* (2026).
+
+[28] AIRELI. ["Grasping AI Reliance in Program Comprehension and Coding through the AIRELI Persona Taxonomy"](https://aireli.hasel.dev/). 2026.
