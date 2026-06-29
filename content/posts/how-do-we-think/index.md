@@ -1,5 +1,5 @@
 ---
-title: "How Do We Think: Human Cognition in the Age of Machine Reasoning"
+title: "How Do We Think"
 date: 2026-06-14
 author: "Xueping Gao"
 tags: ["cognitive-science", "human-AI-collaboration", "trust-calibration", "context-engineering", "specification"]
@@ -352,14 +352,14 @@ The diagnostic question is simple: *if AI were unavailable tomorrow, could you m
 Please cite this work as:
 
 ```
-Gao, Xueping. "How Do We Think: Human Cognition in the Age of Machine Reasoning". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
+Gao, Xueping. "How Do We Think". Xueping's Blog (Jun 2026). https://hellogxp.github.io/posts/how-do-we-think/
 ```
 
 Or use the BibTex citation:
 
 ```bibtex
 @article{gao2026howdothink,
-  title   = {How Do We Think: Human Cognition in the Age of Machine Reasoning},
+  title   = {How Do We Think},
   author  = {Gao, Xueping},
   journal = {hellogxp.github.io},
   year    = {2026},
