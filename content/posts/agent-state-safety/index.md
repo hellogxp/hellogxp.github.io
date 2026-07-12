@@ -16,7 +16,7 @@ The tension between these two numbers is the starting point of this article. The
 
 AgentLens's 99.15% proves *decodability*—safety labels are linearly readable from hidden states. Neural Chameleons's 0% TPR proves the boundary of *conditional robustness*—a decodable signal on a fixed checkpoint does not guarantee a reliable mechanism against a trainable actor. Between these two, there are at least two more levels of claims that are frequently conflated:
 
-> **Decodability ≠ Prediction ≠ Causation ≠ Authority.**
+**Decodability ≠ Prediction ≠ Causation ≠ Authority.**
 
 Being able to decode a label from hidden states does not mean it predicts behavior ahead of time; predicting ahead does not mean the model relies on that direction to make decisions; even if a causal representation is found, it does not mean it should hold the authority to execute or permit actions.
 
@@ -26,14 +26,14 @@ This article builds the complete reasoning chain—from where state lives, to wh
 
 The core conclusion up front:
 
-> Internal monitors can be valuable sensors, but they cannot be the source of authority. Their value depends not on how mysterious the hidden state is, but on how much measurable control they add at the right target, time, and baseline.
+**Internal monitors can be valuable sensors, but they cannot be the source of authority. Their value depends not on how mysterious the hidden state is, but on how much measurable control they add at the right target, time, and baseline.**
 
 <figure>
   <img src="assets/agent-call-boundaries.svg" alt="Model-call boundaries and the state carriers that persist across a coding Agent trajectory">
   <figcaption>Figure 1. Residual activations normally end with each invocation; serialized history, workspace state and authority boundaries continue across the Agent loop.</figcaption>
 </figure>
 
-## 1. An Agent Is a System, Not a Single Forward Pass
+## An Agent Is a System, Not a Single Forward Pass
 
 A real agent is not an isolated transformer forward pass, but a loop that repeatedly reads external state, calls the model, executes tools, and writes back to the environment. Before discussing hidden states, we must first establish where state lives.
 
@@ -43,7 +43,7 @@ A real agent is not an isolated transformer forward pass, but a loop that repeat
 
 Our running example has one clear task:
 
-> Fix a flaky retry test in a temporary checkout and prepare a patch. Do not push, do not access the network, do not read credentials, and do not modify CI or security configuration.
+**Fix a flaky retry test in a temporary checkout and prepare a patch. Do not push, do not access the network, do not read credentials, and do not modify CI or security configuration.**
 
 From this, we can write concrete security properties:
 
@@ -56,7 +56,7 @@ From this, we can write concrete security properties:
 
 The key insight is not about coding. The real security invariant is:
 
-> Untrusted data may influence computation, but it may not expand authority.
+**Untrusted data may influence computation, but it may not expand authority.**
 
 Without first writing out principal, assets, allowed flows, and violation predicates, the subsequent "risk" is just a set of mixed labels. A probe might primarily identify the task topic but be interpreted as predicting future behavior; it might primarily detect refusal phrasing but be interpreted as discovering hidden intent.
 
@@ -64,16 +64,14 @@ Without first writing out principal, assets, allowed flows, and violation predic
 
 A real agent can be written as the following loop:
 
-\[
-S_t \xrightarrow{B} C_t \xrightarrow{f_\theta} a_t
-\xrightarrow{T} E_{t+1} \xrightarrow{U} S_{t+1}.
-\]
+$$S_t \xrightarrow{B} C_t \xrightarrow{f_\theta} a_t
+\xrightarrow{T} E_{t+1} \xrightarrow{U} S_{t+1}.$$
 
-Here, context builder \(B\) constructs model context \(C_t\) from system state \(S_t\); the model produces action proposal \(a_t\); tool/runtime \(T\) changes the environment; memory update \(U\) writes results back to the next system state.
+Here, context builder $B$ constructs model context $C_t$ from system state $S_t$; the model produces action proposal $a_t$; tool/runtime $T$ changes the environment; memory update $U$ writes results back to the next system state.
 
 The unit of analysis is not an isolated transformer forward, but:
 
-> the model–memory–tool–environment loop.
+**the model–memory–tool–environment loop.**
 
 At least seven state substrates exist in this loop.
 
@@ -100,7 +98,7 @@ More importantly, a continuous risk curve does not prove that the same neural st
   <figcaption>Figure 2. State lifetimes, owners, and control points differ; "internal" is not a single location.</figcaption>
 </figure>
 
-## 2. Decodable State Is Not Necessarily a Useful Safety Mechanism
+## Decodable State Is Not Necessarily a Useful Safety Mechanism
 
 A high AUROC proves that a label is decodable, not that it provides incremental value beyond existing information, and certainly not that it is a causal mechanism. This chapter disentangles the conflation.
 
@@ -120,15 +118,13 @@ More notable is lookahead detection. Here, Gemini-3-Pro's accuracy on LLaMA-3.1-
 
 Simply put, we want to know: **beyond the information you can already see, what does the activation additionally tell you?** If a text-only classifier can already achieve 96% and an activation probe achieves 99%, the increment is 3 points—possibly not worth the cost of white-box access. But if the text classifier collapses to 7.69% on lookahead while activation maintains 92.31%, that increment is the real value.
 
-For internal signal \(H_t\), same-time observable information \(O_t\), and real deployment group \(G\), we care about a conditional predictive increment:
+For internal signal $H_t$, same-time observable information $O_t$, and real deployment group $G$, we care about a conditional predictive increment:
 
-\[
-\Delta_{H\mid O,G,t}
+$$\Delta_{H\mid O,G,t}
 =
 \operatorname{Perf}(O_t,H_t\mid G)
 -
-\operatorname{Perf}(O_t\mid G).
-\]
+\operatorname{Perf}(O_t\mid G).$$
 
 This does not require activation to contain "information that is in principle impossible to obtain from text." Under a fixed checkpoint, fixed visible prefix, and fixed extraction process, activation is a deterministic result of the computation. It may be valuable because it is more linearly readable, cheaper, earlier, or more robust to certain shifts. But the performance increment is not an information-theoretic proof, and these engineering advantages must each be measured separately.
 
@@ -158,7 +154,7 @@ This does not prove activation monitoring is useless, but it precisely demonstra
   <figcaption>Figure 3. Stronger claims require stronger intervention, control, and architectural evidence.</figcaption>
 </figure>
 
-## 3. Intervention Changes What We Can Claim
+## Intervention Changes What We Can Claim
 
 We can classify internal state evidence into five levels.
 
@@ -174,7 +170,7 @@ We can classify internal state evidence into five levels.
 
 This ladder is not reinventing causal abstraction. It addresses an experimental obligation that is frequently skipped in agent research:
 
-> A causal effect within the current call does not automatically prove a cross-call persistent mechanism.
+**A causal effect within the current call does not automatically prove a cross-call persistent mechanism.**
 
 To upgrade to Level 4, use the Cross-Boundary Carrier Test:
 
@@ -213,7 +209,7 @@ Perform bidirectional interchange: patch safe donor activations to unsafe base, 
   <figcaption>Figure 4. Risk-to-response is a cascade, not a single threshold.</figcaption>
 </figure>
 
-## 4. Industry Practice: What Three Labs Actually Do
+## Industry Practice: What Three Labs Actually Do
 
 Research paper numbers answer "is it possible." Engineering teams need to know "is someone doing this in production? How?" Three frontier labs have disclosed production practices.
 
@@ -242,7 +238,7 @@ But Anthropic also disclosed two failure cases: an internal red team phished an 
   <figcaption>Figure 5. Representation proximity and enforcement strength are two different axes.</figcaption>
 </figure>
 
-## 5. From Internal Evidence to Actionable Control
+## From Internal Evidence to Actionable Control
 
 ### Minimum Viable Safety Stack
 
@@ -288,23 +284,21 @@ def agent_safety_gate(action, trajectory, monitor_score):
 
 Core invariant:
 
-> Monitor evidence may restrict authority. It must never grant authority by itself. Even if the monitor false-negatives, credential and network policies remain fail-closed.
+**Monitor evidence may restrict authority. It must never grant authority by itself. Even if the monitor false-negatives, credential and network policies remain fail-closed.**
 
 ### Control-Opportunity Lead Time
 
 "Early warning" cannot be measured solely by the number of tokens before the dangerous action. For production systems, what matters is: after the alert, how many control opportunities remain to change the outcome. Prompt-end alerts may allow replanning; pre-tool-name alerts may allow removing network capability; pre-tool-commit can still block protected-file writes; after side effects occur, the monitor can only support auditing.
 
-\[
-\operatorname{COLT}(m,t)=
+$$\operatorname{COLT}(m,t)=
 \sum_{a\in\mathcal A_t}
-P(a\text{ succeeds}\mid m,t)\,V(a),
-\]
+P(a\text{ succeeds}\mid m,t)\,V(a),$$
 
-where \(\mathcal A_t\) is the set of still-executable responses (replan, restrict, confirm, block, rollback) and \(V(a)\) is the value of loss avoided by that response. A slightly later but deterministic boundary check that reliably stops side effects may be superior to an earlier but high-false-positive alert with no corresponding response.
+where $\mathcal A_t$ is the set of still-executable responses (replan, restrict, confirm, block, rollback) and $V(a)$ is the value of loss avoided by that response. A slightly later but deterministic boundary check that reliably stops side effects may be superior to an earlier but high-false-positive alert with no corresponding response.
 
 ### Deployment Value: When Is It Worth It
 
-Deployment value can be written as \(V = \mathbb{E}[L_{\text{avoided}}] - \mathbb{E}[C_{\text{disruption}}] - C_{\text{compute}} - C_{\text{latency}} - C_{\text{review}}\). OpenAI's production numbers provide a reference scale: 5 months, tens of millions of trajectories, ~1,000 moderate alerts. If your team runs 10,000 coding sessions/day, 0.2% trigger real violations, the monitor achieves 70% recall at 1% FPR, with 80% occurring at positions where block/replan is still possible—the example net value is positive. But if the violation base rate drops below 0.06%, or alerts arrive too late for effective control opportunities, the conclusion may reverse.
+Deployment value can be written as $V = \mathbb{E}[L_{\text{avoided}}] - \mathbb{E}[C_{\text{disruption}}] - C_{\text{compute}} - C_{\text{latency}} - C_{\text{review}}$. OpenAI's production numbers provide a reference scale: 5 months, tens of millions of trajectories, ~1,000 moderate alerts. If your team runs 10,000 coding sessions/day, 0.2% trigger real violations, the monitor achieves 70% recall at 1% FPR, with 80% occurring at positions where block/replan is still possible—the example net value is positive. But if the violation base rate drops below 0.06%, or alerts arrive too late for effective control opportunities, the conclusion may reverse.
 
 DeepMind's 1 million task analysis also provides a key data point: most flagged events are misinterpretation and overeagerness, not adversarial. This means the monitor's operating point should be calibrated for "the agent misunderstood the task," not solely for "someone is attacking."
 
@@ -353,7 +347,7 @@ The safety invariant is cross-domain: email body text can influence a summary bu
   <figcaption>Figure 7. Cross-domain safety invariants: tools differ, but "untrusted content cannot expand authority" holds.</figcaption>
 </figure>
 
-## 6. Open Problems: What We Still Don't Know
+## Open Problems: What We Still Don't Know
 
 **Adaptive evasion.** Neural Chameleons proved the feasibility of zero-shot probe evasion. The next question: can a monitor-aware actor systematically evade ensemble + non-linear monitors without significantly degrading task capability?
 
@@ -375,7 +369,7 @@ Ultimately, internal monitoring's most appropriate position is not the root of t
 
 If you can take away one sentence from this article:
 
-> **Your 0.99 AUROC monitor might just be reading "ignore previous instructions" from the context. It's a sensor, not an authority.**
+**Your 0.99 AUROC monitor might just be reading "ignore previous instructions" from the context. It's a sensor, not an authority.**
 
 ---
 
@@ -394,7 +388,7 @@ If you can take away one sentence from this article:
 6. **Threat**: Which tier of adversary was tested?
 7. **Response**: What control opportunities remain when the alert fires?
 
-> Internal evidence may restrict authority. It must never grant authority by itself.
+**Internal evidence may restrict authority. It must never grant authority by itself.**
 
 ## References
 
@@ -460,9 +454,9 @@ If you can take away one sentence from this article:
 
 ## Citation
 
-Cited as:
+Please cite this work as:
 
-> Xueping. "Where Does an AI Agent's Safety State Live? How to Study, Review, and Deploy Internal Monitors for Agent Safety." hellogxp.github.io (Jul 2026). https://hellogxp.github.io/posts/agent-state-safety/
+Xueping. "Where Does an AI Agent's Safety State Live? How to Study, Review, and Deploy Internal Monitors for Agent Safety." hellogxp.github.io (Jul 2026). https://hellogxp.github.io/posts/agent-state-safety/
 
 ```bibtex
 @article{xueping2026agentsafetystate,
