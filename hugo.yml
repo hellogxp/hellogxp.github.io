@@ -18,6 +18,7 @@ params:
     sameAs:
       - "https://github.com/hellogxp"
       - "https://x.com/hellogxp"
+      - "https://scholar.google.com/citations?user=kkBvC4sAAAAJ"
   defaultTheme: auto
   ShowReadingTime: true
   ShowShareButtons: true
@@ -41,6 +42,8 @@ params:
       If it helps you too, even better.
 
   socialIcons:
+    - name: googlescholar
+      url: "https://scholar.google.com/citations?user=kkBvC4sAAAAJ"
     - name: github
       url: "https://github.com/hellogxp"
     - name: twitter
