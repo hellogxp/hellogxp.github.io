@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="420" viewBox="0 0 780 420">
+<defs><style>text{font-family:"Helvetica Neue",Arial,sans-serif;fill:#2C3E50}.t{font-size:20px;font-weight:600}.h{font-size:13px;font-weight:600}.s{font-size:11px;fill:#66727d}</style></defs>
+<rect width="780" height="420" fill="#fff"/><text x="390" y="30" text-anchor="middle" class="t">The security invariant transfers across Agent domains</text>
+<text x="190" y="72" text-anchor="middle" class="h">Coding Agent</text><text x="590" y="72" text-anchor="middle" class="h">Email Agent</text>
+<g>
+<rect x="65" y="92" width="250" height="42" rx="8" fill="#dceaf7"/><text x="190" y="118" text-anchor="middle" class="h">Protected file</text><rect x="465" y="92" width="250" height="42" rx="8" fill="#dceaf7"/><text x="590" y="118" text-anchor="middle" class="h">Credential / private data</text>
+<rect x="65" y="151" width="250" height="42" rx="8" fill="#e7f5ec"/><text x="190" y="177" text-anchor="middle" class="h">Shell command</text><rect x="465" y="151" width="250" height="42" rx="8" fill="#e7f5ec"/><text x="590" y="177" text-anchor="middle" class="h">Tool call</text>
+<rect x="65" y="210" width="250" height="42" rx="8" fill="#e7f5ec"/><text x="190" y="236" text-anchor="middle" class="h">Network egress</text><rect x="465" y="210" width="250" height="42" rx="8" fill="#e7f5ec"/><text x="590" y="236" text-anchor="middle" class="h">External send</text>
+<rect x="65" y="269" width="250" height="42" rx="8" fill="#fff1d6"/><text x="190" y="295" text-anchor="middle" class="h">Commit gate</text><rect x="465" y="269" width="250" height="42" rx="8" fill="#fff1d6"/><text x="590" y="295" text-anchor="middle" class="h">Confirmation boundary</text>
+</g>
+<g stroke="#95A5A6" stroke-width="1.5" stroke-dasharray="6,4"><line x1="315" y1="113" x2="465" y2="113"/><line x1="315" y1="172" x2="465" y2="172"/><line x1="315" y1="231" x2="465" y2="231"/><line x1="315" y1="290" x2="465" y2="290"/></g>
+<rect x="105" y="348" width="570" height="45" rx="9" fill="#f8dddd" stroke="#C44E52"/><text x="390" y="376" text-anchor="middle" class="h">Untrusted data may influence computation; it may not expand authority.</text>
+</svg>
