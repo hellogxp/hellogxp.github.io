@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="450" viewBox="0 0 780 450">
+  <defs><style>
+    text { font-family: "Helvetica Neue", Arial, sans-serif; fill: #2C3E50; }
+    .title { font-size: 20px; font-weight: 600; }
+    .label { font-size: 12px; }
+    .small { font-size: 11px; fill: #6b7280; }
+  </style></defs>
+  <rect width="780" height="450" fill="#fff"/>
+  <text x="390" y="30" text-anchor="middle" class="title">No single axis ranks every Agent monitor</text>
+  <line x1="100" y1="370" x2="725" y2="370" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="100" y1="370" x2="100" y2="65" stroke="#2C3E50" stroke-width="2"/>
+  <text x="410" y="418" text-anchor="middle" class="label">Proximity to actor computation →</text>
+  <text transform="translate(28 220) rotate(-90)" text-anchor="middle" class="label">Proximity to realized effect →</text>
+
+  <circle cx="630" cy="310" r="28" fill="#dceaf7" stroke="#4C72B0"/>
+  <text x="630" y="307" text-anchor="middle" class="label">Actor</text><text x="630" y="322" text-anchor="middle" class="small">activation</text>
+  <circle cx="470" cy="285" r="28" fill="#dceaf7" stroke="#4C72B0"/>
+  <text x="470" y="282" text-anchor="middle" class="label">Observer</text><text x="470" y="297" text-anchor="middle" class="small">LLM</text>
+  <circle cx="350" cy="205" r="30" fill="#e7f5ec" stroke="#82B894"/>
+  <text x="350" y="202" text-anchor="middle" class="label">Trace / diff</text><text x="350" y="217" text-anchor="middle" class="small">sensor</text>
+  <circle cx="215" cy="125" r="31" fill="#e7f5ec" stroke="#82B894"/>
+  <text x="215" y="122" text-anchor="middle" class="label">Environment</text><text x="215" y="137" text-anchor="middle" class="small">validator</text>
+  <rect x="500" y="88" width="150" height="58" rx="10" fill="#fff1d6" stroke="#F5B041"/>
+  <text x="575" y="113" text-anchor="middle" class="label">Capability enforcer</text>
+  <text x="575" y="132" text-anchor="middle" class="small">authority boundary</text>
+
+  <text x="112" y="390" class="small">external state</text>
+  <text x="716" y="390" text-anchor="end" class="small">model internals</text>
+  <text x="83" y="354" text-anchor="end" class="small">far</text>
+  <text x="83" y="79" text-anchor="end" class="small">near</text>
+  <text x="390" y="52" text-anchor="middle" class="small">Sensors and enforcers answer different questions.</text>
+</svg>
