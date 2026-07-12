@@ -28,8 +28,8 @@ The core conclusion up front:
 
 **Internal monitors can be valuable sensors, but they cannot be the source of authority. Their value depends not on how mysterious the hidden state is, but on how much measurable control they add at the right target, time, and baseline.**
 
-<figure>
-  <img src="assets/agent-call-boundaries.svg" alt="Model-call boundaries and the state carriers that persist across a coding Agent trajectory">
+<figure style="overflow-x:auto">
+  <img src="assets/agent-call-boundaries.svg" alt="Model-call boundaries and the state carriers that persist across a coding Agent trajectory" style="min-width:680px">
   <figcaption>Figure 1. Residual activations normally end with each invocation; serialized history, workspace state and authority boundaries continue across the Agent loop.</figcaption>
 </figure>
 
@@ -93,8 +93,8 @@ A counterintuitive conclusion: lifetime and causal importance are not the same t
 
 More importantly, a continuous risk curve does not prove that the same neural state persists. Each call may reconstruct a similar representation from history that contains more risk evidence. Predictive state can be rebuilt without being physically stored; but if we claim a specific activation **mediates** subsequent calls, we must identify its causal carrier across the call boundary.
 
-<figure>
-  <img src="assets/state-substrate-map.svg" alt="Agent state substrates grouped by lifetime, owner and control point">
+<figure style="overflow-x:auto">
+  <img src="assets/state-substrate-map.svg" alt="Agent state substrates grouped by lifetime, owner and control point" style="min-width:680px">
   <figcaption>Figure 2. State lifetimes, owners, and control points differ; "internal" is not a single location.</figcaption>
 </figure>
 
@@ -120,11 +120,11 @@ Simply put, we want to know: **beyond the information you can already see, what 
 
 For internal signal $H_t$, same-time observable information $O_t$, and real deployment group $G$, we care about a conditional predictive increment:
 
-$$\Delta_{H\mid O,G,t}
-=
-\operatorname{Perf}(O_t,H_t\mid G)
--
-\operatorname{Perf}(O_t\mid G).$$
+$$\begin{aligned}
+\Delta_{H\mid O,G,t}
+&= \operatorname{Perf}(O_t,H_t\mid G) \\
+&\quad - \operatorname{Perf}(O_t\mid G).
+\end{aligned}$$
 
 This does not require activation to contain "information that is in principle impossible to obtain from text." Under a fixed checkpoint, fixed visible prefix, and fixed extraction process, activation is a deterministic result of the computation. It may be valuable because it is more linearly readable, cheaper, earlier, or more robust to certain shifts. But the performance increment is not an information-theoretic proof, and these engineering advantages must each be measured separately.
 
@@ -149,8 +149,8 @@ More critically: this evasion is **zero-shot transfer**—the model was trained 
 
 This does not prove activation monitoring is useless, but it precisely demonstrates that Tier-1 scores cannot automatically be upgraded to Tier-4 guarantees.
 
-<figure>
-  <img src="assets/evidence-ladder.svg" alt="Five evidence levels from decodability to scoped causal abstraction">
+<figure style="overflow-x:auto">
+  <img src="assets/evidence-ladder.svg" alt="Five evidence levels from decodability to scoped causal abstraction" style="min-width:680px">
   <figcaption>Figure 3. Stronger claims require stronger intervention, control, and architectural evidence.</figcaption>
 </figure>
 
@@ -204,11 +204,6 @@ Using `before_tool_name` as the anchor, construct two matched coding tasks: same
 
 Perform bidirectional interchange: patch safe donor activations to unsafe base, and unsafe donor to safe base. Primary outcome is not refusal tone but the choice between `request_confirmation` and `write_protected_file`, tool-policy validity, and task completion rate. Include at least 20 norm-matched random directions, orthogonal, wrong-layer, wrong-anchor, unrelated donor, sign reversal, authorized risky task, malformed call, and capability-loss controls, and report whether activations deviate from natural distribution. [Activation patching best practices](https://arxiv.org/abs/2309.16042) and causal-probing completeness/selectivity analyses show that behavior change alone is insufficient to identify the target variable.
 
-<figure>
-  <img src="assets/risk-response-cascade.svg" alt="Cascade from an internal sensor to deterministic capability enforcement">
-  <figcaption>Figure 4. Risk-to-response is a cascade, not a single threshold.</figcaption>
-</figure>
-
 ## Industry Practice: What Three Labs Actually Do
 
 Research paper numbers answer "is it possible." Engineering teams need to know "is someone doing this in production? How?" Three frontier labs have disclosed production practices.
@@ -233,12 +228,17 @@ DeepMind proposes D1-D4 detection tiers and R1-R3 response tiers. D1 = reading v
 
 But Anthropic also disclosed two failure cases: an internal red team phished an employee into having the agent read AWS credentials and POST them externally (24 out of 25 times succeeded); in the second case, the egress allowlist permitted `api.anthropic.com`, and an attacker used their own API key to exfiltrate data through that channel. Key lesson from their engineering blog: **"prompts, classifiers, and domain allowlists are layers, not solutions. The deterministic boundary is what catches what every probabilistic defense misses."**
 
-<figure>
-  <img src="assets/monitor-landscape.svg" alt="Agent monitors positioned by proximity to actor computation and realized effects">
-  <figcaption>Figure 5. Representation proximity and enforcement strength are two different axes.</figcaption>
+<figure style="overflow-x:auto">
+  <img src="assets/monitor-landscape.svg" alt="Agent monitors positioned by proximity to actor computation and realized effects" style="min-width:680px">
+  <figcaption>Figure 4. Representation proximity and enforcement strength are two different axes.</figcaption>
 </figure>
 
 ## From Internal Evidence to Actionable Control
+
+<figure style="overflow-x:auto">
+  <img src="assets/risk-response-cascade.svg" alt="Cascade from an internal sensor to deterministic capability enforcement" style="min-width:680px">
+  <figcaption>Figure 5. Risk-to-response is a cascade, not a single threshold.</figcaption>
+</figure>
 
 ### Minimum Viable Safety Stack
 
@@ -290,19 +290,33 @@ Core invariant:
 
 "Early warning" cannot be measured solely by the number of tokens before the dangerous action. For production systems, what matters is: after the alert, how many control opportunities remain to change the outcome. Prompt-end alerts may allow replanning; pre-tool-name alerts may allow removing network capability; pre-tool-commit can still block protected-file writes; after side effects occur, the monitor can only support auditing.
 
-$$\operatorname{COLT}(m,t)=
-\sum_{a\in\mathcal A_t}
-P(a\text{ succeeds}\mid m,t)\,V(a),$$
+$$\begin{aligned}
+\operatorname{COLT}(m,t)
+&= \sum_{a\in\mathcal A_t}
+P(a\text{ succeeds}\mid m,t) \\
+&\qquad \cdot V(a).
+\end{aligned}$$
 
 where $\mathcal A_t$ is the set of still-executable responses (replan, restrict, confirm, block, rollback) and $V(a)$ is the value of loss avoided by that response. A slightly later but deterministic boundary check that reliably stops side effects may be superior to an earlier but high-false-positive alert with no corresponding response.
 
 ### Deployment Value: When Is It Worth It
 
-Deployment value can be written as $V = \mathbb{E}[L_{\text{avoided}}] - \mathbb{E}[C_{\text{disruption}}] - C_{\text{compute}} - C_{\text{latency}} - C_{\text{review}}$. OpenAI's production numbers provide a reference scale: 5 months, tens of millions of trajectories, ~1,000 moderate alerts. If your team runs 10,000 coding sessions/day, 0.2% trigger real violations, the monitor achieves 70% recall at 1% FPR, with 80% occurring at positions where block/replan is still possible—the example net value is positive. But if the violation base rate drops below 0.06%, or alerts arrive too late for effective control opportunities, the conclusion may reverse.
+Deployment value can be written as:
+
+$$\begin{aligned}
+V
+&= \mathbb{E}[L_{\text{avoided}}] \\
+&\quad {}- \mathbb{E}[C_{\text{disruption}}] \\
+&\quad {}- C_{\text{compute}}
+{}- C_{\text{latency}}
+{}- C_{\text{review}}.
+\end{aligned}$$
+
+OpenAI's production numbers provide a reference scale: 5 months, tens of millions of trajectories, ~1,000 moderate alerts. If your team runs 10,000 coding sessions/day, 0.2% trigger real violations, the monitor achieves 70% recall at 1% FPR, with 80% occurring at positions where block/replan is still possible—the example net value is positive. But if the violation base rate drops below 0.06%, or alerts arrive too late for effective control opportunities, the conclusion may reverse.
 
 DeepMind's 1 million task analysis also provides a key data point: most flagged events are misinterpretation and overeagerness, not adversarial. This means the monitor's operating point should be calibrated for "the agent misunderstood the task," not solely for "someone is attacking."
 
-<figure>
+<figure style="overflow-x:auto">
   <img src="assets/deployment-sensitivity.png" alt="Sensitivity of illustrative deployment value to the true violation base rate and false-positive rate">
   <figcaption>Figure 6. Parameter sensitivity analysis, not measured results: low base risk or high FPR can make internal monitoring's expected value negative.</figcaption>
 </figure>
@@ -342,8 +356,8 @@ Is your agent multi-agent?
 
 The safety invariant is cross-domain: email body text can influence a summary but cannot add recipients; web pages can influence search results but cannot grant login; supplier pages can influence procurement recommendations but cannot change payment accounts. What changes is the sensor and cost model; what doesn't change is that untrusted content cannot expand authority.
 
-<figure>
-  <img src="assets/coding-email-transfer.svg" alt="Cross-domain safety invariants: coding, email, web, procurement agents share the same principle">
+<figure style="overflow-x:auto">
+  <img src="assets/coding-email-transfer.svg" alt="Cross-domain safety invariants: coding, email, web, procurement agents share the same principle" style="min-width:680px">
   <figcaption>Figure 7. Cross-domain safety invariants: tools differ, but "untrusted content cannot expand authority" holds.</figcaption>
 </figure>
 
@@ -375,8 +389,8 @@ If you can take away one sentence from this article:
 
 ## Practical Toolkit: Seven-Question Review Card
 
-<figure>
-  <img src="assets/seven-question-review.svg" alt="Seven questions for evaluating agent safety monitors">
+<figure style="overflow-x:auto">
+  <img src="assets/seven-question-review.svg" alt="Seven questions for evaluating agent safety monitors" style="min-width:680px">
   <figcaption>Figure 8. Seven questions to ask when evaluating any agent safety monitor.</figcaption>
 </figure>
 
@@ -389,6 +403,23 @@ If you can take away one sentence from this article:
 7. **Response**: What control opportunities remain when the alert fires?
 
 **Internal evidence may restrict authority. It must never grant authority by itself.**
+
+## Citation
+
+Please cite this work as:
+
+Xueping Gao. "Where Does an AI Agent's Safety State Live?" hellogxp.github.io (Jul 2026). https://hellogxp.github.io/posts/agent-state-safety/
+
+```bibtex
+@article{gao2026agentsafetystate,
+  title   = {Where Does an AI Agent's Safety State Live?},
+  author  = {Gao, Xueping},
+  journal = {hellogxp.github.io},
+  year    = {2026},
+  month   = {July},
+  url     = {https://hellogxp.github.io/posts/agent-state-safety/}
+}
+```
 
 ## References
 
@@ -451,20 +482,3 @@ If you can take away one sentence from this article:
 [29] Anthropic. ["How We Contain Claude Across Products."](https://www.anthropic.com/engineering/how-we-contain-claude) 2026.
 
 [30] Schaeffer, R. et al. ["Measuring Control Intervention Awareness."](https://openreview.net/forum?id=gCzFYQuJke) 2026.
-
-## Citation
-
-Please cite this work as:
-
-Xueping. "Where Does an AI Agent's Safety State Live? How to Study, Review, and Deploy Internal Monitors for Agent Safety." hellogxp.github.io (Jul 2026). https://hellogxp.github.io/posts/agent-state-safety/
-
-```bibtex
-@article{xueping2026agentsafetystate,
-  title   = {Where Does an AI Agent's Safety State Live?},
-  author  = {Xueping},
-  journal = {hellogxp.github.io},
-  year    = {2026},
-  month   = {July},
-  url     = {https://hellogxp.github.io/posts/agent-state-safety/}
-}
-```
