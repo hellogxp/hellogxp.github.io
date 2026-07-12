@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="430" viewBox="0 0 780 430">
+  <defs>
+    <style>
+      text { font-family: "Helvetica Neue", Arial, sans-serif; fill: #2C3E50; }
+      .title { font-size: 20px; font-weight: 600; }
+      .head { font-size: 14px; font-weight: 600; }
+      .body { font-size: 12px; }
+      .small { font-size: 11px; fill: #6b7280; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#4C72B0"/>
+    </marker>
+  </defs>
+  <rect width="780" height="430" fill="#fff"/>
+  <text x="390" y="30" text-anchor="middle" class="title">Model calls end; Agent state continues elsewhere</text>
+
+  <text x="28" y="72" class="head">Transient model computation</text>
+  <g>
+    <rect x="45" y="92" width="180" height="86" rx="10" fill="#dceaf7" stroke="#4C72B0"/>
+    <text x="135" y="117" text-anchor="middle" class="head">Call 1 · Read</text>
+    <text x="135" y="140" text-anchor="middle" class="body">residual activations</text>
+    <text x="135" y="160" text-anchor="middle" class="small">anchor: prompt end</text>
+    <rect x="300" y="92" width="180" height="86" rx="10" fill="#dceaf7" stroke="#4C72B0"/>
+    <text x="390" y="117" text-anchor="middle" class="head">Call 2 · Plan</text>
+    <text x="390" y="140" text-anchor="middle" class="body">residual activations</text>
+    <text x="390" y="160" text-anchor="middle" class="small">anchor: before command</text>
+    <rect x="555" y="92" width="180" height="86" rx="10" fill="#dceaf7" stroke="#4C72B0"/>
+    <text x="645" y="117" text-anchor="middle" class="head">Call 3 · Act</text>
+    <text x="645" y="140" text-anchor="middle" class="body">residual activations</text>
+    <text x="645" y="160" text-anchor="middle" class="small">anchor: tool commit</text>
+    <line x1="225" y1="135" x2="300" y2="135" stroke="#95A5A6" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <line x1="480" y1="135" x2="555" y2="135" stroke="#95A5A6" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="262" y="124" text-anchor="middle" class="small">boundary</text>
+    <text x="517" y="124" text-anchor="middle" class="small">boundary</text>
+  </g>
+
+  <text x="28" y="220" class="head">Cross-call carriers</text>
+  <rect x="45" y="238" width="690" height="42" rx="9" fill="#e7f5ec" stroke="#82B894"/>
+  <text x="68" y="264" class="body">Serialized history / generated plan</text>
+  <line x1="278" y1="259" x2="710" y2="259" stroke="#4C72B0" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="45" y="292" width="690" height="42" rx="9" fill="#e7f5ec" stroke="#82B894"/>
+  <text x="68" y="318" class="body">Workspace / git diff / tool results</text>
+  <line x1="278" y1="313" x2="710" y2="313" stroke="#4C72B0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="360" width="690" height="48" rx="10" fill="#fff1d6" stroke="#F5B041"/>
+  <text x="70" y="389" class="head">Authority boundary</text>
+  <text x="220" y="389" class="body">shell · filesystem · network · commit gate</text>
+  <text x="710" y="389" text-anchor="end" class="small">deterministic enforcement</text>
+</svg>
