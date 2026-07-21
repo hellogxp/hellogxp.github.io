@@ -1,5 +1,5 @@
 ---
-title: "Agent Evaluation Is Not a Benchmark: It Is Regression Memory"
+title: "Agent Evaluation as Regression Memory"
 date: 2026-07-21
 author: "Xueping Gao"
 tags: ["LLM-agents", "evaluation", "reliability", "AgentOps", "regression-testing"]
@@ -613,11 +613,11 @@ That is why regression memory is a better mental model than benchmark optimizati
 
 Please cite this work as:
 
-Xueping Gao. "Agent Evaluation Is Not a Benchmark: It Is Regression Memory." hellogxp.github.io (July 2026). https://hellogxp.github.io/posts/agent-evaluation-regression-memory/
+Xueping Gao. "Agent Evaluation as Regression Memory." hellogxp.github.io (July 2026). https://hellogxp.github.io/posts/agent-evaluation-regression-memory/
 
 ```bibtex
 @article{gao2026regressionmemory,
-  title   = {Agent Evaluation Is Not a Benchmark: It Is Regression Memory},
+  title   = {Agent Evaluation as Regression Memory},
   author  = {Gao, Xueping},
   journal = {hellogxp.github.io},
   year    = {2026},
