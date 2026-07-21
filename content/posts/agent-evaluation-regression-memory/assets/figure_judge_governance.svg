@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="380" viewBox="0 0 780 380" role="img" aria-labelledby="title desc">
+  <title id="title">Judge governance and calibration loop</title>
+  <desc id="desc">Rules and LLM judges produce scores, uncertain cases go to experts, and expert labels recalibrate the judge.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, sans-serif; fill: #2c3e50; }
+      .heading { font-size: 18px; font-weight: 650; }
+      .label { font-size: 13px; font-weight: 650; }
+      .detail { font-size: 11px; fill: #66717d; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse" overflow="visible"><path d="M1 1 L9 5 L1 9 Z" fill="#61717f"/></marker>
+  </defs>
+  <rect width="780" height="380" fill="#ffffff"/>
+  <text x="390" y="34" class="heading" text-anchor="middle">A judge earns authority through calibration</text>
+  <rect x="45" y="90" width="120" height="62" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="105" y="116" class="label" text-anchor="middle">Trace + outcome</text>
+  <text x="105" y="135" class="detail" text-anchor="middle">same evidence contract</text>
+  <rect x="220" y="68" width="132" height="62" rx="8" fill="#d9efdf" stroke="#92c5a0"/>
+  <text x="286" y="94" class="label" text-anchor="middle">Code checks</text>
+  <text x="286" y="113" class="detail" text-anchor="middle">objective invariants</text>
+  <rect x="220" y="156" width="132" height="62" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+  <text x="286" y="182" class="label" text-anchor="middle">LLM judge</text>
+  <text x="286" y="201" class="detail" text-anchor="middle">semantic rubric</text>
+  <line x1="170" y1="121" x2="214" y2="99" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="170" y1="121" x2="214" y2="185" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="410" y="90" width="144" height="106" rx="8" fill="#f5f7f9" stroke="#bdc3c7"/>
+  <text x="482" y="116" class="label" text-anchor="middle">Decision layer</text>
+  <text x="482" y="141" class="detail" text-anchor="middle">agreement</text>
+  <text x="482" y="159" class="detail" text-anchor="middle">confidence / abstention</text>
+  <text x="482" y="177" class="detail" text-anchor="middle">risk-weighted threshold</text>
+  <line x1="357" y1="100" x2="404" y2="122" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="357" y1="187" x2="404" y2="164" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="616" y="90" width="120" height="62" rx="8" fill="#eadff0" stroke="#b8a2c3"/>
+  <text x="676" y="116" class="label" text-anchor="middle">Automation</text>
+  <text x="676" y="135" class="detail" text-anchor="middle">within authority</text>
+  <line x1="559" y1="121" x2="610" y2="121" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="410" y="270" width="144" height="68" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+  <text x="482" y="296" class="label" text-anchor="middle">Expert review</text>
+  <text x="482" y="315" class="detail" text-anchor="middle">boundary + novel cases</text>
+  <path d="M482 202 L482 264" fill="none" stroke="#61717f" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="499" y="239" class="detail">uncertain</text>
+  <path d="M404 304 H382 V344 H286 V224" fill="none" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="334" y="367" class="detail" text-anchor="middle">expert labels recalibrate the judge contract</text>
+</svg>

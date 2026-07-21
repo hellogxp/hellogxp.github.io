@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="360" viewBox="0 0 780 360" role="img" aria-labelledby="title desc">
+  <title id="title">Benchmark versus regression memory</title>
+  <desc id="desc">A benchmark ends in a score, while production failures feed a continuous engineering loop.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, sans-serif; fill: #2c3e50; }
+      .heading { font-size: 18px; font-weight: 650; }
+      .label { font-size: 13px; font-weight: 600; }
+      .detail { font-size: 11px; fill: #66717d; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse" overflow="visible">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#61717f"/>
+    </marker>
+  </defs>
+  <rect width="780" height="360" fill="#ffffff"/>
+  <text x="195" y="38" class="heading" text-anchor="middle">Benchmark</text>
+  <text x="585" y="38" class="heading" text-anchor="middle">Regression memory</text>
+  <rect x="32" y="62" width="326" height="246" rx="8" fill="#f5f7f9" stroke="#bdc3c7"/>
+  <rect x="422" y="62" width="326" height="246" rx="8" fill="#fef9e7" stroke="#bdc3c7"/>
+  <rect x="68" y="105" width="94" height="54" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="115" y="128" class="label" text-anchor="middle">Fixed tasks</text>
+  <text x="115" y="145" class="detail" text-anchor="middle">run once</text>
+  <line x1="164" y1="132" x2="215" y2="132" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="220" y="105" width="102" height="54" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="271" y="128" class="label" text-anchor="middle">Aggregate</text>
+  <text x="271" y="145" class="detail" text-anchor="middle">score</text>
+  <line x1="271" y1="162" x2="271" y2="211" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="220" y="217" width="102" height="50" rx="8" fill="#e6e7e9" stroke="#b4b8bc"/>
+  <text x="271" y="247" class="label" text-anchor="middle">Leaderboard</text>
+  <text x="195" y="290" class="detail" text-anchor="middle">Comparison is the terminal output</text>
+  <rect x="452" y="92" width="94" height="52" rx="8" fill="#f8d8d8" stroke="#d9a2a2"/>
+  <text x="499" y="115" class="label" text-anchor="middle">Failure</text>
+  <text x="499" y="132" class="detail" text-anchor="middle">trace</text>
+  <rect x="624" y="92" width="94" height="52" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+  <text x="671" y="115" class="label" text-anchor="middle">Judgment</text>
+  <text x="671" y="132" class="detail" text-anchor="middle">calibrated</text>
+  <rect x="624" y="221" width="94" height="52" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="671" y="244" class="label" text-anchor="middle">Replayable</text>
+  <text x="671" y="261" class="detail" text-anchor="middle">case</text>
+  <rect x="452" y="221" width="94" height="52" rx="8" fill="#d9efdf" stroke="#92c5a0"/>
+  <text x="499" y="244" class="label" text-anchor="middle">Release</text>
+  <text x="499" y="261" class="detail" text-anchor="middle">control</text>
+  <line x1="550" y1="118" x2="619" y2="118" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="671" y1="148" x2="671" y2="216" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="619" y1="247" x2="551" y2="247" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="499" y1="215" x2="499" y2="151" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="585" y="296" class="detail" text-anchor="middle">Every shipped fix creates evidence for the next change</text>
+</svg>
