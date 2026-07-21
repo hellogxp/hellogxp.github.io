@@ -10,7 +10,7 @@ summary: "Benchmarks compare agents. Production evaluation must remember failure
 
 In the original [tau-bench experiments](https://arxiv.org/abs/2406.12045), state-of-the-art function-calling agents succeeded on **fewer than 50% of tasks**. That number was already sobering. The more revealing result appeared when the same task was run repeatedly: in retail, the probability of succeeding in all eight trials, $\text{pass}^8$, fell below **25%**.
 
-One agent can therefore look capable on a leaderboard and still be unreliable for a user who expects the same policy to work every time.
+An agent can therefore look capable on a leaderboard and still be unreliable for a user who expects the same policy to work every time.
 
 This is the central mismatch in agent evaluation. A benchmark asks, "How well does this system perform on a fixed task set?" A production team needs answers to a different set of questions:
 
@@ -24,7 +24,7 @@ My thesis is simple:
 
 **Production agent evaluation is the process of turning traces into regression memory.**
 
-Benchmarks compare agents. Regression memory improves them. It captures a failure as versioned evidence, attaches a defensible judgment, converts it into a replayable test, and gives the result an explicit role in release control.
+Benchmarks compare agents. Regression memory improves the engineering system around them. It captures a failure as versioned evidence, attaches a defensible judgment, converts it into a replayable test, and gives the result an explicit role in release control.
 
 <figure>
 <a href="assets/figure_benchmark_memory.svg" target="_blank" rel="noopener" title="Open full-size figure" style="display:block;box-shadow:none;text-decoration:none;border:0">
@@ -35,7 +35,7 @@ Benchmarks compare agents. Regression memory improves them. It captures a failur
 
 This article develops that loop through four layers: **Evidence, Judgment, Memory, and Authority**. The framework is deliberately tool-agnostic. Products such as [LangSmith](https://docs.langchain.com/langsmith/evaluation), [MLflow](https://www.mlflow.org/docs/latest/genai/eval-monitor/running-evaluation/traces/), and OpenAI's [trace grading](https://platform.openai.com/docs/guides/trace-grading) can implement parts of it, but no dashboard can decide what your system must never forget.
 
-This argument is adjacent to, but different from, Lilian Weng's [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/). Her article asks how a harness can preserve failed attempts, mine verifier-grounded failure patterns, and improve itself without letting the editable system control its own evaluator. This article focuses on the control plane around that loop: **what evidence must exist before a stochastic, acting system is allowed to change or ship**. Self-improvement proposes changes. Regression memory determines which changes have earned authority.
+This argument is adjacent to, but different from, Lilian Weng's [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/). Her article asks how a harness can preserve failed attempts, mine verifier-grounded failure patterns, and improve itself without letting the editable system control its own evaluator. This article focuses on the control plane around that loop: **what evidence must exist before a stochastic system that acts on an environment is allowed to change or ship**. Self-improvement proposes changes. Regression memory determines which changes have earned authority.
 
 ## A Benchmark Is a Snapshot, Not a Control System
 
@@ -52,14 +52,14 @@ Benchmarks have done essential work for agents. [WebArena](https://arxiv.org/abs
 
 But these numbers do not tell a product team whether yesterday's prompt change broke refunds for premium customers. They cannot tell whether a successful final response hid an unauthorized side effect. They do not preserve the database state, retrieved documents, tool versions, or approval decisions required to reproduce a production incident.
 
-The difference is not public benchmark versus private benchmark. A private collection of 500 prompts is still just a benchmark if it is periodically run, summarized into one score, and then forgotten.
+The distinction is not between a public benchmark and a private one. A private collection of 500 prompts is still just a benchmark if it is periodically run, summarized into one score, and then forgotten.
 
 The operational difference is whether the evaluation has a feedback path:
 
 1. A real or anticipated failure produces structured evidence.
 2. A grader makes a calibrated, reviewable judgment.
 3. The failure becomes a versioned regression case.
-4. The case receives authority over CI, canary, rollback, or human review.
+4. The case is assigned an explicit role in CI gating, canary deployment, rollback, or human review.
 
 This leads to a useful distinction:
 
@@ -67,7 +67,7 @@ This leads to a useful distinction:
 
 [Anthropic's agent-eval guidance](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) makes a similar operational distinction: capability suites should contain difficult tasks with room to improve, while regression suites should approach 100% pass rates and run continuously. A capability case can "graduate" into regression protection once the system reliably handles it.
 
-That transition is the beginning of memory. It is not yet the complete system.
+That transition is the beginning of memory. It is not yet the complete control system.
 
 ## Four Layers: Evidence, Judgment, Memory, Authority
 
@@ -85,7 +85,7 @@ The separation matters because teams frequently compress all four layers into on
 - The evaluator saw the relevant state and actions.
 - A score of 0.72 corresponds to the failure property we care about.
 - The run can be reconstructed under a future candidate.
-- 0.72 has enough decision value to permit or reject a deployment.
+- A score of 0.72 provides enough evidence to permit or reject a deployment.
 
 The rest of this article examines each contract in order.
 
@@ -185,7 +185,7 @@ A useful first-pass taxonomy follows the state transitions of the system:
 - **Recovery**: a recoverable error became a terminal or repeated failure.
 - **Response grounding**: the final claim did not match the realized state.
 
-This taxonomy should point to an owner and a candidate fix, not merely decorate a dashboard. Root cause remains a hypothesis until a controlled change or replay distinguishes competing explanations.
+This taxonomy should point to an owner and a candidate fix, not merely decorate a dashboard. The root cause remains a hypothesis until a controlled change or replay distinguishes competing explanations.
 
 ## Judgment: A Grader Is a Measurement Instrument
 
@@ -207,7 +207,7 @@ These graders handle variation, but they introduce a second stochastic model int
 
 ### Human Graders
 
-Use domain experts for ambiguous, high-impact, novel, or disputed cases. Human review is not automatically ground truth: reviewers disagree, fatigue, and may lack access to the actual environment state. But carefully designed expert labels remain the reference needed to calibrate automated graders.
+Use domain experts for ambiguous, high-impact, novel, or disputed cases. Human review is not automatically ground truth: reviewers can disagree, become fatigued, or lack access to the actual environment state. But carefully designed expert labels remain the reference needed to calibrate automated graders.
 
 The engineering answer is a cascade, not a winner:
 
@@ -227,7 +227,7 @@ deterministic invariant
 
 ### Calibration Before Automation
 
-Before a judge can influence deployment, construct a calibration set that over-samples consequential boundary cases. For a binary property, report the confusion matrix rather than only agreement or correlation:
+Before a judge can influence deployment, construct a calibration set that over-samples consequential boundary cases. For a binary property, report the confusion matrix rather than reporting only agreement or correlation:
 
 ```text
                          Expert: fail   Expert: pass
@@ -237,12 +237,12 @@ Judge: pass              false pass     true pass
 
 The two errors have different costs. A false fail wastes review and blocks valid changes. A false pass lets a regression through. For an irreversible financial action, false-pass risk dominates. For a style preference, false-fail cost may dominate.
 
-Calibration must therefore be slice-specific and cost-sensitive. Suppose an intentionally hard refund-policy calibration slice contains 200 expert-labeled traces, including 40 actual policy failures. If the judge passes six of those failures, its failure recall is 85%, but the operational fact is sharper: **15% of known failures escaped the automated gate**. Even a high aggregate agreement score cannot justify release authority if the tolerated false-pass rate for irreversible payments is 1%. The correct response is to tighten the rubric, add deterministic state checks, or route this slice to expert review, not to average it with easy cases.
+Calibration must therefore be slice-specific and cost-sensitive. Suppose an intentionally hard refund-policy calibration slice contains 200 expert-labeled traces, including 40 actual policy failures. If the judge passes six of those failures, its failure recall is 85%, but the operational fact is sharper: **15% of known failures escaped the automated gate**. Even a high aggregate agreement score cannot justify release authority if the tolerated false-pass rate for irreversible payments is 1%. The correct response is to tighten the rubric, add deterministic state checks, or route this slice to expert review rather than average it with easy cases.
 
 A production judge contract should record:
 
 - the exact rubric and judge model version;
-- what information the judge receives relative to the acting agent;
+- which information is available to the judge but not to the acting agent;
 - precision and recall on each risk slice, not only aggregate accuracy;
 - an abstention region for insufficient or conflicting evidence;
 - the sampling policy for human review;
@@ -252,7 +252,7 @@ Information parity deserves special attention. If the judge sees a reference ans
 
 The practical rule is:
 
-**A judge may have broader evidence than the agent, but the rubric must distinguish outcome correctness from decision quality under the information available at that step.**
+**A judge may have broader evidence than the agent, but the rubric must distinguish outcome correctness from decision quality given the information available at that step.**
 
 ## Stochastic Regression Requires Statistical Decisions
 
@@ -279,9 +279,9 @@ At $p=0.75$, three attempts produce $\text{pass@}3 \approx 98.4\%$ but $\text{pa
 <figcaption>Figure 6: More attempts make discovery look better and repeated reliability look worse. The curves assume independent trials with per-trial success probability 0.75.</figcaption>
 </figure>
 
-This has a direct implication for CI: **a single replay cannot establish non-regression for a stochastic agent.**
+This has a direct implication for continuous integration: **a single replay cannot establish non-regression for a stochastic agent.**
 
-Let $p_b$ be the baseline success probability and $p_c$ the candidate probability on the same regression slice, with $\Delta=p_c-p_b$. Define the acceptable regression budget as $\delta$. A non-inferiority gate should ship only when the lower confidence bound for the difference remains above the allowed loss:
+Let $p_b$ be the baseline success probability and $p_c$ the candidate probability on the same regression slice, with $\Delta=p_c-p_b$. Define the acceptable regression budget as $\delta$. A non-inferiority gate should permit shipping only when the lower confidence bound for the difference remains above the allowed loss:
 
 $$
 \operatorname{LCB}_{1-\alpha}(\Delta) > -\delta.
@@ -297,7 +297,7 @@ This naturally creates three verdicts:
 
 ### A Paired Non-Inferiority Example
 
-Consider 160 replay fixtures, each run once against the baseline and once against the candidate under matched environment conditions. The paired outcomes are:
+Consider 160 replay fixtures, each run once with the baseline and once with the candidate under matched environment conditions. The paired outcomes are:
 
 ```text
                                       Candidate pass   Candidate fail
@@ -311,7 +311,7 @@ $$
 \widehat{\Delta} = \frac{5-11}{160} = -0.0375.
 $$
 
-Using a normal approximation for illustration, the 95% paired interval is approximately $[-8.6, 1.1]$ percentage points. If the predeclared regression budget is $\delta=2$ points, the result is **INCONCLUSIVE**: the lower bound does not establish non-inferiority, but the upper bound does not establish a harmful regression either. Shipping because the ordinary difference test is "not significant" would confuse absence of evidence with evidence of non-inferiority.
+Using a normal approximation for illustration, the 95% paired interval is approximately $[-8.6, 1.1]$ percentage points. If the predeclared regression budget is $\delta=2$ points, the result is **INCONCLUSIVE**: the lower bound does not establish non-inferiority, but the upper bound does not establish a harmful regression either. Shipping because a conventional two-sided difference test is "not significant" would confuse absence of evidence with evidence of non-inferiority.
 
 <figure>
 <a href="assets/figure_paired_gate.png" target="_blank" rel="noopener" title="Open full-size figure" style="display:block;box-shadow:none;text-decoration:none;border:0">
@@ -322,14 +322,14 @@ Using a normal approximation for illustration, the 95% paired interval is approx
 
 For paired binary outcomes, inference should use [methods designed for matched proportions](https://pmc.ncbi.nlm.nih.gov/articles/PMC9447366/), such as an appropriate paired interval or bootstrap over independent fixtures. The pairing matters: it controls task difficulty and focuses the estimate on cases where behavior changed. The confidence procedure must match the design rather than treating 320 runs as independent Bernoulli samples.
 
-The independence assumption is also easy to break. Repeated runs that share a mutable sandbox, cached retrieval, user-simulator state, or a seed family are clustered observations. In that case, resample or model the independent unit, usually the task-environment fixture, rather than individual trajectories. Otherwise the interval will be too narrow.
+The independence assumption is also easy to break. Repeated runs that share a mutable sandbox, cached retrieval, user-simulator state, or a seed family are clustered observations. In that case, resample at, or explicitly model, the independent unit, usually the task-environment fixture, rather than individual trajectories. Otherwise the interval will be too narrow.
 
 Two more rules prevent statistical theater:
 
 - **Predeclare sequential decisions.** Recomputing an ordinary 95% interval after every batch and stopping when it passes inflates the false-positive rate. Use a fixed maximum budget with an alpha-spending design, a sequential probability ratio test, or another anytime-valid procedure.
-- **Protect risk slices from aggregation.** Testing many tools, segments, and failure modes creates multiple-comparison risk. Critical invariants should remain separate gates; exploratory slices need a declared family-wise or false-discovery policy. A global average must never compensate for a known critical regression.
+- **Protect risk slices from aggregation.** Testing many tools, segments, and failure modes creates multiple-comparison risk. Critical invariants should remain separate gates; exploratory slices need a declared family-wise error-rate or false-discovery-rate policy. A global average must never compensate for a known critical regression.
 
-There is no universal value of $k$. Trial budget depends on the smallest harmful regression $\delta$, baseline reliability, desired confidence and power, clustering, and decision cost. Estimate those quantities before the run; do not choose eight trials merely because an example configuration contains eight.
+There is no universal value of $k$. The trial budget depends on the smallest harmful regression $\delta$, baseline reliability, desired confidence and power, clustering, and decision cost. Estimate those quantities before the run; do not choose eight trials merely because an example configuration contains eight.
 
 [AgentAssay](https://arxiv.org/abs/2603.02601), a 2026 technical report focused on stochastic agent regression testing, formalizes this three-valued approach and CI/CD gates as statistical decision procedures. Across 7,605 trials, it reports that sequential testing reduced required trials by **78%**, while behavioral trace fingerprints detected regressions with **86% power** in a setting where binary pass-rate testing detected none. These are early technical-report results rather than a settled industry standard, but they expose the right problem: binary outcomes can miss behavioral drift, and fixed trial counts waste budget on stable cases.
 
@@ -344,7 +344,7 @@ For production systems, the minimum statistical discipline is:
 
 ## Coverage Is a Model of the Failure Surface
 
-Evaluation coverage measures which ways the system can fail, not how many prompts are in a dataset. A suite of 10,000 near-duplicate happy paths may cover less than 50 carefully selected state transitions.
+Evaluation coverage measures the ways in which the system can fail, not how many prompts are in a dataset. A suite of 10,000 near-duplicate happy paths may cover less than 50 carefully selected state transitions.
 
 A useful coverage model for agents is multi-dimensional:
 
@@ -367,7 +367,7 @@ In plain language:
 
 [AgentAssay](https://arxiv.org/abs/2603.02601) proposes a related five-dimensional tuple over tools, paths, states, boundaries, and models. The important idea is that aggregate task count is not a defensible coverage metric.
 
-Coverage becomes actionable when connected to mutation testing. If you deliberately remove a required identity check, corrupt a tool result, rename a schema field, duplicate a retry, or inject stale memory, does at least one evaluator fail? If not, the suite has a blind spot even when every existing test passes.
+Coverage becomes actionable when connected to mutation testing. If you deliberately remove a required identity check, corrupt a tool result, rename a schema field, duplicate a retry, or inject stale memory, does at least one test or grader reject the run? If not, the suite has a blind spot even when every existing test passes.
 
 This borrows a mature idea from software testing: mutation testing evaluates a test suite by injecting plausible faults and measuring whether tests detect them. The classic survey by [Jia and Harman](https://doi.org/10.1109/TSE.2010.62) treats mutation score as evidence about fault-detection effectiveness, not as proof of correctness. Agent systems extend the mutation surface beyond code into prompts, context, tools, state, orchestration, and models.
 
@@ -377,16 +377,16 @@ Useful agent mutations include:
 
 - prompt mutation: remove or contradict a key instruction;
 - tool mutation: change a schema, permission, timeout, or return value;
-- context mutation: omit, duplicate, poison, or stale a retrieved fact;
+- context mutation: omit or duplicate a retrieved fact, replace it with a stale version, or inject poisoned context;
 - state mutation: start from a partial or conflicting environment state;
 - orchestration mutation: reorder steps, skip approval, or repeat an action;
-- model mutation: change provider, checkpoint, or sampling policy.
+- model mutation: change the provider, checkpoint, or sampling policy.
 
 The goal is not exhaustive Cartesian-product testing. It is a risk-weighted map showing which important failure mechanisms have evidence and which remain assumptions.
 
 ## Memory: A Failure Must Become a Versioned Asset
 
-Regression memory is a versioned collection of failures, expected behavior, replay fixtures, graders, and decision policies. A trace becomes memory only when a future system can use it to prevent recurrence.
+Regression memory is a versioned collection of failure cases, expected behavior, replay fixtures, graders, and decision policies. A trace becomes memory only when a future system can use it to prevent recurrence.
 
 A screenshot in an incident ticket is not regression memory. Neither is a trace URL that expires in 30 days. The minimum durable object looks like this:
 
@@ -426,9 +426,9 @@ regression_case:
 
 <figure>
 <a href="assets/figure_regression_lifecycle.svg" target="_blank" rel="noopener" title="Open full-size figure" style="display:block;box-shadow:none;text-decoration:none;border:0">
-<img src="assets/figure_regression_lifecycle.svg" alt="Regression memory lifecycle from production trace through triage, replay fixture, validation, release gate, and monitoring" style="max-width:760px;width:100%;display:block;margin:0 auto" loading="lazy">
+<img src="assets/figure_regression_lifecycle.svg" alt="Regression memory lifecycle from detection through triage, minimization, replay, promotion, and recurrence monitoring" style="max-width:760px;width:100%;display:block;margin:0 auto" loading="lazy">
 </a>
-<figcaption>Figure 8: Regression memory is curated, not automatic. Ambiguous traces return to review; validated failures become durable release evidence.</figcaption>
+<figcaption>Figure 8: Regression memory is curated, not automatic. Noise and grader errors are not promoted; validated failures become durable release evidence.</figcaption>
 </figure>
 
 The promotion process matters. Not every bad-looking trace should become a permanent test:
@@ -446,7 +446,7 @@ This curation prevents two pathologies. The first is **noise accumulation**, whe
 
 OpenAI describes a concrete production version of this loop in its work on [self-improving tax agents](https://openai.com/index/building-self-improving-tax-agents-with-codex/): practitioner corrections are compared with system outputs, recurring differences are grouped to separate product failures from workflow noise, actionable patterns become targeted evals, and fixes are validated against broader regression suites. The key design choice is that a correction does not automatically become a task. It first becomes reviewed evidence.
 
-Weng's harness framework pushes the same principle into self-improving systems: negative results are retained, failures are grouped by causal mechanism, proposed harness edits state both expected fixes and regressions at risk, and held-out evaluators remain outside the editable loop. Regression memory supplies the release contract for that architecture. A self-generated patch is still only a candidate until independent evidence shows that it repaired the target mechanism without spending an unacceptable risk budget elsewhere.
+Weng's harness framework pushes the same principle into self-improving systems: negative results are retained, failures are grouped by causal mechanism, proposed harness edits state both the failures they are expected to fix and the regressions they may introduce, and held-out evaluators remain outside the editable loop. Regression memory supplies the release contract for that architecture. A self-generated patch is still only a candidate until independent evidence shows that it repaired the target mechanism without exceeding the risk budget elsewhere.
 
 ## Authority: Not Every Score Should Block a Release
 
@@ -462,11 +462,11 @@ Use for deterministic, high-impact invariants with low evaluator ambiguity: unau
 
 ### Statistical Block or Review
 
-Use for repeated stochastic regressions where the confidence bound exceeds a predeclared risk budget. High-impact slices route inconclusive results to expert review instead of silently passing.
+Use for stochastic properties evaluated through repeated trials and a predeclared non-inferiority gate. High-impact slices route inconclusive results to expert review instead of silently passing.
 
 ### Warning and Canary
 
-Use for calibrated but subjective quality signals, cost increases, trajectory inefficiency, and new failure clusters. Deploy to limited traffic, compare business outcomes, and preserve rollback capability.
+Use for calibrated but subjective quality signals, cost increases, trajectory inefficiency, and new failure clusters. Deploy to a limited traffic slice, compare business outcomes, and preserve rollback capability.
 
 ### Shadow Monitoring
 
@@ -504,7 +504,7 @@ def decide_release(candidate, baseline, cases):
     return "SHIP"
 ```
 
-The exact statistical interval is less important than declaring the decision rule before looking at the candidate. Otherwise, teams move thresholds until a preferred release passes.
+The interval estimator must match the experimental design, but the decision rule must also be declared before the candidate is examined. Otherwise, teams move thresholds until a preferred release passes.
 
 Offline eval, CI gating, and online monitoring also have different jobs:
 
@@ -518,17 +518,17 @@ Offline eval, CI gating, and online monitoring also have different jobs:
 
 The refund scenario can now be carried through the complete loop.
 
-**1. Evidence.** A production trace shows that the agent called `process_refund`, received a timeout, retried without an idempotency key, and produced two successful ledger entries. Its final response claimed one refund. The failed span is not the response generation; it is the transition from uncertain tool outcome to retry. The trace retains tool request IDs, timeout metadata, ledger state, model and prompt versions, and the approval decision, with customer identifiers redacted.
+**1. Evidence.** A production trace shows that the agent called `process_refund`, received a timeout, retried without an idempotency key, and produced two successful ledger entries. Its final response claimed one refund. The failed span is not the response generation; it is the transition from an uncertain tool outcome to an unreconciled retry. The trace retains tool request IDs, timeout metadata, ledger state, model and prompt versions, and the approval decision, with customer identifiers redacted.
 
-**2. Judgment.** Two deterministic graders assert `refund_count == 1` and reuse of an idempotency key across retries. A semantic judge checks whether the final response is grounded in the ledger state, but it does not decide whether money moved twice. On a labeled slice of timeout and retry traces, the semantic judge's false-pass rate is measured separately from ordinary refunds. Disagreements and abstentions go to payments experts.
+**2. Judgment.** Two deterministic graders assert `refund_count == 1` and that the same idempotency key is reused across retries. A semantic judge checks whether the final response is grounded in the ledger state, but it does not decide whether money moved twice. On a labeled slice of timeout and retry traces, the semantic judge's false-pass rate is measured separately from non-timeout refunds. Disagreements and abstentions go to payments experts.
 
-**3. Memory.** Triage rules out a duplicated webhook and reproduces the defect in an isolated billing simulator. The minimal fixture contains one eligible order, a first call that commits but times out before acknowledgement, and a retry. The durable case records the invariant, failed transition, simulator snapshot, relevant versions, grader contracts, owner, and why the test exists. A prompt-only fix that merely changes the final wording cannot pass the state grader.
+**3. Memory.** Triage rules out a duplicated webhook and reproduces the defect in an isolated billing simulator. The minimal fixture contains one eligible order, a first call that commits but times out before acknowledgment, and a retry. The durable case records the invariant, failed transition, simulator snapshot, relevant versions, grader contracts, owner, and why the test exists. A prompt-only fix that merely changes the final wording cannot pass the state grader.
 
-**4. Candidate comparison.** The proposed harness change adds an idempotency key and a read-after-timeout reconciliation step. Baseline and candidate run on matched copies of the fixture, including timeout timing variants. The critical duplicate-refund invariant is zero tolerance and blocks on a single reproducible violation. Recovery success is stochastic, so it uses a paired non-inferiority interval and returns `PASS`, `FAIL`, or `INCONCLUSIVE`. The broader suite also checks that reconciliation does not create unacceptable latency or block legitimate second refunds.
+**4. Candidate comparison.** The proposed harness change adds an idempotency key and a read-after-timeout reconciliation step. The baseline and candidate are run on matched copies of the fixture, including timeout timing variants. The critical duplicate-refund invariant has zero tolerance: a single reproducible violation blocks release. Recovery success is stochastic, so it uses a paired non-inferiority interval and returns `PASS`, `FAIL`, or `INCONCLUSIVE`. The broader suite also checks that reconciliation does not create unacceptable latency or block legitimate second refunds.
 
-**5. Authority and online confirmation.** A candidate that violates the state invariant is blocked regardless of aggregate score. An inconclusive recovery result receives more trials or expert review; it is not silently passed. A statistically acceptable candidate enters a low-volume canary with duplicate-ledger monitoring and automatic rollback. Only after the online outcome matches the offline contract does the change graduate, while the original incident remains a permanent regression asset.
+**5. Authority and online confirmation.** A candidate that violates the state invariant is blocked regardless of aggregate score. An inconclusive recovery result triggers additional trials or expert review; it is not silently passed. A statistically acceptable candidate enters a low-volume canary deployment with duplicate-ledger monitoring and automatic rollback. Only after the online outcome matches the offline contract does the change graduate, while the original incident remains a permanent regression asset.
 
-This example exposes why an eval is not merely a scorer. The useful artifact is the chain of custody from production state, through a calibrated decision, into a replayable case with explicit power over deployment.
+This example exposes why an eval is not merely a scorer. The useful artifact is the chain of custody that connects production state to a calibrated decision, a replayable case, and explicit deployment authority.
 
 ## A Minimum Viable Agent Evaluation Loop
 
