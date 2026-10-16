@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="640" viewBox="0 0 440 640">
+  <defs>
+    <style>
+      text { font-family: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif; }
+      .overline { font-size: 11px; font-weight: 600; letter-spacing: 2px; fill: #8C8C8C; }
+      .step { font-size: 16px; font-weight: 600; fill: #2C3E50; }
+      .sub { font-size: 12px; fill: #8C8C8C; }
+      .badge { font-size: 11px; font-weight: 700; fill: #FFFFFF; }
+      .takeaway { font-size: 13px; font-weight: 600; fill: #2C3E50; }
+      .note { font-size: 11.5px; fill: #8C8C8C; }
+      .abstain { font-size: 13px; font-weight: 600; fill: #C44E52; }
+      .die { font-size: 13px; font-weight: 600; fill: #C44E52; }
+    </style>
+    <marker id="arrv" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#2C3E50"/>
+    </marker>
+    <marker id="arrv-red" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#C44E52"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="220" y="26" text-anchor="middle" class="overline">THE ROAD FROM A SCORE TO AN ALARM</text>
+
+  <!-- step 1 -->
+  <rect x="70" y="46" width="300" height="66" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="112" y="76" class="step">1. Specify</text>
+  <text x="112" y="97" class="sub">target, unit, horizon</text>
+  <line x1="220" y1="116" x2="220" y2="136" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrv)"/>
+
+  <!-- step 2 (highlighted) -->
+  <rect x="70" y="140" width="300" height="66" rx="10" fill="#EAF1FA" stroke="#4C72B0" stroke-width="1.5"/>
+  <rect x="238" y="128" width="112" height="22" rx="11" fill="#4C72B0"/>
+  <text x="294" y="143" text-anchor="middle" class="badge">AUROC 0.92 ✓</text>
+  <text x="112" y="170" class="step">2. Compare</text>
+  <text x="112" y="191" class="sub">vs same-horizon baseline</text>
+  <line x1="220" y1="210" x2="220" y2="230" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrv)"/>
+
+  <!-- step 3 -->
+  <rect x="70" y="234" width="300" height="66" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="112" y="264" class="step">3. Calibrate</text>
+  <text x="112" y="285" class="sub">lock the threshold</text>
+  <line x1="220" y1="304" x2="220" y2="324" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrv)"/>
+
+  <!-- step 4 -->
+  <rect x="70" y="328" width="300" height="66" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="112" y="358" class="step">4. Stress</text>
+  <text x="112" y="379" class="sub">transport &amp; groups</text>
+  <line x1="220" y1="398" x2="220" y2="418" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrv)"/>
+
+  <!-- step 5 -->
+  <rect x="70" y="422" width="300" height="66" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="112" y="452" class="step">5. Claim</text>
+  <text x="112" y="473" class="sub">what you may say</text>
+
+  <!-- where monitors die: right-side bracket over steps 3-4 -->
+  <path d="M384,240 L398,240 L398,388 L384,388" fill="none" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="220" y="522" text-anchor="middle" class="die">where good monitors die</text>
+  <text x="220" y="542" text-anchor="middle" class="note">too few negatives to lock a threshold</text>
+  <text x="220" y="559" text-anchor="middle" class="note">a tail that doesn't separate · calibration that doesn't transport</text>
+
+  <!-- abstain branch: dashed from the bracket down to the box -->
+  <path d="M398,314 L398,548 Q398,576 372,576 L332,576" fill="none" stroke="#C44E52" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrv-red)"/>
+  <rect x="112" y="576" width="216" height="42" rx="8" fill="#FDF2F2" stroke="#C44E52" stroke-width="1"/>
+  <text x="220" y="603" text-anchor="middle" class="abstain">Abstain — fail closed</text>
+
+  <text x="220" y="636" text-anchor="middle" class="takeaway" style="font-size:12px">A high AUROC is evidence at step 2 — not permission to skip 3, 4, and 5.</text>
+</svg>

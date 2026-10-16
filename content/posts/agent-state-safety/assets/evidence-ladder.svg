@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="450" viewBox="0 0 780 450">
+<defs><style>text{font-family:"Helvetica Neue",Arial,sans-serif;fill:#2C3E50}.t{font-size:20px;font-weight:600}.h{font-size:13px;font-weight:600}.s{font-size:11px;fill:#66727d}</style></defs>
+<rect width="780" height="450" fill="#fff"/><text x="390" y="30" text-anchor="middle" class="t">Evidence strength limits mechanism claims</text>
+<g>
+<rect x="40" y="350" width="140" height="58" rx="9" fill="#dceaf7" stroke="#4C72B0"/><text x="110" y="375" text-anchor="middle" class="h">1 · Decodable</text><text x="110" y="394" text-anchor="middle" class="s">label is readable</text>
+<rect x="180" y="285" width="140" height="123" rx="9" fill="#c8dff2" stroke="#4C72B0"/><text x="250" y="312" text-anchor="middle" class="h">2 · Predictive</text><text x="250" y="332" text-anchor="middle" class="s">pre-action + comparator</text>
+<rect x="320" y="220" width="140" height="188" rx="9" fill="#b2d2eb" stroke="#4C72B0"/><text x="390" y="247" text-anchor="middle" class="h">3 · Local causal</text><text x="390" y="267" text-anchor="middle" class="s">matched intervention</text><text x="390" y="284" text-anchor="middle" class="s">selectivity controls</text>
+<rect x="460" y="145" width="140" height="263" rx="9" fill="#93bfdf" stroke="#4C72B0"/><text x="530" y="172" text-anchor="middle" class="h">4 · Cross-step</text><text x="530" y="192" text-anchor="middle" class="s">named carrier</text><text x="530" y="209" text-anchor="middle" class="s">block / swap test</text>
+<rect x="600" y="70" width="140" height="338" rx="9" fill="#6fa7cf" stroke="#2C3E50"/><text x="670" y="98" text-anchor="middle" class="h">5 · Abstraction</text><text x="670" y="118" text-anchor="middle" class="s">scoped intervention</text><text x="670" y="135" text-anchor="middle" class="s">correspondence</text>
+</g><text x="40" y="435" class="s">Stronger wording requires stronger controls →</text></svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="450" viewBox="0 0 780 450">
+<defs><style>text{font-family:"Helvetica Neue",Arial,sans-serif;fill:#2C3E50}.t{font-size:20px;font-weight:600}.h{font-size:13px;font-weight:600}.s{font-size:11px;fill:#66727d}</style></defs>
+<rect width="780" height="450" fill="#fff"/><text x="390" y="30" text-anchor="middle" class="t">State substrates have different lifetimes and owners</text>
+<text x="34" y="75" class="h">Substrate</text><text x="300" y="75" class="h">Typical lifetime</text><text x="560" y="75" class="h">Primary control point</text>
+<g>
+<rect x="28" y="92" width="724" height="42" rx="8" fill="#dceaf7"/><text x="45" y="118" class="h">Residual activation</text><text x="300" y="118" class="s">one invocation</text><text x="560" y="118" class="s">probe / patch / steer</text>
+<rect x="28" y="143" width="724" height="42" rx="8" fill="#dceaf7"/><text x="45" y="169" class="h">Generated tokens</text><text x="300" y="169" class="s">generation → history</text><text x="560" y="169" class="s">parser / plan validation</text>
+<rect x="28" y="194" width="724" height="42" rx="8" fill="#dceaf7"/><text x="45" y="220" class="h">KV cache</text><text x="300" y="220" class="s">declared reuse window</text><text x="560" y="220" class="s">cache lifecycle / isolation</text>
+<rect x="28" y="245" width="724" height="42" rx="8" fill="#e7f5ec"/><text x="45" y="271" class="h">Serialized context</text><text x="300" y="271" class="s">task / session</text><text x="560" y="271" class="s">provenance / context builder</text>
+<rect x="28" y="296" width="724" height="42" rx="8" fill="#e7f5ec"/><text x="45" y="322" class="h">Explicit memory</text><text x="300" y="322" class="s">session → long term</text><text x="560" y="322" class="s">write/read policy / taint</text>
+<rect x="28" y="347" width="724" height="42" rx="8" fill="#fff1d6"/><text x="45" y="373" class="h">Environment state</text><text x="300" y="373" class="s">until changed / rolled back</text><text x="560" y="373" class="s">sandbox / capability / transaction</text>
+<rect x="28" y="398" width="724" height="34" rx="8" fill="#f2e8f7"/><text x="45" y="420" class="h">Parameter state</text><text x="300" y="420" class="s">checkpoint lifetime</text><text x="560" y="420" class="s">training / release governance</text>
+</g></svg>

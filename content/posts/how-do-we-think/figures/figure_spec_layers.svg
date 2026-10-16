@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="380" viewBox="0 0 700 380">
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { font-size: 20px; font-weight: 600; fill: #1b1b1f; }
+      .layer-label { font-size: 17px; font-weight: 600; fill: #1b1b1f; }
+      .desc { font-size: 12px; fill: #555; }
+      .req { font-size: 11px; fill: #868e96; font-style: italic; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="350" y="32" text-anchor="middle" class="title">Three Layers of Specification</text>
+
+  <!-- Layer 1: Goal Spec (widest) -->
+  <polygon points="350,55 620,140 80,140" fill="#fff9db" stroke="#1b1b1f" stroke-width="2" stroke-linejoin="round"/>
+  <text x="350" y="105" text-anchor="middle" class="layer-label">Goal Spec</text>
+  <text x="350" y="122" text-anchor="middle" class="desc">What does "done" look like?</text>
+  <text x="350" y="136" text-anchor="middle" class="req">Requires: taste + domain knowledge</text>
+
+  <!-- Layer 2: Constraint Spec (middle) -->
+  <polygon points="350,145 580,218 120,218" fill="#d3f9d8" stroke="#1b1b1f" stroke-width="2" stroke-linejoin="round"/>
+  <text x="350" y="183" text-anchor="middle" class="layer-label">Constraint Spec</text>
+  <text x="350" y="199" text-anchor="middle" class="desc">Boundaries, safety rails, non-negotiables</text>
+  <text x="350" y="213" text-anchor="middle" class="req">Requires: judgment + risk awareness</text>
+
+  <!-- Layer 3: Evaluation Spec (narrowest) -->
+  <polygon points="350,223 540,290 160,290" fill="#d0ebff" stroke="#1b1b1f" stroke-width="2" stroke-linejoin="round"/>
+  <text x="350" y="258" text-anchor="middle" class="layer-label">Evaluation Spec</text>
+  <text x="350" y="274" text-anchor="middle" class="desc">How do we measure success?</text>
+  <text x="350" y="288" text-anchor="middle" class="req">Requires: verification design + metric literacy</text>
+
+  <!-- Side annotations -->
+  <text x="30" y="100" font-size="11" fill="#868e96">Human-</text>
+  <text x="30" y="113" font-size="11" fill="#868e96">owned</text>
+  <line x1="55" y1="70" x2="55" y2="295" stroke="#868e96" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="660" y="100" font-size="11" fill="#868e96">AI can</text>
+  <text x="660" y="113" font-size="11" fill="#868e96">draft</text>
+  <text x="660" y="200" font-size="11" fill="#868e96">AI can</text>
+  <text x="660" y="213" font-size="11" fill="#868e96">check</text>
+  <text x="660" y="270" font-size="11" fill="#868e96">AI can</text>
+  <text x="660" y="283" font-size="11" fill="#868e96">measure</text>
+
+  <!-- Bottom note -->
+  <text x="350" y="330" text-anchor="middle" font-size="12" fill="#555">AI can generate specs, but cannot own them.</text>
+  <text x="350" y="348" text-anchor="middle" font-size="12" fill="#555">Ownership implies accountability, context, and revision capacity.</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="700" height="420" fill="#ffffff"/>
+
+  <text x="350" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Caching is a discount on one currency only</text>
+
+  <!-- LEFT: money -->
+  <rect x="20" y="52" width="320" height="316" rx="8" fill="#4C72B0" fill-opacity="0.07" stroke="#4C72B0" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="180" y="78" text-anchor="middle" font-size="16" font-weight="600" fill="#2C3E50">The money bill</text>
+  <text x="180" y="98" text-anchor="middle" font-size="12" fill="#8C8C8C">refunded on a cache hit</text>
+
+  <!-- bars: baseline 100% width 200 -->
+  <!-- Anthropic 90% refund => paid 10% -->
+  <text x="42" y="128" font-size="12" fill="#2C3E50">Anthropic</text>
+  <rect x="42" y="136" width="220" height="18" fill="#8C8C8C" fill-opacity="0.25"/>
+  <rect x="42" y="136" width="22" height="18" fill="#4C72B0"/>
+  <text x="272" y="150" font-size="11" font-weight="600" fill="#4C72B0">0.1× read</text>
+
+  <text x="42" y="180" font-size="12" fill="#2C3E50">OpenAI</text>
+  <rect x="42" y="188" width="220" height="18" fill="#8C8C8C" fill-opacity="0.25"/>
+  <rect x="42" y="188" width="22" height="18" fill="#4C72B0"/>
+  <text x="272" y="202" font-size="11" font-weight="600" fill="#4C72B0">90% off</text>
+
+  <text x="42" y="232" font-size="12" fill="#2C3E50">Google (Gemini 2.5+)</text>
+  <rect x="42" y="240" width="220" height="18" fill="#8C8C8C" fill-opacity="0.25"/>
+  <rect x="42" y="240" width="55" height="18" fill="#4C72B0"/>
+  <text x="272" y="254" font-size="11" font-weight="600" fill="#4C72B0">75% off</text>
+
+  <text x="42" y="286" font-size="11" fill="#8C8C8C">grey = list price · blue = what you actually pay</text>
+
+  <line x1="42" y1="302" x2="318" y2="302" stroke="#4C72B0" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="42" y="324" font-size="11" fill="#2C3E50">In a real agent loop: 41–80% cost reduction,</text>
+  <text x="42" y="342" font-size="11" fill="#2C3E50">13–31% faster TTFT — and no accuracy claim.</text>
+  <text x="42" y="360" font-size="11" fill="#8C8C8C">That asymmetry is the finding, not an omission.</text>
+
+  <!-- RIGHT: attention -->
+  <rect x="360" y="52" width="320" height="316" rx="8" fill="#C44E52" fill-opacity="0.07" stroke="#C44E52" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="520" y="78" text-anchor="middle" font-size="16" font-weight="600" fill="#2C3E50">The attention bill</text>
+  <text x="520" y="98" text-anchor="middle" font-size="12" fill="#8C8C8C">refunded on a cache hit</text>
+
+  <rect x="382" y="120" width="276" height="52" rx="6" fill="#C44E52" fill-opacity="0.12" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="520" y="154" text-anchor="middle" font-size="26" font-weight="700" fill="#C44E52">0%</text>
+
+  <text x="382" y="204" font-size="12" fill="#2C3E50">A cache hit changes how each</text>
+  <text x="382" y="222" font-size="12" fill="#2C3E50">key was computed. It does not</text>
+  <text x="382" y="240" font-size="12" fill="#2C3E50">remove it from the denominator:</text>
+
+  <rect x="382" y="254" width="276" height="46" rx="6" fill="#ffffff" stroke="#8C8C8C" stroke-width="1"/>
+  <text x="520" y="276" text-anchor="middle" font-size="13" font-style="italic" fill="#2C3E50">α<tspan font-size="10" dy="4">ij</tspan><tspan dy="-4"> = exp(q</tspan><tspan font-size="10" dy="4">i</tspan><tspan dy="-4">·k</tspan><tspan font-size="10" dy="4">j</tspan><tspan dy="-4">/√d) ÷ Σ</tspan><tspan font-size="10" dy="4">t≤i</tspan><tspan dy="-4"> exp(q</tspan><tspan font-size="10" dy="4">i</tspan><tspan dy="-4">·k</tspan><tspan font-size="10" dy="4">t</tspan><tspan dy="-4">/√d)</tspan></text>
+  <text x="520" y="293" text-anchor="middle" font-size="10" fill="#C44E52">every cached token is still a term in that sum</text>
+
+  <text x="382" y="324" font-size="11" fill="#2C3E50">Decode still reads the entire KV cache,</text>
+  <text x="382" y="342" font-size="11" fill="#2C3E50">so attention work per generated token</text>
+  <text x="382" y="360" font-size="11" fill="#2C3E50">grows with sequence length.</text>
+
+  <text x="350" y="398" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">Caching makes a bloated context cheap. It does not make it small.</text>
+</svg>

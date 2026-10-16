@@ -1,0 +1,16 @@
+<meta name="google-site-verification" content="X1Le0HBFgIXoWOp3p8qU2LJVo9xcqSXzvi3P7g-NcG8">
+
+{{- if or .Params.math .Site.Params.math }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+    });">
+</script>
+{{- end }}
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="410" viewBox="0 0 780 410" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomy of an agent trace</title>
+  <desc id="desc">The final response is one node in a path of model, retrieval, tool, and state operations.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, sans-serif; fill: #2c3e50; }
+      .heading { font-size: 18px; font-weight: 650; }
+      .label { font-size: 12px; font-weight: 600; }
+      .detail { font-size: 10px; fill: #66717d; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse" overflow="visible"><path d="M1 1 L9 5 L1 9 Z" fill="#61717f"/></marker>
+  </defs>
+  <rect width="780" height="410" fill="#ffffff"/>
+  <text x="390" y="32" class="heading" text-anchor="middle">The trace is evidence; the outcome is ground state</text>
+  <rect x="28" y="58" width="724" height="265" rx="8" fill="#f8fafb" stroke="#bdc3c7"/>
+  <rect x="52" y="91" width="104" height="48" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="104" y="120" class="label" text-anchor="middle">User request</text>
+  <rect x="196" y="91" width="116" height="48" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="254" y="113" class="label" text-anchor="middle">Generation</text>
+  <text x="254" y="129" class="detail" text-anchor="middle">plan + decision</text>
+  <rect x="352" y="91" width="104" height="48" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+  <text x="404" y="113" class="label" text-anchor="middle">Tool call</text>
+  <text x="404" y="129" class="detail" text-anchor="middle">name + args</text>
+  <rect x="496" y="91" width="104" height="48" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+  <text x="548" y="113" class="label" text-anchor="middle">Tool result</text>
+  <text x="548" y="129" class="detail" text-anchor="middle">data + error</text>
+  <rect x="640" y="91" width="88" height="48" rx="8" fill="#d9efdf" stroke="#92c5a0"/>
+  <text x="684" y="113" class="label" text-anchor="middle">State</text>
+  <text x="684" y="129" class="detail" text-anchor="middle">transition</text>
+  <line x1="160" y1="115" x2="190" y2="115" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="316" y1="115" x2="346" y2="115" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="460" y1="115" x2="490" y2="115" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="604" y1="115" x2="634" y2="115" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M684 145 V171 H278 V145" fill="none" stroke="#95a5a6" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="478" y="190" class="detail" text-anchor="middle">next agent-loop iteration</text>
+  <rect x="196" y="218" width="116" height="48" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+  <text x="254" y="240" class="label" text-anchor="middle">Final response</text>
+  <text x="254" y="256" class="detail" text-anchor="middle">what user sees</text>
+  <rect x="496" y="218" width="150" height="48" rx="8" fill="#d9efdf" stroke="#92c5a0"/>
+  <text x="571" y="240" class="label" text-anchor="middle">Business outcome</text>
+  <text x="571" y="256" class="detail" text-anchor="middle">what actually changed</text>
+  <line x1="230" y1="145" x2="230" y2="212" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M684 145 V190 H571 V212" fill="none" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="422" y="294" class="detail" text-anchor="middle">grade the response claim and realized state separately</text>
+  <rect x="52" y="343" width="676" height="42" rx="8" fill="#fef9e7" stroke="#d9c98a"/>
+  <text x="390" y="360" class="label" text-anchor="middle">Version lineage across every span</text>
+  <text x="390" y="377" class="detail" text-anchor="middle">model | prompt | harness | tools | retrieval snapshot | environment | grader</text>
+  <line x1="390" y1="323" x2="390" y2="338" stroke="#61717f" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

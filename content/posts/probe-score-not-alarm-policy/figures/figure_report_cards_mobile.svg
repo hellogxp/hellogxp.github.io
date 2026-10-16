@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="742" viewBox="0 0 480 742">
+  <defs>
+    <style>
+      text { font-family: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif; }
+      .overline { font-size: 10px; font-weight: 600; letter-spacing: 2px; fill: #8C8C8C; }
+      .card-head { font-size: 11px; font-weight: 600; letter-spacing: 2px; fill: #8C8C8C; }
+      .card-title { font-size: 18px; font-weight: 600; fill: #2C3E50; }
+      .bignum-blue { font-size: 48px; font-weight: 700; fill: #4C72B0; }
+      .bignum-red { font-size: 48px; font-weight: 700; fill: #C44E52; }
+      .numlabel { font-size: 12px; fill: #8C8C8C; }
+      .row { font-size: 12.5px; fill: #2C3E50; }
+      .stamp-pass { font-size: 11px; font-weight: 700; letter-spacing: 2px; fill: #2b8a3e; }
+      .stamp-fail { font-size: 11px; font-weight: 700; letter-spacing: 2px; fill: #C44E52; }
+      .arrow-label { font-size: 11px; font-style: italic; fill: #8C8C8C; }
+    </style>
+    <marker id="arrv" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#2C3E50"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="240" y="30" text-anchor="middle" class="overline">THE SAME MONITOR, GRADED TWICE</text>
+
+  <!-- ============ TOP CARD: lab report ============ -->
+  <rect x="20" y="48" width="440" height="300" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="48" y="86" class="card-head">LAB REPORT</text>
+  <text x="48" y="114" class="card-title">Ranking quality</text>
+
+  <text x="48" y="186" class="bignum-blue">0.92</text>
+  <text x="178" y="186" class="numlabel">AUROC</text>
+  <text x="48" y="212" class="numlabel">attacks outrank safe cases in 92% of pairs</text>
+
+  <line x1="48" y1="238" x2="432" y2="238" stroke="#E4E7EB" stroke-width="1"/>
+
+  <circle cx="58" cy="264" r="7" fill="none" stroke="#2b8a3e" stroke-width="1.5"/>
+  <polyline points="54,264 57,267 63,260" fill="none" stroke="#2b8a3e" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="76" y="268" class="row">ranks attacks above safe cases</text>
+
+  <circle cx="58" cy="294" r="7" fill="none" stroke="#2b8a3e" stroke-width="1.5"/>
+  <polyline points="54,294 57,297 63,290" fill="none" stroke="#2b8a3e" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="76" y="298" class="row">the metric the literature reports</text>
+
+  <g transform="rotate(-8 380 310)">
+    <rect x="342" y="294" width="76" height="32" rx="5" fill="none" stroke="#2b8a3e" stroke-width="2"/>
+    <text x="380" y="315" text-anchor="middle" class="stamp-pass">PASS</text>
+  </g>
+
+  <!-- deploy arrow (vertical) -->
+  <line x1="240" y1="356" x2="240" y2="396" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrv)"/>
+  <text x="256" y="382" class="arrow-label">deploy</text>
+
+  <!-- ============ BOTTOM CARD: deployment report ============ -->
+  <rect x="20" y="404" width="440" height="300" rx="10" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1"/>
+  <text x="48" y="442" class="card-head">DEPLOYMENT REPORT</text>
+  <text x="48" y="470" class="card-title">Alarm performance</text>
+
+  <text x="48" y="542" class="bignum-red">0 / 38</text>
+  <text x="48" y="568" class="numlabel">attacks detected at the locked 5% false-alarm budget</text>
+
+  <line x1="48" y1="594" x2="432" y2="594" stroke="#E4E7EB" stroke-width="1"/>
+
+  <circle cx="58" cy="620" r="7" fill="none" stroke="#C44E52" stroke-width="1.5"/>
+  <line x1="53.5" y1="615.5" x2="62.5" y2="624.5" stroke="#C44E52" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="62.5" y1="615.5" x2="53.5" y2="624.5" stroke="#C44E52" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="76" y="624" class="row">nothing crosses the locked threshold</text>
+
+  <circle cx="58" cy="650" r="7" fill="none" stroke="#C44E52" stroke-width="1.5"/>
+  <line x1="53.5" y1="645.5" x2="62.5" y2="654.5" stroke="#C44E52" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="62.5" y1="645.5" x2="53.5" y2="654.5" stroke="#C44E52" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="76" y="654" class="row">38 attack cases slip through</text>
+
+  <g transform="rotate(-8 380 666)">
+    <rect x="338" y="650" width="84" height="32" rx="5" fill="none" stroke="#C44E52" stroke-width="2"/>
+    <text x="380" y="671" text-anchor="middle" class="stamp-fail">SILENT</text>
+  </g>
+</svg>

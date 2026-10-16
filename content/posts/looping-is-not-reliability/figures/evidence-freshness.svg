@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="590" viewBox="0 0 1060 590" role="img" aria-labelledby="title desc">
+  <title id="title">How a passing check becomes stale after a later edit</title>
+  <desc id="desc">Timeline showing state S1 checked successfully, then a later mutation creates S2. The pass belongs to S1 and the completion at S2 has stale evidence.</desc>
+  <rect width="1060" height="590" rx="24" fill="#fafaf8"/>
+  <text x="64" y="58" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="700" fill="#171717">Freshness is a relation, not a property of “the tests”</text>
+  <text x="64" y="88" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#656565">A passing result remains true about S1 while becoming insufficient evidence for S2.</text>
+
+  <line x1="112" y1="205" x2="936" y2="205" stroke="#aaa9a4" stroke-width="3"/>
+  <path d="M924 197 L940 205 L924 213" fill="none" stroke="#aaa9a4" stroke-width="3"/>
+  <g stroke="#aaa9a4" stroke-width="2">
+    <line x1="176" y1="190" x2="176" y2="220"/>
+    <line x1="370" y1="190" x2="370" y2="220"/>
+    <line x1="571" y1="190" x2="571" y2="220"/>
+    <line x1="770" y1="190" x2="770" y2="220"/>
+    <line x1="914" y1="190" x2="914" y2="220"/>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <rect x="132" y="126" width="88" height="48" rx="12" fill="#fff" stroke="#b9b8b2"/>
+    <text x="176" y="156" text-anchor="middle" font-size="17" font-weight="700" fill="#444">S0</text>
+    <text x="176" y="248" text-anchor="middle" font-size="13" fill="#666">baseline</text>
+
+    <rect x="316" y="126" width="108" height="48" rx="12" fill="#f7e8e1" stroke="#c55a34"/>
+    <text x="370" y="156" text-anchor="middle" font-size="17" font-weight="700" fill="#8f3f24">S1</text>
+    <text x="370" y="248" text-anchor="middle" font-size="13" fill="#666">mutation</text>
+
+    <rect x="507" y="116" width="128" height="68" rx="14" fill="#e7f4f1" stroke="#246a73" stroke-width="2"/>
+    <text x="571" y="145" text-anchor="middle" font-size="15" font-weight="700" fill="#205d65">check passes</text>
+    <text x="571" y="168" text-anchor="middle" font-size="13" fill="#3d7276">bound to S1</text>
+    <text x="571" y="248" text-anchor="middle" font-size="13" fill="#666">exit code 0 observed</text>
+
+    <rect x="716" y="126" width="108" height="48" rx="12" fill="#f7e8e1" stroke="#c55a34"/>
+    <text x="770" y="156" text-anchor="middle" font-size="17" font-weight="700" fill="#8f3f24">S2</text>
+    <text x="770" y="248" text-anchor="middle" font-size="13" fill="#666">later mutation</text>
+
+    <rect x="855" y="126" width="118" height="48" rx="12" fill="#fff" stroke="#7857a4"/>
+    <text x="914" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#604184">agent ended</text>
+    <text x="914" y="248" text-anchor="middle" font-size="13" fill="#666">not an approval</text>
+  </g>
+
+  <path d="M571 283 V332 H770" fill="none" stroke="#246a73" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <path d="M761 324 L773 332 L761 340" fill="none" stroke="#246a73" stroke-width="2.5"/>
+
+  <rect x="132" y="354" width="796" height="148" rx="18" fill="#fff" stroke="#d5d4ce"/>
+  <text x="170" y="393" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#333">check.state_revision = 1</text>
+  <text x="170" y="425" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#333">final.state_revision = 2</text>
+  <line x1="170" y1="446" x2="890" y2="446" stroke="#e0dfda"/>
+  <text x="170" y="480" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#555">Derived relation:</text>
+  <rect x="326" y="458" width="104" height="34" rx="17" fill="#f6e5dd"/>
+  <text x="378" y="481" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="#9d4328">STALE</text>
+  <text x="450" y="480" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#555">because 1 &lt; 2</text>
+
+  <rect x="132" y="524" width="796" height="38" rx="12" fill="#f0f0ed"/>
+  <text x="530" y="548" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#555">This detects verify-then-edit in supported events; it does not prove that no unobserved mutation occurred.</text>
+</svg>

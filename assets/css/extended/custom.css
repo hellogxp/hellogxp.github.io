@@ -1,0 +1,176 @@
+/* Override new PaperMod (2026-05) to match Lilian Weng's older PaperMod version */
+
+/* Body: new=18px, Lilian=16px */
+body {
+  font-size: 16px;
+}
+
+/* Post title: new=40px, Lilian=36px */
+.post-title {
+  font-size: 36px;
+}
+
+/* Content headings: new PaperMod bumped all sizes */
+.post-content h1,
+.md-content h1 {
+  margin: 28px auto 20px;
+  font-size: 28px;
+}
+
+.post-content h2,
+.md-content h2 {
+  margin: 24px auto 16px;
+  font-size: 24px;
+}
+
+.post-content h3,
+.md-content h3 {
+  font-size: 18px;
+}
+
+/* TOC: Lilian=15px, new PaperMod inherits body */
+details.toc {
+  font-size: 15px;
+}
+
+/* First entry on homepage */
+.first-entry .entry-header h1 {
+  font-size: 34px;
+}
+
+/* Blockquote: Lilian=20px 0 margin, 0 14px padding */
+.post-content blockquote,
+.md-content blockquote {
+  margin: 20px 0;
+  padding: 0 14px;
+}
+
+/* Inline code: Lilian=margin auto 4px, padding 4px 6px */
+.post-content code {
+  margin: auto 4px;
+  padding: 4px 6px;
+}
+
+/* Code blocks / highlights: Lilian=10px auto */
+.post-content .highlight:not(table),
+.post-content pre,
+.md-content .highlight:not(table) {
+  margin: 10px auto;
+}
+
+/* pre code: wrap long lines instead of horizontal scroll (Lilian: text-wrap: wrap) */
+.post-content pre code,
+.md-content pre code {
+  text-wrap: wrap;
+  overflow-x: visible;
+}
+
+/* Tables: booktabs academic style — auto width, centered, three-line, zebra */
+.post-content table,
+.md-content table {
+  margin: 0 auto 32px;
+  border-collapse: collapse;
+  width: auto;
+  font-size: 15px;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.post-content table th,
+.md-content table th {
+  padding: 8px 12px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--primary);
+  white-space: nowrap;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td,
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+  padding: 8px 12px;
+  line-height: 1.4;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:nth-child(even),
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:nth-child(even) {
+  background: var(--code-bg);
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:hover,
+.md-content table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:hover {
+  background: var(--border);
+}
+
+/* List items: Lilian=margin-top 5px */
+.post-content li,
+.md-content li {
+  margin-top: 5px;
+}
+
+/* Links: Lilian uses box-shadow underline, not text-decoration */
+.md-content a:not(.anchor),
+.post-content a {
+  text-decoration: none;
+  box-shadow: 0 1px;
+}
+
+.md-content a:hover,
+.post-content a:hover {
+  color: #aaa;
+}
+
+.md-content a code,
+.post-content a code {
+  margin: auto 0;
+  border-radius: 0;
+  box-shadow: 0 -1px 0 var(--primary) inset;
+}
+
+/* Figure captions: Lilian Weng style — centered, smaller, italic, muted */
+.post-content figure,
+.md-content figure {
+  text-align: center;
+}
+
+.post-content figure img,
+.md-content figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: min(100%, 680px);
+  height: auto;
+}
+
+/* Keep long display equations inside the article on narrow screens. */
+.post-content .katex-display,
+.md-content .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+/* Override PaperMod's .md-content figure>figcaption (16px bold primary) */
+.md-content figure>figcaption,
+.post-content figure>figcaption {
+  font-size: 13px !important;
+  color: #999 !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  margin: 8px 0 16px;
+  line-height: 1.5;
+  padding: 0 20px;
+}
+
+/* Paragraphs/lists margin: ensure no :last-child exception (Lilian doesn't have it) */
+.post-content dl,
+.post-content ol,
+.post-content p,
+.post-content figure,
+.post-content ul,
+.md-content dl,
+.md-content ol,
+.md-content p,
+.md-content figure,
+.md-content ul {
+  margin-bottom: var(--content-gap);
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="780" height="430" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="430" fill="#ffffff"/>
+
+  <text x="390" y="34" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Your agent is billed on three separate accounts</text>
+  <text x="390" y="58" text-anchor="middle" font-size="12" fill="#8C8C8C">Only the first is a token cost. Prompt caching refunds part of that one and none of the others.</text>
+
+  <!-- Bill 1 -->
+  <rect x="24" y="82" width="234" height="252" rx="8" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5"/>
+  <rect x="24" y="82" width="234" height="38" rx="8" fill="#4C72B0" fill-opacity="0.22"/>
+  <text x="40" y="107" font-size="14" font-weight="600" fill="#2C3E50">Bill 1 — Resident tax</text>
+
+  <text x="42" y="148" font-size="12" fill="#2C3E50" font-weight="600">Charged: every turn</text>
+  <text x="42" y="172" font-size="12" fill="#2C3E50">Paid in: accuracy, not dollars</text>
+  <text x="42" y="196" font-size="12" fill="#2C3E50">Meter: resident tokens / turn</text>
+
+  <line x1="42" y1="216" x2="240" y2="216" stroke="#4C72B0" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="42" y="240" font-size="11" fill="#2C3E50">Everything present in the window</text>
+  <text x="42" y="258" font-size="11" fill="#2C3E50">competes for a fixed, normalized</text>
+  <text x="42" y="276" font-size="11" fill="#2C3E50">quantity of attention — whether or</text>
+  <text x="42" y="294" font-size="11" fill="#2C3E50">not this turn ever uses it.</text>
+
+  <text x="42" y="322" font-size="11" font-weight="600" fill="#4C72B0">Scope: model-general</text>
+
+  <!-- Bill 2 -->
+  <rect x="273" y="82" width="234" height="252" rx="8" fill="#C44E52" fill-opacity="0.10" stroke="#C44E52" stroke-width="1.5"/>
+  <rect x="273" y="82" width="234" height="38" rx="8" fill="#C44E52" fill-opacity="0.22"/>
+  <text x="289" y="107" font-size="14" font-weight="600" fill="#2C3E50">Bill 2 — Compaction debt</text>
+
+  <text x="291" y="148" font-size="12" fill="#2C3E50" font-weight="600">Charged: by the fix itself</text>
+  <text x="291" y="172" font-size="12" fill="#2C3E50">Paid in: forgotten obligations</text>
+  <text x="291" y="196" font-size="12" fill="#2C3E50">Meter: dropped messages / rules</text>
+
+  <line x1="291" y1="216" x2="489" y2="216" stroke="#C44E52" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="291" y="240" font-size="11" fill="#2C3E50">Summarizing history to pay bill 1</text>
+  <text x="291" y="258" font-size="11" fill="#2C3E50">silently discards the rules and</text>
+  <text x="291" y="276" font-size="11" fill="#2C3E50">safety constraints you wrote hours</text>
+  <text x="291" y="294" font-size="11" fill="#2C3E50">ago. The agent stops being wrong.</text>
+
+  <text x="291" y="322" font-size="11" font-weight="600" fill="#C44E52">Scope: harness-dependent</text>
+
+  <!-- Bill 3 -->
+  <rect x="522" y="82" width="234" height="252" rx="8" fill="#8C8C8C" fill-opacity="0.12" stroke="#8C8C8C" stroke-width="1.5"/>
+  <rect x="522" y="82" width="234" height="38" rx="8" fill="#8C8C8C" fill-opacity="0.26"/>
+  <text x="538" y="107" font-size="14" font-weight="600" fill="#2C3E50">Bill 3 — Measurement illusion</text>
+
+  <text x="540" y="148" font-size="12" fill="#2C3E50" font-weight="600">Charged: on your ability to know</text>
+  <text x="540" y="172" font-size="12" fill="#2C3E50">Paid in: unpriceable decisions</text>
+  <text x="540" y="196" font-size="12" fill="#2C3E50">Meter: none shipped today</text>
+
+  <line x1="540" y1="216" x2="738" y2="216" stroke="#8C8C8C" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="540" y="240" font-size="11" fill="#2C3E50">Two 2026 paired studies of the same</text>
+  <text x="540" y="258" font-size="11" fill="#2C3E50">intervention report opposite signs.</text>
+  <text x="540" y="276" font-size="11" fill="#2C3E50">Until the budget is held fixed, the</text>
+  <text x="540" y="294" font-size="11" fill="#2C3E50">benefit side has no price tag.</text>
+
+  <text x="540" y="322" font-size="11" font-weight="600" fill="#6E6E6E">Scope: field-wide</text>
+
+  <!-- footer -->
+  <rect x="24" y="356" width="732" height="50" rx="8" fill="#2C3E50" fill-opacity="0.06" stroke="#2C3E50" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="390" y="378" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">"Too many tools" is a diagnosis for bill 1 only — and the chance-corrected evidence says even that reading is wrong.</text>
+  <text x="390" y="397" text-anchor="middle" font-size="11" fill="#8C8C8C">Each bill has a different symptom, a different fix, and a different party who can settle it.</text>
+</svg>

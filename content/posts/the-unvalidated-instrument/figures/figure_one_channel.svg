@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" width="780" height="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="arrB" markerWidth="9" markerHeight="7" refX="7.5" refY="2.3" orient="auto"><path d="M0,0 L7.5,2.3 L0,4.6 z" fill="#4C72B0"/></marker>
+    <marker id="arrD" markerWidth="9" markerHeight="7" refX="7.5" refY="2.3" orient="auto"><path d="M0,0 L7.5,2.3 L0,4.6 z" fill="#2C3E50"/></marker>
+  </defs>
+
+  <text x="390" y="34" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Two debates, one instrument</text>
+  <text x="390" y="56" text-anchor="middle" font-size="12" fill="#8C8C8C">Both questions can only be answered through the same act of introspective self-report</text>
+
+  <!-- LEFT: the model / internal state -->
+  <rect x="30" y="150" width="160" height="120" rx="10" fill="#2C3E50" fill-opacity="0.08" stroke="#2C3E50" stroke-width="1.5"/>
+  <text x="110" y="196" text-anchor="middle" font-size="14" font-weight="600" fill="#2C3E50">The model</text>
+  <text x="110" y="218" text-anchor="middle" font-size="11" fill="#8C8C8C">internal states,</text>
+  <text x="110" y="234" text-anchor="middle" font-size="11" fill="#8C8C8C">activations,</text>
+  <text x="110" y="250" text-anchor="middle" font-size="11" fill="#8C8C8C">hidden goals</text>
+
+  <!-- MIDDLE: the channel (a narrow pipe) -->
+  <rect x="250" y="188" width="230" height="44" rx="8" fill="#4C72B0" fill-opacity="0.16" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="365" y="206" text-anchor="middle" font-size="13" font-weight="600" fill="#4C72B0">Introspective self-report</text>
+  <text x="365" y="223" text-anchor="middle" font-size="10.5" fill="#8C8C8C">tokens describing its own state</text>
+
+  <!-- arrow model -> channel -->
+  <line x1="190" y1="210" x2="246" y2="210" stroke="#4C72B0" stroke-width="2" marker-end="url(#arrB)"/>
+
+  <!-- RIGHT: two consumers -->
+  <!-- consciousness -->
+  <rect x="540" y="96" width="210" height="86" rx="10" fill="#F5B041" fill-opacity="0.16" stroke="#F5B041" stroke-width="1.5"/>
+  <text x="645" y="122" text-anchor="middle" font-size="13" font-weight="600" fill="#2C3E50">Consciousness question</text>
+  <text x="645" y="144" text-anchor="middle" font-size="11" fill="#555">"Do you have experiences?"</text>
+  <text x="645" y="163" text-anchor="middle" font-size="11" fill="#555">"Do you prefer anything?"</text>
+
+  <!-- safety -->
+  <rect x="540" y="238" width="210" height="86" rx="10" fill="#4C72B0" fill-opacity="0.14" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="645" y="264" text-anchor="middle" font-size="13" font-weight="600" fill="#2C3E50">Safety question</text>
+  <text x="645" y="286" text-anchor="middle" font-size="11" fill="#555">"Do you have hidden goals?"</text>
+  <text x="645" y="305" text-anchor="middle" font-size="11" fill="#555">"Is this your real reasoning?"</text>
+
+  <!-- channel -> consumers -->
+  <path d="M480,205 C500,205 510,152 522,146 L540,140" fill="none" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrD)"/>
+  <path d="M480,215 C500,215 510,268 522,274 L540,280" fill="none" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrD)"/>
+
+  <text x="390" y="376" text-anchor="middle" font-size="12" fill="#8C8C8C">One channel feeds both consumers &#8212; so both inherit the same unmeasured error.</text>
+</svg>

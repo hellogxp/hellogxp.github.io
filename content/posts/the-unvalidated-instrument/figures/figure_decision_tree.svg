@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" width="780" height="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="arrRed" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#C44E52"/></marker>
+    <marker id="arrBlue" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#4C72B0"/></marker>
+  </defs>
+
+  <text x="390" y="34" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">When to trust the reading</text>
+  <text x="390" y="56" text-anchor="middle" font-size="12" fill="#8C8C8C">The test is not whether the report is legible, but whether a wrong report would be caught by something else</text>
+
+  <!-- root question -->
+  <rect x="240" y="86" width="300" height="66" rx="10" fill="#2C3E50" fill-opacity="0.08" stroke="#2C3E50" stroke-width="1.5"/>
+  <text x="390" y="114" text-anchor="middle" font-size="12.5" fill="#2C3E50">Would a <tspan font-weight="700">wrong</tspan> self-report let a harmful</text>
+  <text x="390" y="133" text-anchor="middle" font-size="12.5" fill="#2C3E50">action through undetected?</text>
+
+  <!-- branches -->
+  <path d="M320,152 C270,180 235,196 210,214" fill="none" stroke="#C44E52" stroke-width="2" marker-end="url(#arrRed)"/>
+  <path d="M460,152 C512,180 548,196 575,214" fill="none" stroke="#4C72B0" stroke-width="2" marker-end="url(#arrBlue)"/>
+  <text x="222" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#C44E52">Yes</text>
+  <text x="566" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#4C72B0">No</text>
+
+  <!-- left: load-bearing -->
+  <rect x="40" y="220" width="330" height="150" rx="10" fill="#C44E52" fill-opacity="0.08" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="205" y="248" text-anchor="middle" font-size="14" font-weight="600" fill="#2C3E50">Load-bearing</text>
+  <text x="205" y="274" text-anchor="middle" font-size="11.5" fill="#555">Do not rely on the words. Cross-validate</text>
+  <text x="205" y="291" text-anchor="middle" font-size="11.5" fill="#555">against a channel the model does not control:</text>
+  <text x="205" y="316" text-anchor="middle" font-size="11.5" fill="#2C3E50">&#8226; a latent probe</text>
+  <text x="205" y="335" text-anchor="middle" font-size="11.5" fill="#2C3E50">&#8226; a behavioral honeypot</text>
+  <text x="205" y="354" text-anchor="middle" font-size="11.5" fill="#2C3E50">&#8226; an independent monitor</text>
+
+  <!-- right: decorative -->
+  <rect x="410" y="220" width="330" height="150" rx="10" fill="#4C72B0" fill-opacity="0.08" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="575" y="248" text-anchor="middle" font-size="14" font-weight="600" fill="#2C3E50">Decorative</text>
+  <text x="575" y="274" text-anchor="middle" font-size="11.5" fill="#555">A nicety in an explanation, a UX</text>
+  <text x="575" y="291" text-anchor="middle" font-size="11.5" fill="#555">affordance. The bar is lower.</text>
+  <text x="575" y="326" text-anchor="middle" font-size="11" fill="#8C8C8C" font-style="italic">The failure to avoid: treating a</text>
+  <text x="575" y="343" text-anchor="middle" font-size="11" fill="#8C8C8C" font-style="italic">load-bearing reading as decorative</text>
+  <text x="575" y="360" text-anchor="middle" font-size="11" fill="#8C8C8C" font-style="italic">because it happened to be legible.</text>
+</svg>

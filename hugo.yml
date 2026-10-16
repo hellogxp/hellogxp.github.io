@@ -1,0 +1,97 @@
+baseURL: "https://hellogxp.github.io/"
+languageCode: en-us
+title: "Xueping's Blog"
+theme: "PaperMod"
+enableRobotsTXT: true
+
+pagination:
+  pagerSize: 10
+
+params:
+  env: production
+  description: "ML Engineering & Interpretability Research"
+  assets:
+    favicon: "favicon.ico"
+  author: "Xueping Gao"
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/hellogxp"
+      - "https://x.com/hellogxp"
+      - "https://scholar.google.com/citations?user=kkBvC4sAAAAJ"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  math: true
+
+  homeInfoParams:
+    Title: "Welcome to Xueping's Blog"
+    Content: >
+      I'm interested in large language models — how to build them, how to make them work reliably,
+      and increasingly, how to understand what's happening inside. My current focus is on mechanistic
+      interpretability — understanding *how* and *why* these models behave the way they do, with an
+      emphasis on analyzing and improving model behavior from the inside.
+
+
+      I started this blog to think out loud while working as an engineer at Alibaba Cloud — writing helps me understand things better.
+      If it helps you too, even better.
+
+  socialIcons:
+    - name: googlescholar
+      url: "https://scholar.google.com/citations?user=kkBvC4sAAAAJ"
+    - name: github
+      url: "https://github.com/hellogxp"
+    - name: twitter
+      url: "https://twitter.com/hellogxp"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - "$$"
+              - "$$"
+            - - "\\["
+              - "\\]"
+          inline:
+            - - "$"
+              - "$"
+            - - "\\("
+              - "\\)"
+  highlight:
+    style: monokai
+    lineNos: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /
+      weight: 10
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 40

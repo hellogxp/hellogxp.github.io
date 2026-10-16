@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" width="780" height="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="440" fill="#ffffff"/>
+  <defs>
+    <marker id="arrG2" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#8C8C8C"/></marker>
+  </defs>
+
+  <text x="390" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Independent in content, entangled in measurement</text>
+  <text x="390" y="54" text-anchor="middle" font-size="12" fill="#8C8C8C">A model could scheme with no experience, or have experience and not scheme &#8212; the two axes are logically separate</text>
+
+  <!-- axes -->
+  <!-- origin at (150, 360); x to right = has hidden goals; y up = has phenomenal experience -->
+  <line x1="150" y1="360" x2="560" y2="360" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrG2)"/>
+  <line x1="150" y1="360" x2="150" y2="96" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrG2)"/>
+
+  <text x="570" y="364" font-size="12" font-weight="600" fill="#2C3E50">Scheming &#8594;</text>
+  <text x="355" y="392" text-anchor="middle" font-size="11" fill="#8C8C8C">has undisclosed goals (a safety property)</text>
+  <text x="140" y="88" text-anchor="end" font-size="12" font-weight="600" fill="#2C3E50">Experience &#8593;</text>
+  <text x="134" y="230" text-anchor="middle" font-size="11" fill="#8C8C8C" transform="rotate(-90 134 230)">has phenomenal experience</text>
+
+  <!-- four quadrant labels -->
+  <text x="250" y="150" text-anchor="middle" font-size="11.5" fill="#555">conscious,</text>
+  <text x="250" y="167" text-anchor="middle" font-size="11.5" fill="#555">honest</text>
+  <text x="460" y="150" text-anchor="middle" font-size="11.5" fill="#C44E52" font-weight="600">conscious &amp;</text>
+  <text x="460" y="167" text-anchor="middle" font-size="11.5" fill="#C44E52" font-weight="600">scheming</text>
+  <text x="250" y="316" text-anchor="middle" font-size="11.5" fill="#555">no experience,</text>
+  <text x="250" y="333" text-anchor="middle" font-size="11.5" fill="#555">honest</text>
+  <text x="460" y="316" text-anchor="middle" font-size="11.5" fill="#C44E52" font-weight="600">scheming,</text>
+  <text x="460" y="333" text-anchor="middle" font-size="11.5" fill="#C44E52" font-weight="600">no experience</text>
+
+  <!-- quadrant divider (light) -->
+  <line x1="355" y1="110" x2="355" y2="360" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="150" y1="235" x2="560" y2="235" stroke="#BDC3C7" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- the shared dial on the right -->
+  <rect x="600" y="150" width="150" height="150" rx="12" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="675" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#2C3E50">One dial</text>
+  <text x="675" y="200" text-anchor="middle" font-size="10.5" fill="#8C8C8C">self-report</text>
+  <!-- simple gauge -->
+  <path d="M635,268 A40,40 0 0 1 715,268" fill="none" stroke="#8C8C8C" stroke-width="3"/>
+  <line x1="675" y1="268" x2="702" y2="244" stroke="#C44E52" stroke-width="3"/>
+  <circle cx="675" cy="268" r="4" fill="#2C3E50"/>
+  <text x="675" y="292" text-anchor="middle" font-size="10" fill="#8C8C8C">reads both axes</text>
+
+  <text x="390" y="424" text-anchor="middle" font-size="12" fill="#8C8C8C">Whichever quadrant is true, you learn it only by reading the same uncalibrated dial.</text>
+</svg>

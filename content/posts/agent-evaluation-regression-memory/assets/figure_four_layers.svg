@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="310" viewBox="0 0 780 310" role="img" aria-labelledby="title desc">
+  <title id="title">Four contracts of production agent evaluation</title>
+  <desc id="desc">Evidence flows through judgment and memory into engineering authority.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", system-ui, sans-serif; fill: #2c3e50; }
+      .heading { font-size: 18px; font-weight: 650; }
+      .label { font-size: 15px; font-weight: 650; }
+      .detail { font-size: 11px; fill: #66717d; }
+      .question { font-size: 12px; font-weight: 600; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse" overflow="visible">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#61717f"/>
+    </marker>
+  </defs>
+  <rect width="780" height="310" fill="#ffffff"/>
+  <text x="390" y="34" class="heading" text-anchor="middle">Four contracts, one control loop</text>
+  <g transform="translate(25,72)">
+    <rect width="160" height="150" rx="8" fill="#dceaf5" stroke="#9ab6cb"/>
+    <text x="80" y="32" class="label" text-anchor="middle">Evidence</text>
+    <text x="80" y="60" class="question" text-anchor="middle">What happened?</text>
+    <text x="80" y="88" class="detail" text-anchor="middle">trace + outcome</text>
+    <text x="80" y="107" class="detail" text-anchor="middle">state + provenance</text>
+    <text x="80" y="126" class="detail" text-anchor="middle">privacy policy</text>
+  </g>
+  <line x1="190" y1="147" x2="218" y2="147" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <g transform="translate(225,72)">
+    <rect width="160" height="150" rx="8" fill="#fce5bd" stroke="#d9b36b"/>
+    <text x="80" y="32" class="label" text-anchor="middle">Judgment</text>
+    <text x="80" y="60" class="question" text-anchor="middle">Why is it failure?</text>
+    <text x="80" y="88" class="detail" text-anchor="middle">rules + judges</text>
+    <text x="80" y="107" class="detail" text-anchor="middle">human calibration</text>
+    <text x="80" y="126" class="detail" text-anchor="middle">uncertainty</text>
+  </g>
+  <line x1="390" y1="147" x2="418" y2="147" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <g transform="translate(425,72)">
+    <rect width="160" height="150" rx="8" fill="#d9efdf" stroke="#92c5a0"/>
+    <text x="80" y="32" class="label" text-anchor="middle">Memory</text>
+    <text x="80" y="60" class="question" text-anchor="middle">Can it recur?</text>
+    <text x="80" y="88" class="detail" text-anchor="middle">replay fixture</text>
+    <text x="80" y="107" class="detail" text-anchor="middle">expected behavior</text>
+    <text x="80" y="126" class="detail" text-anchor="middle">version lineage</text>
+  </g>
+  <line x1="590" y1="147" x2="618" y2="147" stroke="#61717f" stroke-width="2" marker-end="url(#arrow)"/>
+  <g transform="translate(625,72)">
+    <rect width="130" height="150" rx="8" fill="#eadff0" stroke="#b8a2c3"/>
+    <text x="65" y="32" class="label" text-anchor="middle">Authority</text>
+    <text x="65" y="60" class="question" text-anchor="middle">What changes?</text>
+    <text x="65" y="88" class="detail" text-anchor="middle">CI block</text>
+    <text x="65" y="107" class="detail" text-anchor="middle">canary / review</text>
+    <text x="65" y="126" class="detail" text-anchor="middle">rollback</text>
+  </g>
+  <path d="M690 228 V258 H105 V228" fill="none" stroke="#95a5a6" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="390" y="286" class="detail" text-anchor="middle">Production outcomes become new evidence</text>
+</svg>

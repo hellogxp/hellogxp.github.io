@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 500" width="780" height="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="500" fill="#ffffff"/>
+  <defs>
+    <marker id="arrTax" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#4C72B0"/></marker>
+    <marker id="arrDebt" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#C44E52"/></marker>
+    <marker id="arrGrey" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#8C8C8C"/></marker>
+  </defs>
+
+  <text x="390" y="30" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Start from the symptom, not the fix</text>
+  <text x="390" y="52" text-anchor="middle" font-size="12" fill="#8C8C8C">Solid border = measured before/after numbers. Dashed border = the effect size is not established.</text>
+
+  <text x="176" y="78" text-anchor="middle" font-size="13" font-weight="600" fill="#8C8C8C">what you observe</text>
+  <text x="546" y="78" text-anchor="middle" font-size="13" font-weight="600" fill="#8C8C8C">what to do, and what it is worth</text>
+
+  <!-- row 1 -->
+  <rect x="24" y="90" width="304" height="60" rx="8" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="40" y="112" font-size="12" fill="#2C3E50">Fails on the <tspan font-style="italic">first</tspan> turn, with many tools</text>
+  <text x="40" y="130" font-size="12" fill="#2C3E50">or MCP servers registered</text>
+  <text x="40" y="145" font-size="10" font-weight="600" fill="#4C72B0">→ bill 1: resident tax</text>
+  <line x1="332" y1="120" x2="366" y2="120" stroke="#4C72B0" stroke-width="1.5" marker-end="url(#arrTax)"/>
+  <rect x="372" y="90" width="384" height="60" rx="8" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="388" y="112" font-size="12" font-weight="600" fill="#2C3E50">Put retrieval in front of your tool registry</text>
+  <text x="388" y="130" font-size="11" fill="#2C3E50">77K → 8.7K tokens, Opus 4 49% → 74%; open-source</text>
+  <text x="388" y="145" font-size="11" fill="#2C3E50">RAG-MCP 13.62% → 43.13%; beat 97.1% hit rate @ K=3</text>
+
+  <!-- row 2 -->
+  <rect x="24" y="162" width="304" height="60" rx="8" fill="#C44E52" fill-opacity="0.10" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="40" y="184" font-size="12" fill="#2C3E50">Works early, then ignores a rule you</text>
+  <text x="40" y="202" font-size="12" fill="#2C3E50">wrote hours ago — tools still fine</text>
+  <text x="40" y="217" font-size="10" font-weight="600" fill="#C44E52">→ bill 2: compaction debt</text>
+  <line x1="332" y1="192" x2="366" y2="192" stroke="#C44E52" stroke-width="1.5" marker-end="url(#arrDebt)"/>
+  <rect x="372" y="162" width="384" height="60" rx="8" fill="#C44E52" fill-opacity="0.10" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="388" y="184" font-size="12" font-weight="600" fill="#2C3E50">Re-emit obligations verbatim after every compaction</text>
+  <text x="388" y="202" font-size="11" fill="#2C3E50">Constraint Pinning: 30%/59% violations → 0%.</text>
+  <text x="388" y="217" font-size="11" fill="#2C3E50">Knowledge Triage: five-round rule recall 10% → 96%.</text>
+
+  <!-- row 3 -->
+  <rect x="24" y="234" width="304" height="60" rx="8" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="40" y="256" font-size="12" fill="#2C3E50">Bulky, re-fetchable tool outputs</text>
+  <text x="40" y="274" font-size="12" fill="#2C3E50">dominate the window</text>
+  <text x="40" y="289" font-size="10" font-weight="600" fill="#4C72B0">→ bill 1: resident tax</text>
+  <line x1="332" y1="264" x2="366" y2="264" stroke="#4C72B0" stroke-width="1.5" marker-end="url(#arrTax)"/>
+  <rect x="372" y="234" width="384" height="60" rx="8" fill="#4C72B0" fill-opacity="0.06" stroke="#4C72B0" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="388" y="256" font-size="12" font-weight="600" fill="#2C3E50">Have the model write code that calls the tools</text>
+  <text x="388" y="274" font-size="11" fill="#2C3E50">150,000 → 2,000 tokens, replicated independently — but</text>
+  <text x="388" y="289" font-size="11" fill="#C44E52">no neutral accuracy replication, and you now run its code</text>
+
+  <!-- row 4 -->
+  <rect x="24" y="306" width="304" height="60" rx="8" fill="#8C8C8C" fill-opacity="0.12" stroke="#8C8C8C" stroke-width="1.5"/>
+  <text x="40" y="328" font-size="12" fill="#2C3E50">Token spend climbing, outcomes</text>
+  <text x="40" y="346" font-size="12" fill="#2C3E50">not moving</text>
+  <text x="40" y="361" font-size="10" font-weight="600" fill="#6E6E6E">→ bill 3: measurement illusion</text>
+  <line x1="332" y1="336" x2="366" y2="336" stroke="#8C8C8C" stroke-width="1.5" marker-end="url(#arrGrey)"/>
+  <rect x="372" y="306" width="384" height="60" rx="8" fill="#8C8C8C" fill-opacity="0.08" stroke="#8C8C8C" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="388" y="328" font-size="12" font-weight="600" fill="#2C3E50">Run the paired ablation with the budget held fixed</text>
+  <text x="388" y="346" font-size="11" fill="#2C3E50">Nothing in the literature does this for you — see the</text>
+  <text x="388" y="361" font-size="11" fill="#2C3E50">sign contradiction between the two 2026 skill studies.</text>
+
+  <!-- row 5 -->
+  <rect x="24" y="378" width="304" height="60" rx="8" fill="#4C72B0" fill-opacity="0.10" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="40" y="400" font-size="12" fill="#2C3E50">You need genuinely parallel</text>
+  <text x="40" y="418" font-size="12" fill="#2C3E50">exploration</text>
+  <text x="40" y="433" font-size="10" font-weight="600" fill="#4C72B0">→ bill 1, via isolation</text>
+  <line x1="332" y1="408" x2="366" y2="408" stroke="#4C72B0" stroke-width="1.5" marker-end="url(#arrTax)"/>
+  <rect x="372" y="378" width="384" height="60" rx="8" fill="#4C72B0" fill-opacity="0.06" stroke="#4C72B0" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="388" y="400" font-size="12" font-weight="600" fill="#2C3E50">Give each branch a subagent with a clean context</text>
+  <text x="388" y="418" font-size="11" fill="#2C3E50">90.2% over single-agent Opus 4 — but confounded with</text>
+  <text x="388" y="433" font-size="11" fill="#C44E52">15× tokens; the benefit of isolation itself is unmeasured</text>
+
+  <!-- footer -->
+  <rect x="24" y="452" width="732" height="38" rx="8" fill="#2C3E50" fill-opacity="0.06" stroke="#2C3E50" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="390" y="476" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">If you ship one thing: row 2. It is the best-evidenced intervention in this entire post.</text>
+</svg>

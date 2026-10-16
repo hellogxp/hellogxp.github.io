@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" width="780" height="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="780" height="420" fill="#ffffff"/>
+
+  <text x="390" y="32" text-anchor="middle" font-size="20" font-weight="600" fill="#2C3E50">Where each bill comes from determines who can settle it</text>
+
+  <!-- column headers -->
+  <text x="150" y="66" text-anchor="middle" font-size="13" font-weight="600" fill="#8C8C8C">the bill</text>
+  <text x="400" y="66" text-anchor="middle" font-size="13" font-weight="600" fill="#8C8C8C">evidence breadth</text>
+  <text x="668" y="66" text-anchor="middle" font-size="13" font-weight="600" fill="#8C8C8C">who can fix it</text>
+  <line x1="24" y1="76" x2="756" y2="76" stroke="#8C8C8C" stroke-width="1"/>
+
+  <!-- row 1 -->
+  <rect x="24" y="88" width="252" height="86" rx="8" fill="#4C72B0" fill-opacity="0.12" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="44" y="114" font-size="16" font-weight="600" fill="#2C3E50">Bill 1 — Resident tax</text>
+  <text x="44" y="136" font-size="12" font-weight="600" fill="#4C72B0">model-general</text>
+  <text x="44" y="157" font-size="11" fill="#2C3E50">a property of transformers</text>
+
+  <text x="300" y="112" font-size="11" fill="#2C3E50">13 models (NoLiMa) · 18 models (context rot)</text>
+  <text x="300" y="132" font-size="11" fill="#2C3E50">26 models (entrainment) · 6 models × 3 domains</text>
+  <text x="300" y="152" font-size="11" fill="#8C8C8C">replicates broadly, but is task-dependent</text>
+
+  <rect x="580" y="100" width="176" height="58" rx="8" fill="#8C8C8C" fill-opacity="0.12" stroke="#8C8C8C" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="668" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">model vendors</text>
+  <text x="668" y="144" text-anchor="middle" font-size="11" fill="#2C3E50">you can only route around it</text>
+
+  <!-- row 2 -->
+  <rect x="24" y="186" width="252" height="86" rx="8" fill="#C44E52" fill-opacity="0.12" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="44" y="212" font-size="16" font-weight="600" fill="#2C3E50">Bill 2 — Compaction debt</text>
+  <text x="44" y="234" font-size="12" font-weight="600" fill="#C44E52">harness-dependent</text>
+  <text x="44" y="255" font-size="11" fill="#2C3E50">a property of your eviction policy</text>
+
+  <text x="300" y="210" font-size="11" fill="#2C3E50">20 production configs · 1,323 episodes</text>
+  <text x="300" y="230" font-size="11" fill="#2C3E50">10 models / 23,392 episodes · 65-task handbook</text>
+  <text x="300" y="250" font-size="11" fill="#8C8C8C">harnesses disagree; three are undocumented</text>
+
+  <rect x="580" y="198" width="176" height="58" rx="8" fill="#C44E52" fill-opacity="0.16" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="668" y="222" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">you, this week</text>
+  <text x="668" y="242" text-anchor="middle" font-size="11" fill="#C44E52">re-emit your obligations</text>
+
+  <!-- row 3 -->
+  <rect x="24" y="284" width="252" height="86" rx="8" fill="#8C8C8C" fill-opacity="0.14" stroke="#8C8C8C" stroke-width="1.5"/>
+  <text x="44" y="310" font-size="16" font-weight="600" fill="#2C3E50">Bill 3 — Measurement illusion</text>
+  <text x="44" y="332" font-size="12" font-weight="600" fill="#6E6E6E">field-wide</text>
+  <text x="44" y="353" font-size="11" fill="#2C3E50">a property of evaluation practice</text>
+
+  <text x="300" y="308" font-size="11" fill="#2C3E50">two paired 2026 studies, opposite signs</text>
+  <text x="300" y="328" font-size="11" fill="#2C3E50">50 projects × 4 models vs 947 paired cases</text>
+  <text x="300" y="348" font-size="11" fill="#8C8C8C">no design yet pins treatment, metric and budget</text>
+
+  <rect x="580" y="296" width="176" height="58" rx="8" fill="#8C8C8C" fill-opacity="0.12" stroke="#8C8C8C" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="668" y="320" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">nobody yet</text>
+  <text x="668" y="340" text-anchor="middle" font-size="11" fill="#2C3E50">an open research gap</text>
+
+  <text x="390" y="400" text-anchor="middle" font-size="12" font-weight="600" fill="#2C3E50">Only the middle bill is fully under your control today — and it has the cleanest published repairs.</text>
+</svg>
