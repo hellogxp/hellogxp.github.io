@@ -174,3 +174,407 @@ details.toc {
 .md-content ul {
   margin-bottom: var(--content-gap);
 }
+
+/* ===== Custom homepage (layouts/index.html) ===== */
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin: 16px 0 8px;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+}
+
+.hero-photo img {
+  max-width: none; /* override PaperMod reset img{max-width:100%} */
+}
+
+.hero-photo img,
+.hero-monogram {
+  width: 136px;
+  height: 136px;
+  border-radius: 18px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.hero-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--theme);
+  background: var(--primary);
+  user-select: none;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.hero-affil {
+  color: var(--secondary);
+  font-size: 15px;
+}
+
+.hero-bio {
+  margin-top: 12px;
+  color: var(--primary);
+}
+
+.hero-bio p {
+  margin-bottom: 0;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hero-links a {
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  background: var(--entry);
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+
+.hero-links a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Home sections */
+.home-section {
+  margin: 48px 0;
+}
+
+.home-section > h2 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.section-intro {
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+/* Research arcs */
+.arc {
+  margin-top: 24px;
+}
+
+.arc > h3 {
+  font-size: 19px;
+  margin-bottom: 2px;
+}
+
+.arc-desc {
+  color: var(--secondary);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.paper {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.arc .paper:last-child {
+  border-bottom: 0;
+}
+
+.paper-title {
+  font-weight: 600;
+  font-size: 17px;
+  box-shadow: none;
+}
+
+.paper-title:hover {
+  box-shadow: 0 1px;
+}
+
+.paper-meta {
+  color: var(--secondary);
+  font-size: 13.5px;
+  margin-top: 3px;
+}
+
+.paper-meta a {
+  box-shadow: none;
+}
+
+.paper-meta a:hover {
+  box-shadow: 0 1px;
+}
+
+.paper-sep {
+  margin: 0 7px;
+  opacity: 0.5;
+}
+
+.paper-gist {
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+
+/* Selected writing cards */
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.writing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.writing-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+  color: var(--primary);
+}
+
+.writing-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.writing-note {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.writing-date {
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+/* Recent posts */
+.recent .post-entry {
+  margin-bottom: var(--content-gap);
+}
+
+.all-posts {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.all-posts a {
+  box-shadow: none;
+  padding: 6px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--entry);
+}
+
+.all-posts a:hover {
+  border-color: var(--primary);
+}
+
+/* Mobile */
+@media screen and (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+
+/* ===== Modern variant (params.home.style = "modern") ===== */
+
+.home-modern .hero {
+  gap: 36px;
+  margin-top: 28px;
+}
+
+.home-modern .hero-photo img,
+.home-modern .hero-monogram {
+  width: 152px;
+  height: 152px;
+  border-radius: 24px;
+  box-shadow: 0 0 0 4px var(--theme), 0 0 0 6px var(--border), 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.home-modern .hero-monogram {
+  font-size: 46px;
+}
+
+.home-modern .hero h1 {
+  font-size: 44px;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.home-modern .hero-tagline {
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-modern .hero-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.home-modern .hero-keywords span {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--secondary);
+}
+
+.home-modern .hero-bio {
+  margin-top: 14px;
+}
+
+/* Primary link chip filled */
+.home-modern .hero-links a:first-child {
+  background: var(--primary);
+  color: var(--theme);
+  border-color: var(--primary);
+}
+
+.home-modern .hero-links a:first-child:hover {
+  color: var(--theme);
+  opacity: 0.85;
+}
+
+/* Section headers with accent bar */
+.home-modern .home-section {
+  margin: 56px 0;
+}
+
+.home-modern .home-section > h2 {
+  font-size: 27px;
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 10px;
+}
+
+.home-modern .home-section > h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #2563eb, #7c3aed);
+}
+
+/* Papers as cards */
+.home-modern .paper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--entry);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-modern .arc .paper:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.home-modern .paper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.home-modern .paper-gist {
+  font-size: 14.5px;
+  color: var(--secondary);
+}
+
+/* Writing cards with gradient top accent on hover */
+.home-modern .writing-card {
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-modern .writing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.home-modern .writing-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+.home-modern .writing-card:hover::before {
+  opacity: 1;
+}
+
+/* All-posts button */
+.home-modern .all-posts a {
+  padding: 8px 22px;
+  font-weight: 500;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-modern .all-posts a:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 640px) {
+  .home-modern .hero h1 {
+    font-size: 34px;
+  }
+
+  .home-modern .hero-tagline {
+    font-size: 18px;
+  }
+}

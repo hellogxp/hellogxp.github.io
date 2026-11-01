@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+{{ $css := resources.Get "css/home.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+{{ $home := site.Params.home }}
+<body class="personal-home" id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="home-intro">
+  <div class="home-nav home-wrap">
+    <a class="home-brand" href="{{ "/" | relURL }}">{{ $home.name }}</a>
+    <nav aria-label="Main navigation"><a href="#about">About</a><a href="#explorations">Research</a><a href="{{ "posts/" | relURL }}">Writing</a><a class="nav-github" href="https://github.com/hellogxp">GitHub</a></nav>
+  </div>
+  <section class="intro-main home-wrap" id="about" aria-labelledby="intro-title">
+    <div class="intro-copy">
+      <h1 id="intro-title" class="intro-statement">Understanding language models.<br><em>Building safe, reliable AI.</em></h1>
+      <div class="intro-description">{{ site.Data.research.intro | markdownify }}
+        <p>I started this blog to think out loud while working as a research engineer at Alibaba Cloud Computing — writing helps me understand things better. If it helps you too, even better.</p>
+      </div>
+    </div>
+    <div class="intro-person">
+      <img class="intro-portrait" src="{{ "images/profile.jpg" | relURL }}" alt="Portrait of Xueping Gao" width="512" height="512" fetchpriority="high">
+      <p class="portrait-caption">Research Engineer / Alibaba Cloud Computing</p>
+      <a class="home-text-link intro-explore" href="#explorations">Explore my work</a>
+    </div>
+    <ul class="intro-topics" aria-label="Areas of interest"><li>Mechanistic Interpretability</li><li>AI Safety</li><li>Reliable AI Systems</li></ul>
+  </section>
+</header>
+<main id="main" class="home-wrap home-content">
+  <section class="home-explorations" id="explorations" aria-labelledby="explorations-title">
+    <p class="home-eyebrow">01 / Research</p>
+    <div class="home-section-heading"><h2 id="explorations-title" class="research-sequence">{{ range $index, $theme := site.Data.research.themes }}{{ if $index }} <span aria-hidden="true">·</span> {{ end }}{{ .name }}{{ end }}</h2><p>Three connected perspectives.</p></div>
+    <div class="exploration-grid">
+      {{ range $index, $theme := site.Data.research.themes }}
+      <article class="exploration exploration-{{ .id }}">
+        <p class="home-eyebrow">{{ printf "%02d" (add $index 1) }} / {{ .name }}</p>
+        <h3><a href="{{ "research/" | relURL }}#{{ .id }}">{{ .heading }}</a></h3>
+        <p class="exploration-description">{{ .description }}</p>
+        {{ partial "research-graphic.html" .id }}
+      </article>
+      {{ end }}
+    </div>
+    <div class="exploration-resources"><p>Explore the papers, projects, and accompanying writing:</p><div><a href="{{ "research/" | relURL }}">All research &amp; projects</a><a href="https://github.com/hellogxp">GitHub</a><a href="https://scholar.google.com/citations?user=kkBvC4sAAAAJ">Google Scholar</a></div></div>
+  </section>
+  <section class="home-writing" id="writing" aria-labelledby="writing-title">
+    <p class="home-eyebrow">02 / Writing</p>
+    <div class="home-section-heading"><h2 id="writing-title">Selected Writing</h2><a class="home-text-link" href="{{ "posts/" | relURL }}">All writing</a></div>
+    <div class="home-writing-grid">
+      {{ range first 1 $home.featured }}
+      {{ $selection := . }}
+      {{ with site.GetPage .path }}
+      <a class="writing-feature" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">
+        <p class="home-eyebrow">{{ $selection.topic }} / {{ .Date.Format "Jan 2006" }}</p>
+        <h3>{{ .Title }}</h3>
+        <p class="writing-feature-summary">{{ $selection.note }}</p>
+        <span class="writing-feature-action">Read article</span>
+      </a>
+      {{ end }}
+      {{ end }}
+      <div class="writing-side">
+        {{ range after 1 $home.featured }}
+        {{ $selection := . }}
+        {{ with site.GetPage .path }}
+        <a class="writing-story" href="{{ .RelPermalink }}">
+          <p class="home-eyebrow">{{ $selection.topic }} / {{ .Date.Format "Jan 2006" }}</p>
+          <h3>{{ .Title }}</h3>
+          <p class="writing-summary">{{ $selection.note }}</p>
+        </a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <section class="home-perspective" id="why-i-explore" aria-labelledby="perspective-title">
+    <h2 id="perspective-title">Why I explore</h2>
+    <div class="perspective-copy">
+      <p>I deeply admire explorers such as <a href="https://www.swissinfo.ch/eng/history/diving-record_sixty-years-on-jacques-piccard-remains-the-deepest-man-in-the-world/45512118" target="_blank" rel="noopener noreferrer">Jacques Piccard</a> and <a href="https://www.intotheplanet.com/about/" target="_blank" rel="noopener noreferrer">Jill Heinerth</a>—their curiosity, courage, and willingness to venture into the unknown. That spirit resonates with how I approach language models. For me, <em>diving into the dark</em> means exploring their inner workings: looking beneath their outputs, questioning familiar explanations, and seeking understanding grounded in evidence, while remaining open to what we have yet to discover.</p>
+      <p>For me, exploration also carries responsibility. I want that understanding to become knowledge others can build on, and to help make AI systems safer and more reliable. I care about how these systems affect people, whose needs they serve, and who bears their risks. My hope is to contribute to AI whose benefits are shared more widely and fairly.</p>
+    </div>
+  </section>
+</main>
+<footer class="home-footer home-wrap">
+  <p class="footer-credit">&copy; {{ now.Format "2006" }} <a class="footer-name" href="#top">{{ $home.name }}</a></p>
+  <div class="footer-right"><nav aria-label="More links">{{ range $home.links }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}<a href="{{ "index.xml" | relURL }}">RSS</a><a href="{{ "search/" | relURL }}">Search</a><a href="{{ "tags/" | relURL }}">Tags</a></nav><p class="footer-external"><a href="https://saffronhuang.com/" target="_blank" rel="noopener noreferrer">Saffron Huang {{ partial "home-arrow.html" . }}</a></p></div>
+</footer>
+</body>
+</html>

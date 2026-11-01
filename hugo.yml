@@ -1,6 +1,6 @@
 baseURL: "https://hellogxp.github.io/"
 languageCode: en-us
-title: "Xueping's Blog"
+title: "Xueping Gao"
 theme: "PaperMod"
 enableRobotsTXT: true
 
@@ -9,7 +9,7 @@ pagination:
 
 params:
   env: production
-  description: "ML Engineering & Interpretability Research"
+  description: "Mechanistic interpretability, AI safety, and reliable AI systems — research and writing by Xueping Gao."
   assets:
     favicon: "favicon.ico"
   author: "Xueping Gao"
@@ -29,17 +29,83 @@ params:
   TocOpen: false
   math: true
 
-  homeInfoParams:
-    Title: "Welcome to Xueping's Blog"
-    Content: >
-      I'm interested in large language models — how to build them, how to make them work reliably,
-      and increasingly, how to understand what's happening inside. My current focus is on mechanistic
-      interpretability — understanding *how* and *why* these models behave the way they do, with an
-      emphasis on analyzing and improving model behavior from the inside.
-
-
-      I started this blog to think out loud while working as an engineer at Alibaba Cloud — writing helps me understand things better.
-      If it helps you too, even better.
+  # Custom homepage (layouts/index.html) content.
+  # Photo: drop a square-ish headshot at static/images/profile.jpg — the layout
+  # picks it up automatically; until then a monogram placeholder is shown.
+  home:
+    # Homepage style variant: "classic" (restrained academic) or "modern" (portfolio).
+    style: "modern"
+    name: "Xueping Gao"
+    monogram: "XG"
+    tagline: "LLM systems, agent reliability, and mechanistic interpretability"
+    keywords: ["LLM Agents", "Reliability", "Interpretability", "Production Systems"]
+    affiliation: "Engineer at Alibaba Cloud · MSc High-Performance Computing, University of Edinburgh"
+    bio: >
+      I work on making LLM agents reliable in production — observability, evidence, and repair
+      contracts — and I study what happens inside these models, from how factual knowledge
+      crystallizes to how concepts align across architectures. This site collects my papers
+      and writing.
+    links:
+      - name: Google Scholar
+        url: "https://scholar.google.com/citations?user=kkBvC4sAAAAJ"
+      - name: GitHub
+        url: "https://github.com/hellogxp"
+      - name: X
+        url: "https://x.com/hellogxp"
+    researchIntro: >
+      Six papers around one question — how do we make LLM-based systems *understandable*
+      and *dependable*? They fall into two arcs.
+    arcs:
+      - title: "Understanding models from the inside"
+        desc: "Mechanistic interpretability — where factual knowledge lives, and whether different architectures converge on shared concepts."
+        papers:
+          - title: "MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models"
+            arxiv: "https://arxiv.org/abs/2606.07978"
+            code: "https://github.com/hellogxp/MechLens"
+            date: "Jun 2026"
+            gist: "Factual knowledge does not emerge gradually across layers — it crystallizes abruptly at the end, which explains when and why activation interventions work."
+          - title: "Contrastive-Difference CKA Reveals Concept-Specific Structural Alignment Across Language Model Architectures"
+            arxiv: "https://arxiv.org/abs/2606.16897"
+            date: "Jun 2026"
+            gist: "A training-free diagnostic for where different LLM architectures align structurally on the same concepts — and where they genuinely differ."
+      - title: "Making agents dependable in production"
+        desc: "Agent reliability — composing skills, repairing code with evidence instead of vibes, and observing what runtimes actually did."
+        papers:
+          - title: "Evidence-Calibrated Runtime Reconstruction for Agent Skills Across Heterogeneous Coding Agents"
+            arxiv: "https://arxiv.org/abs/2608.08793"
+            code: "https://github.com/hellogxp/skill-runtime-intelligence"
+            date: "Aug 2026"
+            gist: "Agent observability is an evidence-reconstruction problem, not a logging problem — a passive runtime with graded evidence."
+          - title: "Executable Code Knowledge: Code as a Native, Validation-Carrying Knowledge Representation for AI Coding Agents"
+            arxiv: "https://arxiv.org/abs/2608.16295"
+            date: "Aug 2026"
+            gist: "Code as a native knowledge representation for coding agents, carrying validation evidence and freshness guarantees."
+          - title: "Looping Is Not Reliability: State-Bound Evidence and Typed Revision Contracts for Agentic Code Repair"
+            arxiv: "https://arxiv.org/abs/2607.24604"
+            code: "https://github.com/hellogxp/stateseal"
+            date: "Jul 2026"
+            with: "Jianwei Yang, Qiang Yang"
+            gist: "Generate–test–revise loops alone give no reliability guarantee; state-bound evidence and typed revision contracts do."
+          - title: "Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose"
+            arxiv: "https://arxiv.org/abs/2606.18051"
+            date: "Jun 2026"
+            gist: "Multi-step agent tasks need skill composition — and decomposition quality, not retrieval, is the bottleneck."
+    featured:
+      - path: "/posts/looping-is-not-reliability/"
+        topic: "Agent reliability"
+        note: "Why finding a correct patch does not guarantee delivering one, and what reliable agent repair requires."
+      - path: "/posts/probe-score-not-alarm-policy/"
+        topic: "Safety & evaluation"
+        note: "When activation-monitor scores support real decisions, and where evaluation falls short."
+      - path: "/posts/runtime-observability-for-agent-skills/"
+        topic: "Systems & observability"
+        note: "Reconstructing skill execution while keeping observations, diagnoses, and verified outcomes distinct."
+      - path: "/posts/cka-delta-universality/"
+        topic: "Mechanistic interpretability"
+        note: "What concept alignment reveals about representation similarity and transfer across model architectures."
+      - path: "/posts/how-do-we-think/"
+        topic: "AI & human thinking"
+        note: "Specification, context, and judgment when AI handles execution."
 
   socialIcons:
     - name: googlescholar
@@ -80,7 +146,7 @@ outputs:
 menu:
   main:
     - identifier: posts
-      name: Posts
+      name: Home
       url: /
       weight: 10
     - identifier: archives

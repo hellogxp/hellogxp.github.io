@@ -1,0 +1,7 @@
+/* Keep the original desktop list, with more breathing room in narrow windows. */
+@media screen and (max-width:768px) {
+  .main>.post-entry {
+    padding:20px;
+    margin-bottom:20px
+  }
+}

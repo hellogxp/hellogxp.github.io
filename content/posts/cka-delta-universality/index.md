@@ -1,5 +1,5 @@
 ---
-title: "Two Maps of the Same City: Why LLM Architectures Converge on Concepts"
+title: "Concept Alignment Across Language Model Architectures"
 date: 2026-06-20
 author: "Xueping Gao"
 tags: ["interpretability", "mechanistic-interpretability", "representation-similarity", "CKA", "cross-architecture", "alignment"]

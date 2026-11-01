@@ -1,0 +1,77 @@
+intro: |-
+  I’m interested in how large language models work, why they behave the way they do,
+  and how this understanding can help us build safe and reliable AI systems.
+  My research connects mechanistic interpretability with AI safety and the evaluation
+  and design of AI systems. I study how internal representations and computations
+  shape model behavior, capabilities, and limitations.
+
+  I explore how mechanistic insights and behavioral evidence can support reliable
+  evaluation, risk detection, and intervention, and how system design can make AI
+  behavior more dependable. I also examine what our explanations and evaluations
+  can reliably establish, using evidence from system behavior to test and refine
+  our understanding of models.
+
+themes:
+  - id: understand
+    legacy_ids: [models]
+    name: Understand
+    heading: Mechanistic Interpretability
+    description: Understanding how internal representations and computations shape model behavior, capabilities, and limitations.
+    papers:
+      - label: MechLens
+        title: "MechLens: Late Crystallization of Factual Knowledge Explains Intervention Effectiveness in Language Models"
+        arxiv: https://arxiv.org/abs/2606.07978
+        code: https://github.com/hellogxp/MechLens
+        writing: /posts/late-crystallization/
+        date: Jun 2026
+        summary: Investigating how factual knowledge becomes visible across model layers and how this relates to activation interventions.
+      - label: Cross-model representations
+        title: "Contrastive-Difference CKA Reveals Concept-Specific Structural Alignment Across Language Model Architectures"
+        arxiv: https://arxiv.org/abs/2606.16897
+        writing: /posts/cka-delta-universality/
+        date: Jun 2026
+        summary: Studying concept-specific structural alignment and functional transfer across language-model architectures.
+  - id: evaluate
+    legacy_ids: [detect]
+    name: Evaluate
+    heading: Evaluation & Monitoring
+    description: Evaluating and monitoring AI behavior, and testing what the evidence establishes about capability, reliability, and risk.
+    papers:
+      - label: From Probe Scores to Alarm Policies
+        title: "From Probe Scores to Alarm Policies: Operational Validity of Activation Monitors for Language-Model Agents"
+        arxiv: https://arxiv.org/abs/2610.04575
+        writing: /posts/probe-score-not-alarm-policy/
+        date: Oct 2026
+        summary: Examining when activation-monitor results support usable alarm policies, with attention to calibration, false-alarm budgets, and deployment conditions.
+      - label: Skill Runtime Intelligence
+        title: "Evidence-Calibrated Runtime Reconstruction for Agent Skills Across Heterogeneous Coding Agents"
+        arxiv: https://arxiv.org/abs/2608.08793
+        code: https://github.com/hellogxp/skill-runtime-intelligence
+        writing: /posts/runtime-observability-for-agent-skills/
+        date: Aug 2026
+        summary: Reconstructing skill execution while separating observed events, inferred diagnoses, and independently verified outcomes.
+  - id: design
+    legacy_ids: [agents, control]
+    name: Design
+    heading: Safe & Reliable AI Systems
+    description: Developing and testing model interventions and system mechanisms to improve AI safety and reliability.
+    papers:
+      - label: StateSeal
+        title: "Looping Is Not Reliability: State-Bound Evidence and Typed Revision Contracts for Agentic Code Repair"
+        arxiv: https://arxiv.org/abs/2607.24604
+        code: https://github.com/hellogxp/stateseal
+        writing: /posts/looping-is-not-reliability/
+        date: Jul 2026
+        with: Jianwei Yang, Qiang Yang
+        summary: Studying how iterative repair can lose correct solutions, and specifying state-bound evidence and revision contracts for reliable delivery.
+      - label: Skill Routing
+        title: "Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose"
+        arxiv: https://arxiv.org/abs/2606.18051
+        writing: /posts/skill-routing/
+        date: Jun 2026
+        summary: Investigating how task decomposition, skill retrieval, and composition support multi-step problem solving.
+      - label: Executable Code Knowledge
+        title: "Executable Code Knowledge: Code as a Native, Validation-Carrying Knowledge Representation for AI Coding Agents"
+        arxiv: https://arxiv.org/abs/2608.16295
+        date: Aug 2026
+        summary: Connecting source-bound code knowledge with executable evidence, provenance, and validation freshness.

@@ -1,0 +1,15 @@
+{{/* Decorative illustrations express the research questions, not experimental results. */}}
+<svg class="exploration-graphic" viewBox="0 0 320 120" fill="none" aria-hidden="true">
+{{ if eq . "understand" }}
+  <g stroke="currentColor" opacity=".35"><path d="M30 20v80m40-85v90m40-80v70m40-90v100m40-90v80m40-75v70m40-85v100"/></g>
+  <g fill="currentColor" opacity=".6"><circle cx="30" cy="40" r="2"/><circle cx="70" cy="65" r="2"/><circle cx="110" cy="45" r="2"/><circle cx="150" cy="75" r="2"/><circle cx="190" cy="50" r="2"/><circle cx="230" cy="70" r="2"/><circle cx="270" cy="35" r="2"/></g>
+  <path d="M20 88C98 100 155 13 288 37" stroke="currentColor" stroke-width="2"/>
+{{ else if eq . "evaluate" }}
+  <g stroke="currentColor" stroke-width="1"><path opacity=".3" d="M20 83h280M20 43h280"/><path d="M20 78h35l20-12 25 14 25-8 23-48 24 55 25-9 25 8 24-41 22 40h32"/></g>
+  <g fill="currentColor"><circle cx="148" cy="24" r="4"/><circle cx="246" cy="37" r="4"/></g>
+  <g stroke="currentColor" opacity=".4"><circle cx="148" cy="24" r="13"/><circle cx="246" cy="37" r="13"/></g>
+{{ else }}
+  <g stroke="currentColor" stroke-width="1.2"><circle cx="45" cy="45" r="22"/><circle cx="160" cy="45" r="22"/><circle cx="275" cy="45" r="22"/><path d="M67 45h71m44 0h71M131 40l7 5-7 5m115-10 7 5-7 5M275 67c0 56-230 56-230 0"/></g>
+  <g fill="currentColor"><circle cx="45" cy="45" r="3"/><circle cx="160" cy="45" r="3"/><circle cx="275" cy="45" r="3"/></g>
+{{ end }}
+</svg>

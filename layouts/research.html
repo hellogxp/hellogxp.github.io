@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="post-single research-page">
+  <header class="post-header"><h1 class="post-title">{{ .Title }}</h1></header>
+  <div class="post-content">
+    {{ site.Data.research.intro | markdownify }}
+    <p><a href="{{ "/#explorations" | relURL }}">Back to research overview</a> · <a href="{{ "archives/" | relURL }}">All writing</a></p>
+    <p>{{ range $i, $theme := site.Data.research.themes }}{{ if $i }} · {{ end }}<a href="#{{ .id }}">{{ .name }}</a>{{ end }}</p>
+  </div>
+  {{ range site.Data.research.themes }}
+  <section class="arc" id="{{ .id }}">
+    {{ range .legacy_ids }}<span id="{{ . }}" aria-hidden="true"></span>{{ end }}
+    <h2>{{ .name }} — {{ .heading }}</h2><p class="arc-desc">{{ .description }}</p>
+    {{ range .papers }}
+    <article class="paper">
+      <h3><a class="paper-title" href="{{ .arxiv }}">{{ .title }}</a></h3>
+      <p class="paper-meta">{{ .date }} · <a href="{{ .arxiv }}">arXiv</a>{{ with .code }} · <a href="{{ . }}">Code</a>{{ end }}{{ with .writing }} · <a href="{{ . | relURL }}">Write-up</a>{{ end }}{{ with .with }} · with {{ . }}{{ end }}</p>
+      <p class="paper-gist">{{ .summary }}</p>
+    </article>
+    {{ end }}
+  </section>
+  {{ end }}
+  <section class="home-section"><h2>Related writing</h2>{{ range site.Params.home.featured }}{{ with site.GetPage .path }}<p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>{{ end }}{{ end }}</section>
+</article>
+{{ end }}
