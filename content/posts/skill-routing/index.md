@@ -213,6 +213,8 @@ SAD's input-side feedback is an underexplored direction. Most RAG research focus
 
 The MCP ecosystem makes this problem real. With 2,209 skills and growing, agents can't brute-force by stuffing everything into the context window. Decomposition-aware routing isn't a nice-to-have; it's the only scalable path.
 
+The SkillWeaver implementation, CompSkillBench data, and experiment scripts are available on [GitHub](https://github.com/hellogxp/skillweaver-research). See the repository for reproducibility notes and known limitations.
+
 ## Citation
 
 Please cite this work as:
