@@ -1,6 +1,14 @@
-# Optional concise summaries for the homepage. The latest list is selected
+# Optional concise summaries and topics for the homepage. The latest list is selected
 # automatically by publication availability and date, not by this mapping.
 summaries:
-  /posts/what-a-passing-test-proves/: "What passing checks establish about an operation—and where a completion claim goes further."
-  /posts/probe-score-not-alarm-policy/: "When activation-monitor scores support real decisions, and where evaluation falls short."
-  /posts/the-unvalidated-instrument/: "What a model’s account of its own internal state can reliably tell us."
+  /posts/what-a-passing-test-proves/: "A flush test passes even when explicit flushing does nothing. What did it actually verify—and what evidence would justify calling the repair complete?"
+  /posts/probe-score-not-alarm-policy/: "A monitor can rank attacks well and still miss them at a practical false-alarm threshold. What evidence turns a promising probe score into a usable alarm policy?"
+  /posts/the-unvalidated-instrument/: "When a model reports its own thoughts or hidden objectives, what should we believe? A closer look at the evidence needed to treat AI self-reports as measurements."
+topics:
+  /posts/what-a-passing-test-proves/: "Agent Reliability"
+  /posts/probe-score-not-alarm-policy/: "Evaluation & Monitoring"
+  /posts/the-unvalidated-instrument/: "AI Self-Reports"
+thumbnails:
+  /posts/what-a-passing-test-proves/: "images/writing/evidence-path.svg"
+  /posts/probe-score-not-alarm-policy/: "images/writing/alarm-threshold.svg"
+  /posts/the-unvalidated-instrument/: "images/writing/self-report-channel.svg"

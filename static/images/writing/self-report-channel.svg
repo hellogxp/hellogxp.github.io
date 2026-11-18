@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 240 144">
+  <title>One self-report channel informs questions about experience and hidden goals</title>
+  <g fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M98 72H113C134 72 128 38 149 38H161" stroke="#8ba190"/>
+    <path d="M113 72C134 72 128 106 149 106H161" stroke="#b0957e"/>
+    <rect x="15" y="47" width="83" height="50" rx="5" fill="#e8ede5" stroke="#a0af9e"/>
+    <circle cx="113" cy="72" r="3" fill="#728a76" stroke="none"/>
+    <ellipse cx="176" cy="35" rx="14" ry="10" fill="#edf0e8" stroke="#8ba190"/>
+    <circle cx="164" cy="48" r="2" stroke="#8ba190"/>
+    <circle cx="176" cy="104" r="13" stroke="#b0957e"/>
+    <circle cx="176" cy="104" r="6" stroke="#b0957e"/>
+    <circle cx="176" cy="104" r="1.5" fill="#b0957e" stroke="none"/>
+  </g>
+  <g font-family="'Courier New',monospace" text-anchor="middle">
+    <text x="56.5" y="68" font-size="11" letter-spacing=".5" fill="#566c5d">SELF</text>
+    <text x="56.5" y="83" font-size="11" letter-spacing=".5" fill="#566c5d">REPORT</text>
+    <text x="176" y="67" font-size="10.5" fill="#718775">experience</text>
+    <text x="176" y="134" font-size="10.5" fill="#a0846e">goals</text>
+  </g>
+</svg>

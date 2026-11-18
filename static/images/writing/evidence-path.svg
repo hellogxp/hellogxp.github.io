@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 240 144">
+  <title>A passing check can receive evidence from the wrong operation</title>
+  <g fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 72C42 72 40 37 59 37H64M136 37H158C181 37 175 72 198 72" stroke="#728d7c"/>
+    <path d="M24 72C42 72 40 107 59 107H64" stroke="#abb5af"/>
+    <path d="M136 107H157C177 107 179 83 198 75" stroke="#c1c7c0" stroke-dasharray="3 5"/>
+    <rect x="64" y="22" width="72" height="30" rx="4" fill="#e8ede5" stroke="#99ad9c"/>
+    <rect x="64" y="92" width="72" height="30" rx="4" stroke="#b8bdb5"/>
+    <circle cx="20" cy="72" r="5" fill="#f6f5f0" stroke="#89958c"/>
+    <circle cx="208" cy="72" r="16" fill="#e8ede5" stroke="#8da48e"/>
+    <path d="m201 72 5 5 9-10" stroke="#5b7863" stroke-width="2.2"/>
+    <path d="m157 101 9 9m0-9-9 9" stroke="#ad806b" stroke-width="2"/>
+  </g>
+  <g font-family="'Courier New',monospace" font-size="12" text-anchor="middle">
+    <text x="100" y="41" fill="#3e5549">write()</text>
+    <text x="100" y="111" fill="#78827b">flush()</text>
+    <text x="208" y="108" fill="#5b7863" font-size="10.5" letter-spacing="1">PASS</text>
+  </g>
+</svg>

@@ -54,9 +54,17 @@
       <div class="home-latest-list">
         {{ range first 3 $posts.ByDate.Reverse }}
         {{ $summary := .Params.homeSummary | default (index site.Data.home_writing.summaries .RelPermalink) | default .Summary }}
-        <a class="home-latest-row" href="{{ .RelPermalink }}">
+        {{ $topic := .Params.homeTopic | default (index site.Data.home_writing.topics .RelPermalink) }}
+        {{ if not $topic }}{{ with .Params.tags }}{{ $topic = index . 0 | humanize | title }}{{ end }}{{ end }}
+        {{ $thumbnail := index site.Data.home_writing.thumbnails .RelPermalink }}
+        <a class="home-latest-row{{ with $thumbnail }} home-latest-row-illustrated{{ end }}" href="{{ .RelPermalink }}">
           <time class="home-latest-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
-          <div><h3>{{ .Title }}</h3><p>{{ $summary | plainify | truncate 180 }}</p></div>
+          <div>
+            <h3>{{ .Title }}</h3>
+            <p>{{ $summary | plainify | truncate 260 }}</p>
+            <div class="home-latest-meta">{{ with $topic }}<span>{{ . }}</span><span aria-hidden="true"> · </span>{{ end }}<span>{{ .ReadingTime }} min read</span></div>
+          </div>
+          {{ with $thumbnail }}<img class="home-latest-thumbnail" src="{{ . | relURL }}" width="200" height="120" alt="" aria-hidden="true" loading="lazy" decoding="async">{{ end }}
         </a>
         {{ end }}
       </div>

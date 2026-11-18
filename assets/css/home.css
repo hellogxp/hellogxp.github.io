@@ -308,9 +308,31 @@
 }
 .personal-home .home-latest-row p {
   margin-top:7px;
+  max-width:80ch;
   font-size:16px;
   line-height:1.5;
   color:var(--home-muted)
+}
+.home-latest-meta {
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--home-muted)
+}
+.home-latest-thumbnail {
+  display:none
+}
+@media(min-width:1000px) {
+  .home-latest-row-illustrated {
+    grid-template-columns:126px minmax(0,1fr) 200px
+  }
+  .home-latest-thumbnail {
+    display:block;
+    width:200px;
+    height:120px;
+    align-self:center;
+    object-fit:contain
+  }
 }
 .home-latest-row:hover {
   text-decoration:none!important
