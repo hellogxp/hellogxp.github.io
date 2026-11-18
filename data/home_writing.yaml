@@ -1,0 +1,6 @@
+# Optional concise summaries for the homepage. The latest list is selected
+# automatically by publication availability and date, not by this mapping.
+summaries:
+  /posts/what-a-passing-test-proves/: "What passing checks establish about an operation—and where a completion claim goes further."
+  /posts/probe-score-not-alarm-policy/: "When activation-monitor scores support real decisions, and where evaluation falls short."
+  /posts/the-unvalidated-instrument/: "What a model’s account of its own internal state can reliably tell us."

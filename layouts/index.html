@@ -46,7 +46,22 @@
   </section>
   <section class="home-writing" id="writing" aria-labelledby="writing-title">
     <p class="home-eyebrow">02 / Writing</p>
-    <div class="home-section-heading"><h2 id="writing-title">Selected Writing</h2><a class="home-text-link" href="{{ "posts/" | relURL }}">All writing</a></div>
+    {{ $posts := where site.RegularPages "Section" "posts" }}
+    {{ $posts = where $posts "Draft" false }}
+    {{ $posts = where $posts "PublishDate" "le" now }}
+    <div class="home-latest">
+      <div class="home-latest-heading"><h2 id="writing-title">Latest Writing</h2><a class="home-text-link" href="{{ "posts/" | relURL }}">View all writing <span aria-hidden="true">→</span></a></div>
+      <div class="home-latest-list">
+        {{ range first 3 $posts.ByDate.Reverse }}
+        {{ $summary := .Params.homeSummary | default (index site.Data.home_writing.summaries .RelPermalink) | default .Summary }}
+        <a class="home-latest-row" href="{{ .RelPermalink }}">
+          <time class="home-latest-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+          <div><h3>{{ .Title }}</h3><p>{{ $summary | plainify | truncate 180 }}</p></div>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="home-section-heading home-selected-heading"><h2 id="selected-writing-title">Selected Writing</h2></div>
     <div class="home-writing-grid">
       {{ range first 1 $home.featured }}
       {{ $selection := . }}
