@@ -227,7 +227,7 @@ Gao, Xueping. “What Does a Passing Test Prove?” 2026.
 
 ## References
 
-[1] Gao, X. [“When Passing Checks Do Not Establish Completion: Evidence Interpretation in Coding Agents.”](assets/research-manuscript.pdf) Research manuscript (2026).
+[1] Gao, X. [“When Passing Checks Do Not Establish Completion: Evidence Interpretation in Coding Agents.”](assets/research-manuscript.pdf) (2026).
 
 [2] Qi, Z., Long, F., Achour, S., and Rinard, M. [“An Analysis of Patch Plausibility and Correctness for Generate-and-Validate Patch Generation Systems.”](https://people.csail.mit.edu/rinard/paper/issta15.pdf) ISSTA (2015). doi:10.1145/2771783.2771791.
 
