@@ -213,7 +213,7 @@ The flush test was not useless. It established that a flush event occurred in th
 
 ## Citation
 
-Gao, Xueping. “What Does a Passing Test Prove?.” 2026.
+Gao, Xueping. “What Does a Passing Test Prove?” 2026.
 
 ```bibtex
 @article{gao2026passingtest,
